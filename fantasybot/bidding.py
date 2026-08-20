@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from .api import FantasyClient
 from . import events, state
 
-CONTESTED_MARGIN_PCT = 0.03   # how far above value to bid if there's competition
+CONTESTED_MARGIN_PCT = 0.03    # how far above value to bid if there's competition
 UNCONTESTED_CUSHION = 10      # minimum cushion if nobody else bids
 DEFAULT_FINAL = 15           # seconds before close for the finish
 DEFAULT_POLL = 3             # how often, in seconds, to poll in the final minute
@@ -32,10 +32,16 @@ def decide(value, other_bids, seconds_left, max_bid, final=DEFAULT_FINAL):
     - otherwise, wait.
     """
     if other_bids > 0:
-        competitive = value + max(UNCONTESTED_CUSHION, round(value * CONTESTED_MARGIN_PCT))
+        raw_competitive = value + max(UNCONTESTED_CUSHION, value * CONTESTED_MARGIN_PCT)
+        # Redondeamos a los miles más cercanos para cumplir estrictamente con los tramos de la API
+        competitive = int(round(raw_competitive, -3))
         return min(max_bid, competitive)
+        
     if seconds_left <= final:
-        return min(max_bid, value + UNCONTESTED_CUSHION)
+        raw_uncontested = value + UNCONTESTED_CUSHION
+        uncontested = int(round(raw_uncontested, -3))
+        return min(max_bid, uncontested)
+        
     return None
 
 
@@ -46,7 +52,7 @@ def _seconds_left(close_iso):
         close = datetime.fromisoformat(close_iso)
     except (TypeError, ValueError):
         return 3600.0
-    if close.tzinfo is None:  # naive timestamp -> assume UTC to avoid a TypeError subtract
+    if close.tzinfo is None:  # naive timestamp → assume UTC to avoid a TypeError subtract
         close = close.replace(tzinfo=timezone.utc)
     return (close - datetime.now(timezone.utc)).total_seconds()
 
@@ -88,12 +94,19 @@ def last_minute_bid(league_id, market_id, max_bid, value=None, final=DEFAULT_FIN
                 log(f"[bid] {nombre}: WOULD BID {amount:,} "
                     f"(other_bids={other_bids}, {int(left)}s left)")
                 return {"dry_run": True, "amount": amount, "other_bids": other_bids}
-            resp = fc.make_bid(league_id, market_id, amount)
-            log(f"[bid] {nombre}: BID {amount:,} placed "
-                f"(other_bids={other_bids}, {int(left)}s left)")
-            events.emit("bid", f"Last-minute bid: {amount:,} for {nombre}",
-                        detail={"rival_bids": other_bids, "time_left": f"{int(left)}s"})
-            return resp
+            
+            # Protección con try...except para que un rechazo de la API no rompa la ejecución
+            try:
+                resp = fc.make_bid(league_id, market_id, amount)
+                log(f"[bid] {nombre}: BID {amount:,} placed "
+                    f"(other_bids={other_bids}, {int(left)}s left)")
+                events.emit("bid", f"Last-minute bid: {amount:,} for {nombre}",
+                            detail={"rival_bids": other_bids, "time_left": f"{int(left)}s"})
+                return resp
+            except Exception as e:
+                log(f"[bid] Error al pujar por {nombre}: {e}")
+                return None
+
         if left <= 0:
             log(f"[bid] {nombre}: market closed without bidding.")
             return None
