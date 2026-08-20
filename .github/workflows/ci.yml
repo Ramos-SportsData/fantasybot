@@ -16,6 +16,11 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: pip install -r requirements.txt || pip install .
+      - name: Create tokens.json from Secret
+        env:
+          FANTASY_AUTH_JSON: ${{ secrets.FANTASY_AUTH_JSON }}
+        run: |
+          echo "$FANTASY_AUTH_JSON" > tokens.json
       - name: Run Bot
         env:
           FANTASY_AUTH_JSON: ${{ secrets.FANTASY_AUTH_JSON }}
