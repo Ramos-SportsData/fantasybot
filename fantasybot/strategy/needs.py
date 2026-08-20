@@ -35,7 +35,7 @@ def urgency_multiplier(days_to_matchday):
     """How much extra over the ideal price we accept based on how close the matchday is.
 
     Far (>=5 days): 1.0 (no rush). Close: up to ~1.15 on matchday.
-    None = unknown → 1.0 (cautious).
+    None = unknown -> 1.0 (cautious).
     """
     if days_to_matchday is None:
         return 1.0
@@ -50,6 +50,10 @@ def candidates(client, league_id, position, prob_index=None, money=None, owned=N
 
     Returns dicts with buy price, route (system/buyout) and starting prob.
     Excludes players you already own (`owned` = set of playerMaster.id).
+
+    A market entry can be malformed/incomplete right after a manual action outside
+    the bot (e.g. accepting an offer): missing "playerMaster" or "discr". That must
+    never crash the whole run -> skip the entry instead.
     """
     if prob_index is None:
         prob_index = probable_lineups()
@@ -58,12 +62,14 @@ def candidates(client, league_id, position, prob_index=None, money=None, owned=N
 
     out = []
     for el in client.market(league_id):
-        pm = el["playerMaster"]
+        pm = el.get("playerMaster")
+        if not pm:
+            continue
         if pm.get("positionId") != pos_id:
             continue
         if pm.get("id") in owned:
             continue  # already yours
-        if el["discr"] == "marketPlayerLeague":
+        if el.get("discr") == "marketPlayerLeague":
             via, price = "SISTEMA", el.get("salePrice") or pm.get("marketValue")
         else:
             via, price = "CLAUSULA", el.get("playerTeam", {}).get("buyoutClause")
@@ -76,7 +82,7 @@ def candidates(client, league_id, position, prob_index=None, money=None, owned=N
             disponible = False
         out.append({
             "nombre": pm.get("nickname") or pm.get("name"),
-            "market_id": el["id"],
+            "market_id": el.get("id"),
             "player_id": pm.get("id"),
             "via": via,
             "price": price,
