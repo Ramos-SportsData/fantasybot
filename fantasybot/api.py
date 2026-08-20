@@ -52,16 +52,36 @@ class FantasyClient:
             headers["Content-Type"] = "application/json"
         req = urllib.request.Request(config.API_BASE + path, data=data,
                                      headers=headers, method=method)
-        try:
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                raw = resp.read().decode("utf-8")
-                return json.loads(raw) if raw else None
-        except urllib.error.HTTPError as e:
-            if e.code == 401 and retry_on_401:
-                self.refresh()
-                return self._do(method, path, body, retry_on_401=False)
-            detail = e.read().decode("utf-8", "replace")[:400]
-            raise FantasyError(f"{method} {path} -> {e.code}: {detail}")
+        
+        max_retries = 3
+        backoff_factor = 2
+
+        for attempt in range(max_retries + 1):
+            try:
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    raw = resp.read().decode("utf-8")
+                    return json.loads(raw) if raw else None
+
+            except urllib.error.HTTPError as e:
+                # Manejo de reintentos para errores temporales del servidor (500, 502, 503, 504)
+                if e.code in (500, 502, 503, 504) and attempt < max_retries:
+                    sleep_time = backoff_factor ** (attempt + 1)
+                    time.sleep(sleep_time)
+                    continue
+
+                # Refresh de token si da 401
+                if e.code == 401 and retry_on_401:
+                    self.refresh()
+                    return self._do(method, path, body, retry_on_401=False)
+
+                detail = e.read().decode("utf-8", "replace")[:400]
+                raise FantasyError(f"{method} {path} -> {e.code}: {detail}")
+            
+            except urllib.error.URLError as e:
+                if attempt < max_retries:
+                    time.sleep(backoff_factor ** (attempt + 1))
+                    continue
+                raise FantasyError(f"{method} {path} -> Network Error: {e.reason}")
 
     def get(self, path):
         return self._request("GET", path)
