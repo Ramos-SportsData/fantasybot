@@ -48,8 +48,15 @@ def project(trend, horizon) -> float:
 
 
 def evaluate(element, index, horizon):
-    """Evaluate a market element as a flip. None if it doesn't match or is dubious."""
-    pm = element["playerMaster"]
+    """Evaluate a market element as a flip. None if it doesn't match or is dubious.
+
+    A market entry can be malformed/incomplete right after a manual action outside
+    the bot (e.g. accepting an offer): missing "playerMaster" or "discr". That must
+    never crash the whole run -> skip the entry (return None) instead.
+    """
+    pm = element.get("playerMaster")
+    if not pm:
+        return None
     trend = match_name(pm.get("nickname", ""), pm.get("name", ""), index)
     if not trend or not trend.get("valor"):
         return None
@@ -58,7 +65,7 @@ def evaluate(element, index, horizon):
     if fantasy_value and abs(trend["valor"] - fantasy_value) / fantasy_value > SANITY_MAX_DIFF:
         return None  # name match probably wrong
 
-    if element["discr"] == "marketPlayerLeague":
+    if element.get("discr") == "marketPlayerLeague":
         via, buy_price = "SISTEMA", element.get("salePrice") or trend["valor"]
     else:
         via = "CLAUSULA"
@@ -70,7 +77,7 @@ def evaluate(element, index, horizon):
     margin = proj * (1 - SELL_COMMISSION) - buy_price
     return {
         "nombre": pm.get("nickname") or pm.get("name"),
-        "market_id": element["id"],
+        "market_id": element.get("id"),
         "player_id": pm.get("id"),
         "pos": POS.get(pm.get("positionId"), "?"),
         "via": via,
