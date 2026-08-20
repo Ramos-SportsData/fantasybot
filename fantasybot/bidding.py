@@ -33,7 +33,7 @@ def decide(value, other_bids, seconds_left, max_bid, final=DEFAULT_FINAL):
     """
     if other_bids > 0:
         raw_competitive = value + max(UNCONTESTED_CUSHION, value * CONTESTED_MARGIN_PCT)
-        # Redondeamos a los miles más cercanos para cumplir estrictamente con los tramos de la API
+        # Redondeamos a los miles más cercanos para cumplir estrictamente con los tramos
         competitive = int(round(raw_competitive, -3))
         return min(max_bid, competitive)
         
@@ -45,14 +45,23 @@ def decide(value, other_bids, seconds_left, max_bid, final=DEFAULT_FINAL):
     return None
 
 
+def validate_bid_amount(bid_amount, player_min=None, player_max=None):
+    """Valida estrictamente los rangos permitidos por la API antes de enviar."""
+    if bid_amount <= 0:
+        return False, "La puja debe ser mayor que 0"
+    if player_min and bid_amount < player_min:
+        return False, f"La puja {bid_amount} está por debajo del mínimo permitido {player_min}"
+    if player_max and bid_amount > player_max:
+        return False, f"La puja {bid_amount} supera el máximo permitido {player_max}"
+    return True, None
+
+
 def _seconds_left(close_iso):
-    # A malformed/missing close time must never crash the bid loop. Unknown -> treat as
-    # "plenty of time left" (non-urgent), so decide() won't fire the final-window bid.
     try:
         close = datetime.fromisoformat(close_iso)
     except (TypeError, ValueError):
         return 3600.0
-    if close.tzinfo is None:  # naive timestamp → assume UTC to avoid a TypeError subtract
+    if close.tzinfo is None:
         close = close.replace(tzinfo=timezone.utc)
     return (close - datetime.now(timezone.utc)).total_seconds()
 
@@ -89,13 +98,23 @@ def last_minute_bid(league_id, market_id, max_bid, value=None, final=DEFAULT_FIN
         left = _seconds_left(close_iso)
         other_bids = el.get("numberOfBids", 0)
         amount = decide(value, other_bids, left, max_bid, final)
+        
         if amount is not None:
+            # Extraemos restricciones oficiales de la API si vienen en el objeto del jugador
+            pm_data = el.get("playerTeam", {}) or el.get("playerMarket", {})
+            p_min = pm_data.get("minBid")
+            p_max = pm_data.get("maxBid")
+
+            is_valid, err_msg = validate_bid_amount(amount, p_min, p_max)
+            if not is_valid:
+                log(f"[bid] {nombre}: Puja descartada por seguridad -> {err_msg}")
+                return None
+
             if dry_run:
                 log(f"[bid] {nombre}: WOULD BID {amount:,} "
                     f"(other_bids={other_bids}, {int(left)}s left)")
                 return {"dry_run": True, "amount": amount, "other_bids": other_bids}
             
-            # Protección con try...except para que un rechazo de la API no rompa la ejecución
             try:
                 resp = fc.make_bid(league_id, market_id, amount)
                 log(f"[bid] {nombre}: BID {amount:,} placed "
@@ -110,7 +129,7 @@ def last_minute_bid(league_id, market_id, max_bid, value=None, final=DEFAULT_FIN
         if left <= 0:
             log(f"[bid] {nombre}: market closed without bidding.")
             return None
-        # adaptive polling: long wait far from close, short in the final minute
+
         if left > 60:
             wait = min(30, left - 60)
         else:
@@ -122,7 +141,7 @@ def run_bid_plan(league_id, dry_run=False, log=print):
     """Runs the saved bid plan: one thread per target (simultaneous closes)."""
     plan = state.load_bid_plan()
     if not plan:
-        return  # nothing to do; silent for the cron job
+        return
     log(f"[bid] running plan: {len(plan)} targets")
     threads = []
     for t in plan:
@@ -134,4 +153,4 @@ def run_bid_plan(league_id, dry_run=False, log=print):
     for th in threads:
         th.join()
     if not dry_run:
-        state.clear_bid_plan()  # plan consumed
+        state.clear_bid_plan()
