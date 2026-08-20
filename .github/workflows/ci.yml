@@ -1,4 +1,4 @@
-name: Run Fantasy Bot
+﻿name: Run Fantasy Bot
 
 on:
   schedule:
