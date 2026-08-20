@@ -19,4 +19,6 @@ jobs:
       - name: Run Bot
         env:
           FANTASY_AUTH_JSON: ${{ secrets.FANTASY_AUTH_JSON }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python -m fantasybot
