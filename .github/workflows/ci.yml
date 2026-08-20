@@ -1,20 +1,24 @@
-name: CI
+name: Run Fantasy Bot
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
-  test:
+  run-bot:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Run tests (stdlib only)
-        run: python -m unittest discover -s tests -v
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r requirements.txt || pip install .
+      - name: Run Bot
+        env:
+          FANTASY_AUTH_JSON: ${{ secrets.FANTASY_AUTH_JSON }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m fantasybot
