@@ -28,6 +28,7 @@ jobs:
             exit 1
           fi
           echo "$FANTASY_AUTH_JSON" > tokens.json
+          python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
       - name: Run Bot
         env:
