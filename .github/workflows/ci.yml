@@ -30,6 +30,31 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
+      - name: DEBUG - dump own market listings (offers)
+        run: |
+          python3 -c "
+          from fantasybot.api import FantasyClient
+          import json
+          c = FantasyClient()
+          lid, tid = c.default_ids()
+          team = c.team(lid, tid)
+          own_ids = {p['playerMaster']['id'] for p in team['players']}
+          market = c.market(lid)
+          print('=== TOTAL LISTINGS EN MERCADO:', len(market), '===')
+          found = False
+          for el in market:
+              pm = el.get('playerMaster') or {}
+              if pm.get('id') in own_ids:
+                  found = True
+                  print()
+                  print('=== LISTADO PROPIO ENCONTRADO ===')
+                  print(json.dumps(el, indent=2, ensure_ascii=False))
+          if not found:
+              print()
+              print('No se encontro ningun listado propio en client.market(). Puede que las ventas propias no aparezcan en este endpoint.')
+              print('IDs propios:', own_ids)
+          "
+
       - name: Run Bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
