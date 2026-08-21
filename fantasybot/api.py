@@ -122,10 +122,10 @@ class FantasyClient:
         if want:
             for lg in leagues:
                 if str(lg["id"]) == str(want):
-                    return int(lg["id"]), str(lg["team"]["id"])
+                    return lg["id"], str(lg["team"]["id"])
             raise FantasyError(f"League {want} is not in this account.")
         lg = leagues[0]
-        return int(lg["id"]), str(lg["team"]["id"])
+        return lg["id"], str(lg["team"]["id"])
 
     def team(self, league_id, team_id):
         return self.get(self._cmp(f"/leagues/{league_id}/teams/{team_id}?x-lang=es"))
