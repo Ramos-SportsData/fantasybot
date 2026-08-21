@@ -29,6 +29,7 @@ IMPORTANT:
 from . import events, state
 from .strategy import flip
 from .strategy.lineup import payload_ids
+import math
 
 ALREADY_BIDDING_ERROR_CODE = "030.01.09"
 
