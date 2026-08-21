@@ -122,11 +122,6 @@ def _current_xi_ids(client, team_id):
 def lineup_lock_reminder(kickoff, now=None):
     """The "set your FINAL LINEUP" reminder — but ONLY on the day the matchday's first
     match is actually played.
-
-    During the odd early-season gameweeks the next kickoff can be several days out, and
-    surfacing "set your lineup" that early just confuses (a user saw it for a jornada
-    that didn't start until 3 days later). We compare calendar DAYS in Spain time, so the
-    notice appears on match day itself and not before. Returns the reminder dict, or None.
     """
     dt = _parse(kickoff) if kickoff else None
     if not dt:
@@ -160,8 +155,7 @@ def review(client, days_to_matchday=None):
     events = state.diff_snapshots(prev, curr)
     state.save_snapshot(curr)
 
-    # 2) lineup — a squad that can't field a valid XI (e.g. no goalkeeper mid-rebuild)
-    # must not crash the whole review: report it and carry on so gaps/needs still fire.
+    # 2) lineup
     try:
         best = lineup_opt.optimize(team, prob_index)
         best_ids = lineup_opt.payload_ids(best)
@@ -179,8 +173,6 @@ def review(client, days_to_matchday=None):
              if o["margin_pct"] > 0 and o["buy_price"] <= team["teamMoney"]][:5]
     gaps = needs_mod.gaps(team)
     needs_report = needs_mod.advise(client, lid, team, days_to_matchday)
-    # A missing lineup (incomplete squad) only skips the lineup itself — sells, flips,
-    # clauses and reminders still apply. sell_candidates handles best=None.
     sells = sell_mod.sell_candidates(team, best, trends_index())
 
     # 4) buyout targets + reminders
@@ -206,9 +198,7 @@ def review(client, days_to_matchday=None):
                 "message": (f"{t['nombre']}'s clause opens: prepare a buyout "
                             f"of {t['clause']:,} ({t['reason']})."),
             })
-    # The lineup lock is about the NEXT gameweek that hasn't started — not today's match
-    # if the current jornada is already under way (its lineup is already locked). A
-    # scraper hiccup here must never crash the whole daily review.
+
     try:
         gw_kickoff = matchday.next_gameweek_kickoff()
     except Exception:
