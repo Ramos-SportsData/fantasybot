@@ -18,8 +18,6 @@ from datetime import datetime, timezone
 from .api import FantasyClient
 from . import events, state
 
-CONTESTED_MARGIN_PCT = 0.03    # how far above value to bid if there's competition
-UNCONTESTED_CUSHION = 10      # minimum cushion if nobody else bids
 DEFAULT_FINAL = 15           # seconds before close for the finish
 DEFAULT_POLL = 3             # how often, in seconds, to poll in the final minute
 
@@ -27,20 +25,13 @@ DEFAULT_POLL = 3             # how often, in seconds, to poll in the final minut
 def decide(value, other_bids, seconds_left, max_bid, final=DEFAULT_FINAL):
     """How much to bid NOW, or None to wait.
 
-    - other_bids > 0  → competition: value + margin, capped at max_bid.
-    - no competition and <= final s left → value + minimum cushion.
-    - otherwise, wait.
+    - Uses the exact official market price without artificial rounding or margins
+      that break LaLiga's strict pricing tranches.
     """
-    if other_bids > 0:
-        raw_competitive = value + max(UNCONTESTED_CUSHION, value * CONTESTED_MARGIN_PCT)
-        # Redondeamos a los miles más cercanos para cumplir estrictamente con los tramos
-        competitive = int(round(raw_competitive, -3))
-        return min(max_bid, competitive)
-        
-    if seconds_left <= final:
-        raw_uncontested = value + UNCONTESTED_CUSHION
-        uncontested = int(round(raw_uncontested, -3))
-        return min(max_bid, uncontested)
+    if other_bids > 0 or seconds_left <= final:
+        # Respetamos estrictamente el precio oficial del mercado sin alterarlo
+        bid_amount = int(value)
+        return min(max_bid, bid_amount)
         
     return None
 
