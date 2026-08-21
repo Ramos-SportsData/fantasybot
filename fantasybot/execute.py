@@ -184,6 +184,17 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
             "errors": errors, "already_bidding": already_bidding, "applied": not dry_run}
 
 
+ALREADY_LISTED_ERROR_HINT = "not found in team"
+
+
+def _is_already_listed_error(exc: Exception) -> bool:
+    """True if the API rejected the sell because the player is no longer in
+    the team roster -- i.e. it's already listed on the market (from a
+    previous run we don't remember, since .state/ doesn't persist between
+    GitHub Actions runs). Not a real failure -- see module docstring."""
+    return ALREADY_LISTED_ERROR_HINT in str(exc)
+
+
 def sync_sells(client, league_id, team, best, dry_run=True, log=print):
     """Lists players recommended by strategy/sell.py that aren't already listed.
 
@@ -193,16 +204,19 @@ def sync_sells(client, league_id, team, best, dry_run=True, log=print):
 
     Selling is irreversible, but this was explicitly authorized as autonomous.
     Each listing is remembered in state (state.load_sold/save_sold) so we
-    don't try to re-list a player that's already on sale on every run.
+    don't try to re-list a player that's already on sale on every run -- but
+    since state doesn't persist between GitHub Actions runs, the API's own
+    "not found in team" rejection (player already listed) is the real
+    safety net and is treated as informational, not an error.
     """
     candidates = sell_mod.sell_candidates(team, best, trends_index())
     sold = state.load_sold()
 
-    listed, errors = [], []
+    listed, errors, already_listed = [], [], []
     for c in candidates:
         pid = str(c["player_id"])
         if pid in sold:
-            continue  # already listed by a previous run
+            continue  # already listed by a previous run (remembered locally)
         if not dry_run:
             try:
                 client.sell_player(league_id, c["player_id"], c["sale_price"])
@@ -211,14 +225,20 @@ def sync_sells(client, league_id, team, best, dry_run=True, log=print):
                             detail={"reason": c["reason"]})
                 listed.append(c)
             except Exception as e:
-                log(f"[execute] Error selling {c['nombre']}: {e}")
-                errors.append({"nombre": c["nombre"], "error": str(e)})
+                if _is_already_listed_error(e):
+                    log(f"[execute] {c['nombre']} already listed (from a previous run).")
+                    sold[pid] = {"nombre": c["nombre"], "sale_price": c["sale_price"]}
+                    already_listed.append(c["nombre"])
+                else:
+                    log(f"[execute] Error selling {c['nombre']}: {e}")
+                    errors.append({"nombre": c["nombre"], "error": str(e)})
         else:
             listed.append(c)
 
     if not dry_run:
         state.save_sold(sold)
-    return {"action": "sells", "listed": listed, "errors": errors, "applied": not dry_run}
+    return {"action": "sells", "listed": listed, "errors": errors,
+            "already_listed": already_listed, "applied": not dry_run}
 
 
 def act(client, league_id, team_id, team, best, current_ids, dry_run=True, log=print):
