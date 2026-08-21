@@ -133,12 +133,12 @@ class FantasyClient:
 
     # --- writes: market ---
     def make_bid(self, league_id, market_id, money):
-        clean_money = int(round(float(money)))
+        clean_money = int(float(money))
         return self.post(self._cmp(
             f"/league/{league_id}/market/{market_id}/bid?x-lang=es"), {"money": clean_money})
 
     def modify_bid(self, league_id, market_id, bid_id, money):
-        clean_money = int(round(float(money)))
+        clean_money = int(float(money))
         return self.put(self._cmp(
             f"/league/{league_id}/market/{market_id}/bid/{bid_id}?x-lang=es"),
             {"money": clean_money})
@@ -148,12 +148,12 @@ class FantasyClient:
             f"/league/{league_id}/market/{market_id}/bid/{bid_id}/cancel?x-lang=es"))
 
     def sell_player(self, league_id, player_id, sale_price):
-        clean_price = int(round(float(sale_price)))
+        clean_price = int(float(sale_price))
         return self.post(self._cmp(f"/league/{league_id}/market/sell?x-lang=es"),
                          {"playerId": player_id, "salePrice": clean_price})
 
     def accept_offer(self, league_id, market_id, offer_id, money):
-        clean_money = int(round(float(money)))
+        clean_money = int(float(money))
         return self.post(self._cmp(
             f"/league/{league_id}/market/{market_id}/offer/{offer_id}/accept?x-lang=es"),
             {"offerMoney": clean_money})
@@ -165,14 +165,14 @@ class FantasyClient:
     # --- writes: buyout clauses ---
     def pay_buyout_clause(self, league_id, player_id, amount):
         """Buyout: pays the release clause of another manager's player."""
-        clean_amount = int(round(float(amount)))
+        clean_amount = int(float(amount))
         return self.post(self._cmp(
             f"/league/{league_id}/buyout/{player_id}/pay?x-lang=es"),
             {"buyoutClauseToPay": clean_amount})
 
     def increase_buyout_clause(self, league_id, player_id, amount):
         """Raises the clause of one of your players to protect them."""
-        clean_amount = int(round(float(amount)))
+        clean_amount = int(float(amount))
         return self.post(self._cmp(
             f"/league/{league_id}/buyout/{player_id}/increase?x-lang=es"),
             {"buyoutClause": clean_amount})
