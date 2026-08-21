@@ -16,15 +16,21 @@ IMPORTANT:
     continue with everything else.
   - The market is live: prices can move in the seconds/minutes between when the
     plan was computed (review()) and when we actually place the bid. Right before
-    bidding we re-fetch the live listing and use its current salePrice instead of
-    the (possibly stale) amount computed earlier -- this is what prevents
-    "X is not a valid money quantity for this player" (HTTP 400) errors from a
-    price that moved mid-run.
+    bidding we re-fetch the live listing and use its EXACT current salePrice
+    (unrounded -- the API rejects amounts that don't match its own expected
+    quantity, e.g. "3828000 is not a valid money quantity" when the real price
+    was 3828353) instead of the (possibly stale) amount computed earlier.
+  - "Team has pending bid in this player" (errorCode 030.01.09) is NOT a real
+    failure: .state/ doesn't persist between GitHub Actions runs (fresh checkout
+    each time), so the bot can "forget" a bid it already placed in a previous
+    run and try again. This is treated as an informational skip, not an error.
 """
 
 from . import events, state
 from .strategy import flip
 from .strategy.lineup import payload_ids
+
+ALREADY_BIDDING_ERROR_CODE = "030.01.09"
 
 
 def apply_lineup(client, team_id, best, current_ids, dry_run=True, log=print):
@@ -57,9 +63,10 @@ def plan_bids(client, league_id, team, ops=None):
 
     SYSTEM only (auction). Buyouts are outside the scope of autonomy.
 
-    The amount here is a PLANNING estimate (rounded to the nearest thousand to
-    match the API's expected granularity). It is re-checked against the live
-    price right before the actual bid in sync_bids(), since the market moves.
+    The amount here is a PLANNING estimate for the affordability check. The
+    EXACT amount actually sent to the API is re-read live right before the bid
+    in sync_bids() (see _live_price), since the market moves and the API is
+    strict about the exact quantity it expects.
     """
     money = team["teamMoney"]
     if ops is None:
@@ -68,18 +75,15 @@ def plan_bids(client, league_id, team, ops=None):
     plan, committed = [], 0
     for o in ops:
         if o["market_id"] in already:
-            continue  # we already have a bid
+            continue  # we already have a bid (best-effort, may be stale — see below)
 
-        # Redondeo a los miles para cumplir con los tramos que exige la API.
-        raw_price = o["buy_price"]
-        rounded_price = int(round(raw_price, -3))
-
-        if committed + rounded_price > money:
+        price = o["buy_price"]
+        if committed + price > money:
             continue  # doesn't fit in the balance
 
         plan.append({"market_id": o["market_id"], "nombre": o["nombre"],
-                     "amount": rounded_price, "margin_pct": o["margin_pct"]})
-        committed += rounded_price
+                     "amount": price, "margin_pct": o["margin_pct"]})
+        committed += price
     return plan
 
 
@@ -88,8 +92,10 @@ def _live_price(client, league_id, market_id, fallback_amount):
 
     The market moves in real time: the amount computed earlier in plan_bids()
     (itself computed even earlier in review()) can be stale by the time we
-    actually place the bid. Using the live salePrice here is what avoids
-    "not a valid money quantity for this player" (HTTP 400) errors.
+    actually place the bid. We use the EXACT live salePrice, unrounded — the
+    API rejects amounts that don't match its own expected quantity for that
+    player (rounding to the nearest thousand is NOT safe: e.g. it rejected
+    "3828000" while the real price was 3828353).
 
     Falls back to the planned amount if the listing can't be found or lacks a
     salePrice (never crashes -- worst case we retry with the old estimate).
@@ -102,9 +108,13 @@ def _live_price(client, league_id, market_id, fallback_amount):
     if not el:
         return fallback_amount  # no longer listed (closed/taken) -> let make_bid fail cleanly
     live = el.get("salePrice")
-    if not live:
-        return fallback_amount
-    return int(round(live, -3))
+    return live if live else fallback_amount
+
+
+def _is_already_bidding_error(exc: Exception) -> bool:
+    """True if the API rejected the bid because we already have one pending on
+    this player (errorCode 030.01.09). Not a real failure -- see module docstring."""
+    return ALREADY_BIDDING_ERROR_CODE in str(exc)
 
 
 def sync_bids(client, league_id, team, dry_run=True, log=print):
@@ -114,7 +124,7 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
     bids = state.load_bids()
     valid_ids = {o["market_id"] for o in ops}
 
-    placed, cancelled, errors = [], [], []
+    placed, cancelled, errors, already_bidding = [], [], [], []
     # cancel bids whose target is no longer profitable
     for mid, info in list(bids.items()):
         if mid not in valid_ids:
@@ -132,7 +142,8 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
         if not dry_run:
             try:
                 # Releemos el precio justo antes de pujar: el mercado es en vivo y
-                # puede haber subido desde que se calculo el plan.
+                # puede haber subido desde que se calculo el plan. Se usa EXACTO,
+                # sin redondear -- la API rechaza cantidades que no coincidan.
                 amount = _live_price(client, league_id, b["market_id"], b["amount"])
 
                 resp = client.make_bid(league_id, b["market_id"], amount)
@@ -143,15 +154,25 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
                             detail={"margin": f"{b['margin_pct']}%"})
                 placed.append({**b, "amount": amount})
             except Exception as e:
-                log(f"[execute] Error bidding on {b['nombre']}: {e}")
-                errors.append({"nombre": b["nombre"], "error": str(e)})
+                if _is_already_bidding_error(e):
+                    # We (or a previous run) already have a pending bid here --
+                    # .state/ doesn't persist between GH Actions runs, so we just
+                    # "forgot". Not a real error: keep it informational, and
+                    # remember it locally for the rest of THIS run at least.
+                    log(f"[execute] Already bidding on {b['nombre']} (from a previous run).")
+                    bids.setdefault(b["market_id"], {"bid_id": None, "amount": b["amount"],
+                                                      "nombre": b["nombre"]})
+                    already_bidding.append(b["nombre"])
+                else:
+                    log(f"[execute] Error bidding on {b['nombre']}: {e}")
+                    errors.append({"nombre": b["nombre"], "error": str(e)})
         else:
             placed.append(b)
 
     if not dry_run:
         state.save_bids(bids)
     return {"action": "bids", "placed": placed, "cancelled": cancelled,
-            "errors": errors, "applied": not dry_run}
+            "errors": errors, "already_bidding": already_bidding, "applied": not dry_run}
 
 
 def act(client, league_id, team_id, team, best, current_ids, dry_run=True, log=print):
