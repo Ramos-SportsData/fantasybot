@@ -143,6 +143,10 @@ def notify_execute(result: dict, dry_run: bool, log=print) -> None:
         for e in errors:
             lines.append(f"  • {e['nombre']}: {e['error']}")
 
+    already = bd.get("already_bidding") or []
+    if already:
+        lines.append(f"\nℹ️ Ya había puja en curso (de una ejecución anterior): {', '.join(already)}")
+
     send("\n".join(lines), log=log)
 
 
