@@ -2,10 +2,6 @@
 
 Detects positions where you're short (e.g. a single goalkeeper) and looks for
 candidates in the market to sign, prioritizing those who will start for their team.
-
-Includes URGENCY logic: the fewer days left until the matchday, the more willing
-to pay a little above the ideal price (if you wait, another one may not show up in
-time). With several days ahead, there's no rush.
 """
 
 from ..matching import match_name, POS
@@ -29,20 +25,6 @@ def gaps(team):
     counts = squad_counts(team)
     return {pos: MIN_SQUAD[pos] - counts[pos]
             for pos in counts if counts[pos] < MIN_SQUAD[pos]}
-
-
-def urgency_multiplier(days_to_matchday):
-    """How much extra over the ideal price we accept based on how close the matchday is.
-
-    Far (>=5 days): 1.0 (no rush). Close: up to ~1.15 on matchday.
-    None = unknown -> 1.0 (cautious).
-    """
-    if days_to_matchday is None:
-        return 1.0
-    if days_to_matchday >= 5:
-        return 1.0
-    # from 5 days (1.0) to 0 days (1.15), linear
-    return round(1.0 + (5 - max(0, days_to_matchday)) * 0.03, 3)
 
 
 def candidates(client, league_id, position, prob_index=None, money=None, owned=None):
@@ -100,14 +82,13 @@ def candidates(client, league_id, position, prob_index=None, money=None, owned=N
 def advise(client, league_id, team, days_to_matchday=None):
     """Report: squad gaps and the best candidates to fill them."""
     prob_index = probable_lineups()
-    mult = urgency_multiplier(days_to_matchday)
     money = team["teamMoney"]
     owned = {p["playerMaster"].get("id") for p in team["players"]}
-    report = {"gaps": gaps(team), "urgency_multiplier": mult, "suggestions": {}}
+    report = {"gaps": gaps(team), "urgency_multiplier": 1.0, "suggestions": {}}
     for pos in report["gaps"]:
         cands = candidates(client, league_id, pos, prob_index, money, owned)
         for c in cands:
-            # recommended bid cap: price, raised by urgency (system only)
-            c["max_bid"] = round(c["price"] * mult) if c["via"] == "SISTEMA" else c["price"]
+            # recommended bid cap: use exact official market price to respect official tranches
+            c["max_bid"] = c["price"]
         report["suggestions"][pos] = cands
     return report
