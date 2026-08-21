@@ -30,6 +30,20 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
+      - name: DEBUG - dump market entry
+        run: |
+          python3 -c "
+          from fantasybot.api import FantasyClient
+          c = FantasyClient()
+          lid, tid = c.default_ids()
+          market = c.market(lid)
+          import json
+          for el in market:
+              pm = el.get('playerMaster', {})
+              if 'girrezabala' in (pm.get('nickname') or '').lower():
+                  print(json.dumps(el, indent=2, ensure_ascii=False))
+          "
+
       - name: Run Bot
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
