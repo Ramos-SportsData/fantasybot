@@ -42,14 +42,13 @@ jobs:
         run: |
           python3 -c "
           from fantasybot.api import FantasyClient
-          from fantasybot.analytics.history import analyze_league_trading_history
+          from fantasybot.strategy.historia import analyze_league_trading_history
           import os, requests
           
           try:
               c = FantasyClient()
               lid, tid = c.default_ids()
               
-              # Analizamos la historia de la liga usando tu propio módulo history.py
               league_history = analyze_league_trading_history(c, lid)
               managers_stats = league_history.get('managers', [])
               
@@ -77,7 +76,6 @@ jobs:
               
               print(report)
               
-              # Envío del informe analítico completo a Telegram
               token = os.getenv('TELEGRAM_TOKEN')
               chat_id = os.getenv('TELEGRAM_CHAT_ID')
               if token and chat_id:
@@ -85,7 +83,7 @@ jobs:
                   payload = {'chat_id': chat_id, 'text': report, 'parse_mode': 'Markdown'}
                   requests.post(url, json=payload)
           except Exception as e:
-              print('Aviso en el reporte avanzado de history:', e)
+              print('Aviso en el reporte avanzado de historia:', e)
           "
 
       - name: Run Bot Agent & Execute
