@@ -162,6 +162,10 @@ def notify_execute(result: dict, dry_run: bool, log=print) -> None:
         for e in sell_errors:
             lines.append(f"  • {e['nombre']}: {e['error']}")
 
+    already_listed = sl.get("already_listed") or []
+    if already_listed:
+        lines.append(f"\nℹ️ Ya en venta (de una ejecución anterior): {', '.join(already_listed)}")
+
     send("\n".join(lines), log=log)
 
 
