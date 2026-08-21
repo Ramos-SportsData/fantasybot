@@ -2,7 +2,11 @@ name: Run Fantasy Bot
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 7 * * *'
+    - cron: '0 15 * * *'
+    - cron: '0 16 * * *'
+    - cron: '0 17 * * *'
+    - cron: '0 18 * * *'
   workflow_dispatch:
 
 jobs:
@@ -30,29 +34,31 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
-      - name: DEBUG - dump own market listings (offers)
+      - name: DEBUG - probe league standings endpoints
         run: |
           python3 -c "
           from fantasybot.api import FantasyClient
           import json
           c = FantasyClient()
           lid, tid = c.default_ids()
-          team = c.team(lid, tid)
-          own_ids = {p['playerMaster']['id'] for p in team['players']}
-          market = c.market(lid)
-          print('=== TOTAL LISTINGS EN MERCADO:', len(market), '===')
-          found = False
-          for el in market:
-              pm = el.get('playerMaster') or {}
-              if pm.get('id') in own_ids:
-                  found = True
-                  print()
-                  print('=== LISTADO PROPIO ENCONTRADO ===')
-                  print(json.dumps(el, indent=2, ensure_ascii=False))
-          if not found:
+          candidates = [
+              f'/leagues/{lid}/teams?x-lang=es',
+              f'/leagues/{lid}/ranking?x-lang=es',
+              f'/leagues/{lid}/standings?x-lang=es',
+              f'/league/{lid}/teams?x-lang=es',
+              f'/league/{lid}/ranking?x-lang=es',
+              f'/league/{lid}/standings?x-lang=es',
+              f'/leagues/{lid}?x-lang=es',
+          ]
+          for path in candidates:
+              print('---', path, '---')
+              try:
+                  r = c.get(c._cmp(path))
+                  s = json.dumps(r, ensure_ascii=False)
+                  print(s[:500], '...' if len(s) > 500 else '')
+              except Exception as e:
+                  print('ERROR:', e)
               print()
-              print('No se encontro ningun listado propio en client.market(). Puede que las ventas propias no aparezcan en este endpoint.')
-              print('IDs propios:', own_ids)
           "
 
       - name: Run Bot
