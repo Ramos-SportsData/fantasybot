@@ -147,6 +147,21 @@ def notify_execute(result: dict, dry_run: bool, log=print) -> None:
     if already:
         lines.append(f"\nℹ️ Ya había puja en curso (de una ejecución anterior): {', '.join(already)}")
 
+    sl = result.get("sells", {})
+    listed = sl.get("listed") or []
+    if listed:
+        lines.append("\n🏷️ <b>Puestos en venta:</b>")
+        for c in listed:
+            estado = "✓" if sl.get("applied") else "(plan)"
+            lines.append(f"  • {c['nombre']} por {_fmt_money(c['sale_price'])} "
+                        f"({c['reason']}) {estado}")
+
+    sell_errors = sl.get("errors") or []
+    if sell_errors:
+        lines.append("\n⚠️ <b>Errores al vender:</b>")
+        for e in sell_errors:
+            lines.append(f"  • {e['nombre']}: {e['error']}")
+
     send("\n".join(lines), log=log)
 
 
