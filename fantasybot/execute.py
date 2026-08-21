@@ -16,10 +16,10 @@ IMPORTANT:
     continue with everything else.
   - The market is live: prices can move in the seconds/minutes between when the
     plan was computed (review()) and when we actually place the bid. Right before
-    bidding we re-fetch the live listing and use its EXACT current salePrice
-    (unrounded -- the API rejects amounts that don't match its own expected
-    quantity, e.g. "3828000 is not a valid money quantity" when the real price
-    was 3828353) instead of the (possibly stale) amount computed earlier.
+    bidding we re-fetch the live listing and round its live salePrice UP
+    (to the next multiple of 1000: the API requires the amount to be a
+    multiple of 1000 AND >= the live price -- plain rounding or the exact
+    price both get rejected by the API with a 400 error.
   - "Team has pending bid in this player" (errorCode 030.01.09) is NOT a real
     failure: .state/ doesn't persist between GitHub Actions runs (fresh checkout
     each time), so the bot can "forget" a bid it already placed in a previous
@@ -150,8 +150,8 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
         if not dry_run:
             try:
                 # Releemos el precio justo antes de pujar: el mercado es en vivo y
-                # puede haber subido desde que se calculo el plan. Se usa EXACTO,
-                # sin redondear -- la API rechaza cantidades que no coincidan.
+                # puede haber subido desde que se calculo el plan. Se redondea hacia
+                # arriba a multiplo de 1000 (ver _live_price para el porque).
                 amount = _live_price(client, league_id, b["market_id"], b["amount"])
 
                 resp = client.make_bid(league_id, b["market_id"], amount)
