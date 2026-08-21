@@ -1,4 +1,4 @@
-name: Run Fantasy Bot
+ name: Run Fantasy Bot
 
 on:
   schedule:
@@ -34,31 +34,28 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
-      - name: DEBUG - probe league standings endpoints
+      - name: DEBUG - inspect leagues/teams endpoint structure
         run: |
           python3 -c "
           from fantasybot.api import FantasyClient
           import json
           c = FantasyClient()
           lid, tid = c.default_ids()
-          candidates = [
-              f'/leagues/{lid}/teams?x-lang=es',
-              f'/leagues/{lid}/ranking?x-lang=es',
-              f'/leagues/{lid}/standings?x-lang=es',
-              f'/league/{lid}/teams?x-lang=es',
-              f'/league/{lid}/ranking?x-lang=es',
-              f'/league/{lid}/standings?x-lang=es',
-              f'/leagues/{lid}?x-lang=es',
-          ]
-          for path in candidates:
-              print('---', path, '---')
-              try:
-                  r = c.get(c._cmp(path))
-                  s = json.dumps(r, ensure_ascii=False)
-                  print(s[:500], '...' if len(s) > 500 else '')
-              except Exception as e:
-                  print('ERROR:', e)
+          r = c.get(c._cmp(f'/leagues/{lid}/teams?x-lang=es'))
+          print('TIPO:', type(r).__name__)
+          if isinstance(r, list):
+              print('NUMERO DE EQUIPOS:', len(r))
               print()
+              print('=== CLAVES DEL PRIMER EQUIPO ===')
+              print(list(r[0].keys()))
+              print()
+              print('=== PRIMER EQUIPO SIN EL ARRAY DE PLAYERS (para no saturar) ===')
+              t0 = dict(r[0])
+              t0.pop('players', None)
+              print(json.dumps(t0, indent=2, ensure_ascii=False))
+          else:
+              print('CLAVES:', list(r.keys()) if isinstance(r, dict) else r)
+              print(json.dumps(r, indent=2, ensure_ascii=False)[:2000])
           "
 
       - name: Run Bot
