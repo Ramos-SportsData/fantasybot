@@ -78,7 +78,8 @@ def plan_bids(client, league_id, team, ops=None):
         if o["market_id"] in already:
             continue  # we already have a bid (best-effort, may be stale — see below)
 
-        price = o["buy_price"]
+        # Ceil a los miles: la API exige múltiplo de 1000 y >= salePrice.
+        price = math.ceil(o["buy_price"] / 1000) * 1000
         if committed + price > money:
             continue  # doesn't fit in the balance
 
@@ -93,10 +94,14 @@ def _live_price(client, league_id, market_id, fallback_amount):
 
     The market moves in real time: the amount computed earlier in plan_bids()
     (itself computed even earlier in review()) can be stale by the time we
-    actually place the bid. We use the EXACT live salePrice, unrounded — the
-    API rejects amounts that don't match its own expected quantity for that
-    player (rounding to the nearest thousand is NOT safe: e.g. it rejected
-    "3828000" while the real price was 3828353).
+    actually place the bid.
+
+    Confirmed from real API rejections: a valid bid amount must be BOTH a
+    multiple of 1000 AND >= the listing's exact salePrice. Rounding to the
+    NEAREST thousand is unsafe (about half the time it rounds DOWN below
+    salePrice -> rejected as too low), and sending the exact salePrice is also
+    rejected (not a multiple of 1000). So we round UP (ceil) to the next
+    multiple of 1000, which always satisfies both constraints.
 
     Falls back to the planned amount if the listing can't be found or lacks a
     salePrice (never crashes -- worst case we retry with the old estimate).
@@ -109,7 +114,9 @@ def _live_price(client, league_id, market_id, fallback_amount):
     if not el:
         return fallback_amount  # no longer listed (closed/taken) -> let make_bid fail cleanly
     live = el.get("salePrice")
-    return live if live else fallback_amount
+    if not live:
+        return fallback_amount
+    return math.ceil(live / 1000) * 1000
 
 
 def _is_already_bidding_error(exc: Exception) -> bool:
