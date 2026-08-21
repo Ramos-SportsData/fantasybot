@@ -107,14 +107,7 @@ class FantasyClient:
         return self.get(self._cmp("/leagues?x-lang=es"))
 
     def default_ids(self):
-        """(league_id, team_id) of the league to operate on.
-
-        Defaults to the user's first league, so single-league setups (the OSS self-host
-        case) work with no config. Set FANTASYBOT_LEAGUE=<id> to pin a specific league —
-        that's how the hosted service drives an account that has several leagues: it runs
-        the agent once per league, exporting this var each time. Every command resolves
-        ids through here, so one env var steers them all without touching call sites.
-        """
+        """(league_id, team_id) of the league to operate on."""
         leagues = self.leagues()
         if not leagues:
             raise FantasyError("The user has no leagues.")
@@ -122,13 +115,11 @@ class FantasyClient:
         if want:
             for lg in leagues:
                 if str(lg["id"]) == str(want):
-                    # Remove leading zeros from league_id for API compatibility
-                    league_id = str(lg["id"]).lstrip("0") or "0"
+                    league_id = str(lg["id"])
                     return league_id, str(lg["team"]["id"])
             raise FantasyError(f"League {want} is not in this account.")
         lg = leagues[0]
-        # Remove leading zeros from league_id for API compatibility
-        league_id = str(lg["id"]).lstrip("0") or "0"
+        league_id = str(lg["id"])
         return league_id, str(lg["team"]["id"])
 
     def team(self, league_id, team_id):
