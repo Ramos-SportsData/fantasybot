@@ -26,6 +26,7 @@ from . import agent as agent_mod
 from . import execute as execute_mod
 from . import events
 from . import state
+from . import telegram
 
 
 def _print_json(obj):
@@ -195,6 +196,7 @@ def cmd_agent(args):
                 detail={"balance": f"{rep['money']:,}",
                         "flips": len(rep.get("flips", [])),
                         "lineup": "change" if rep["lineup"]["changed"] else "already optimal"})
+    telegram.notify_review(rep)
 
     if args.json:
         return _print_json(rep)
@@ -275,10 +277,12 @@ def cmd_agent(args):
         # nothing safe to auto-apply. Surface it and skip acting, don't crash the run.
         print(f"\n--- AUTONOMOUS ACTIONS [skipped] ---")
         print(f"· Can't act: incomplete squad ({e}). Sign the missing position first.")
+        telegram.send(f"⚠️ <b>Acciones omitidas</b>\nPlantilla incompleta: {e}")
         return
     current = agent_mod._current_xi_ids(fc, tid)
     result = execute_mod.act(fc, lid, tid, team, best, current,
                              dry_run=not args.execute)
+    telegram.notify_execute(result, dry_run=not args.execute)
     verbo = "EXECUTED" if args.execute else "PLAN (use --execute to act)"
     print(f"\n--- AUTONOMOUS ACTIONS [{verbo}] ---")
     lu = result["lineup"]
@@ -527,7 +531,15 @@ def main(argv=None):
         args.func(args)
     except (FantasyError, auth.AuthError) as e:
         print(f"[ERROR] {e}", file=sys.stderr)
+        telegram.notify_error(f"Comando: {getattr(args, 'func', '?').__name__}", e)
         sys.exit(1)
+    except Exception as e:
+        # Any other unhandled exception (e.g. a malformed market entry, a bug):
+        # still surface it and exit 1 like before, but make sure it's never
+        # silent — notify Telegram so a crashed scheduled run doesn't go unnoticed.
+        print(f"[ERROR] Unexpected: {e}", file=sys.stderr)
+        telegram.notify_error(f"Comando: {getattr(args, 'func', '?').__name__} (error inesperado)", e)
+        raise
 
 
 if __name__ == "__main__":
