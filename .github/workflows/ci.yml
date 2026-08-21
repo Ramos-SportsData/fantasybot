@@ -40,6 +40,7 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          pip install requests
           python3 -c "
           from fantasybot.api import FantasyClient
           from fantasybot.strategy.historia import analyze_league_trading_history
