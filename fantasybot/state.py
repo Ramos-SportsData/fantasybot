@@ -21,6 +21,7 @@ TASKS_PATH = os.path.join(STATE_DIR, "tasks.json")
 REMINDERS_PATH = os.path.join(STATE_DIR, "reminders.json")
 BIDS_PATH = os.path.join(STATE_DIR, "bids.json")
 BID_PLAN_PATH = os.path.join(STATE_DIR, "bid_plan.json")
+SOLD_PATH = os.path.join(STATE_DIR, "sold.json")
 
 
 def load_bids() -> dict:
@@ -49,6 +50,19 @@ def add_bid_target(market_id: str, max_bid: int, nombre: str | None = None):
 
 def clear_bid_plan():
     _write(BID_PLAN_PATH, [])
+
+
+# --- players listed for sale by the agent (autonomous selling) ---
+def load_sold() -> dict:
+    """Players the agent has already listed for sale: {player_id: {nombre, sale_price}}.
+
+    Prevents re-listing the same player on every run while the sale is pending.
+    """
+    return _read(SOLD_PATH, {})
+
+
+def save_sold(sold: dict):
+    _write(SOLD_PATH, sold)
 
 
 def _read(path, default):
