@@ -30,7 +30,7 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
-      - name: Run Bot
+      - name: Run Bot # Forzar reinicio de workflow
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
