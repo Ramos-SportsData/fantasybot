@@ -4,30 +4,39 @@ Autonomy authorized by the user:
   - Lineup: applies the best lineup (reversible, no spending).
   - Bid/cancel in market: places bids on profitable flips and pulls those that no
     longer apply (reversible until market close). May use the whole balance.
+  - Sell: lists players flagged by strategy/sell.py (out of the XI + transfer
+    risk or falling value) for sale at their fair market value. Selling a
+    player is irreversible, but the user explicitly asked for this to be
+    autonomous, using the same criteria as the advisory report.
   - Buyouts: NOT automatic (irreversible spending) -> left as an alert/task.
 
 Everything runs through `dry_run`: if True, it only returns the PLAN without
 touching anything.
 
 IMPORTANT:
-  - Real API calls (update_lineup, make_bid) are wrapped in try/except. An API
-    rejection (closed market, invalid squad, price moved, rate limit, etc.) must
-    never crash the whole run -- it should be logged/reported and the run should
-    continue with everything else.
+  - Real API calls (update_lineup, make_bid, sell_player) are wrapped in
+    try/except. An API rejection (closed market, invalid squad, price moved,
+    rate limit, etc.) must never crash the whole run -- it should be
+    logged/reported and the run should continue with everything else.
   - The market is live: prices can move in the seconds/minutes between when the
     plan was computed (review()) and when we actually place the bid. Right before
-    bidding we re-fetch the live listing and use the exact official price without
-    forcing artificial rounding that breaks LaLiga's strict pricing tranches.
+    bidding we re-fetch the live listing and round its live salePrice UP
+    (to the next multiple of 1000: the API requires the amount to be a
+    multiple of 1000 AND >= the live price -- plain rounding or the exact
+    price both get rejected by the API with a 400 error).
   - "Team has pending bid in this player" (errorCode 030.01.09) is NOT a real
     failure: .state/ doesn't persist between GitHub Actions runs (fresh checkout
     each time), so the bot can "forget" a bid it already placed in a previous
     run and try again. This is treated as an informational skip, not an error.
+  - Sells already listed are tracked in state (state.load_sold/save_sold) so we
+    don't try to re-list the same player on every run.
 """
 
-import math
 from . import events, state
-from .strategy import flip
+from .strategy import flip, sell as sell_mod
 from .strategy.lineup import payload_ids
+from .sources.market_trends import trends_index
+import math
 
 ALREADY_BIDDING_ERROR_CODE = "030.01.09"
 
@@ -175,9 +184,47 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
             "errors": errors, "already_bidding": already_bidding, "applied": not dry_run}
 
 
+def sync_sells(client, league_id, team, best, dry_run=True, log=print):
+    """Lists players recommended by strategy/sell.py that aren't already listed.
+
+    Uses the exact same criteria as the advisory report (agent.review()):
+    players outside the optimal XI who are either a transfer risk (valuable,
+    out of the probable lineup) or have a clearly falling value trend.
+
+    Selling is irreversible, but this was explicitly authorized as autonomous.
+    Each listing is remembered in state (state.load_sold/save_sold) so we
+    don't try to re-list a player that's already on sale on every run.
+    """
+    candidates = sell_mod.sell_candidates(team, best, trends_index())
+    sold = state.load_sold()
+
+    listed, errors = [], []
+    for c in candidates:
+        pid = str(c["player_id"])
+        if pid in sold:
+            continue  # already listed by a previous run
+        if not dry_run:
+            try:
+                client.sell_player(league_id, c["player_id"], c["sale_price"])
+                sold[pid] = {"nombre": c["nombre"], "sale_price": c["sale_price"]}
+                events.emit("sell", f"Listed {c['nombre']} for sale at {c['sale_price']:,}",
+                            detail={"reason": c["reason"]})
+                listed.append(c)
+            except Exception as e:
+                log(f"[execute] Error selling {c['nombre']}: {e}")
+                errors.append({"nombre": c["nombre"], "error": str(e)})
+        else:
+            listed.append(c)
+
+    if not dry_run:
+        state.save_sold(sold)
+    return {"action": "sells", "listed": listed, "errors": errors, "applied": not dry_run}
+
+
 def act(client, league_id, team_id, team, best, current_ids, dry_run=True, log=print):
-    """Executes (or plans) the autonomous actions: set lineup + bid."""
+    """Executes (or plans) the autonomous actions: lineup + bids + sells."""
     return {
         "lineup": apply_lineup(client, team_id, best, current_ids, dry_run, log=log),
         "bids": sync_bids(client, league_id, team, dry_run, log=log),
+        "sells": sync_sells(client, league_id, team, best, dry_run, log=log),
     }
