@@ -52,10 +52,13 @@ def clause_targets(market, team, prob_index):
     money = team["teamMoney"]
     targets = []
     for el in market:
-        if el["discr"] != "marketPlayerTeam":
+        if el.get("discr") != "marketPlayerTeam":
             continue
-        pm = el["playerMaster"]
-        if pm["id"] in owned:
+        pm = el.get("playerMaster")
+        if not pm:
+            continue  # malformed/incomplete market entry (e.g. right after a manual
+                      # action outside the bot) — must never crash the whole run
+        if pm.get("id") in owned:
             continue
         pos = POS.get(pm.get("positionId"))
         pt = el.get("playerTeam", {})
