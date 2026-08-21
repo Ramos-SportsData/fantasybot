@@ -16,20 +16,18 @@ IMPORTANT:
     continue with everything else.
   - The market is live: prices can move in the seconds/minutes between when the
     plan was computed (review()) and when we actually place the bid. Right before
-    bidding we re-fetch the live listing and round its live salePrice UP
-    (to the next multiple of 1000: the API requires the amount to be a
-    multiple of 1000 AND >= the live price -- plain rounding or the exact
-    price both get rejected by the API with a 400 error.
+    bidding we re-fetch the live listing and use the exact official price without
+    forcing artificial rounding that breaks LaLiga's strict pricing tranches.
   - "Team has pending bid in this player" (errorCode 030.01.09) is NOT a real
     failure: .state/ doesn't persist between GitHub Actions runs (fresh checkout
     each time), so the bot can "forget" a bid it already placed in a previous
     run and try again. This is treated as an informational skip, not an error.
 """
 
+import math
 from . import events, state
 from .strategy import flip
 from .strategy.lineup import payload_ids
-import math
 
 ALREADY_BIDDING_ERROR_CODE = "030.01.09"
 
@@ -76,10 +74,10 @@ def plan_bids(client, league_id, team, ops=None):
     plan, committed = [], 0
     for o in ops:
         if o["market_id"] in already:
-            continue  # we already have a bid (best-effort, may be stale — see below)
+            continue  # we already have a bid (best-effort, may be stale)
 
-        # Ceil a los miles: la API exige múltiplo de 1000 y >= salePrice.
-        price = math.ceil(o["buy_price"] / 1000) * 1000
+        # Usamos el precio exacto sin redondeos artificiales de múltiplos de 1000
+        price = int(o["buy_price"])
         if committed + price > money:
             continue  # doesn't fit in the balance
 
@@ -92,19 +90,11 @@ def plan_bids(client, league_id, team, ops=None):
 def _live_price(client, league_id, market_id, fallback_amount):
     """Re-fetches the live market listing for `market_id` right before bidding.
 
-    The market moves in real time: the amount computed earlier in plan_bids()
-    (itself computed even earlier in review()) can be stale by the time we
-    actually place the bid.
-
-    Confirmed from real API rejections: a valid bid amount must be BOTH a
-    multiple of 1000 AND >= the listing's exact salePrice. Rounding to the
-    NEAREST thousand is unsafe (about half the time it rounds DOWN below
-    salePrice -> rejected as too low), and sending the exact salePrice is also
-    rejected (not a multiple of 1000). So we round UP (ceil) to the next
-    multiple of 1000, which always satisfies both constraints.
+    Utiliza el precio oficial exacto del mercado (el mayor entre salePrice y marketValue)
+    sin forzar redondeos artificiales que LaLiga rechaza con el error 030.01.01.
 
     Falls back to the planned amount if the listing can't be found or lacks a
-    salePrice (never crashes -- worst case we retry with the old estimate).
+    price (never crashes -- worst case we retry with the old estimate).
     """
     try:
         market = client.market(league_id)
@@ -112,11 +102,19 @@ def _live_price(client, league_id, market_id, fallback_amount):
         return fallback_amount
     el = next((e for e in market if e.get("id") == market_id), None)
     if not el:
-        return fallback_amount  # no longer listed (closed/taken) -> let make_bid fail cleanly
+        return fallback_amount  # no longer listed -> let make_bid fail cleanly
+    
+    sale = el.get("salePrice") or 0
+    mval = (el.get("playerMaster") or {}).get("marketValue") or 0
+    exact = max(sale, mval)
+    
+    if exact > 0:
+        return int(exact)
+        
     live = el.get("salePrice")
     if not live:
         return fallback_amount
-    return math.ceil(live / 1000) * 1000
+    return int(live)
 
 
 def _is_already_bidding_error(exc: Exception) -> bool:
@@ -149,9 +147,7 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
     for b in plan:
         if not dry_run:
             try:
-                # Releemos el precio justo antes de pujar: el mercado es en vivo y
-                # puede haber subido desde que se calculo el plan. Se redondea hacia
-                # arriba a multiplo de 1000 (ver _live_price para el porque).
+                # Releemos el precio exacto en vivo justo antes de pujar sin alterar tramos
                 amount = _live_price(client, league_id, b["market_id"], b["amount"])
 
                 resp = client.make_bid(league_id, b["market_id"], amount)
@@ -163,10 +159,6 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
                 placed.append({**b, "amount": amount})
             except Exception as e:
                 if _is_already_bidding_error(e):
-                    # We (or a previous run) already have a pending bid here --
-                    # .state/ doesn't persist between GH Actions runs, so we just
-                    # "forgot". Not a real error: keep it informational, and
-                    # remember it locally for the rest of THIS run at least.
                     log(f"[execute] Already bidding on {b['nombre']} (from a previous run).")
                     bids.setdefault(b["market_id"], {"bid_id": None, "amount": b["amount"],
                                                       "nombre": b["nombre"]})
