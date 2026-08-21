@@ -208,8 +208,8 @@ def analyze_league_trading_history(
     league_id: str
 ) -> Dict[str, Any]:
     """Computes trading history for all managers across the entire league."""
-    teams = client.league_teams(league_id) or []
-    activity_live = client.league_activity(league_id) or []
+    teams = client.get(client._cmp(f"/leagues/{league_id}/teams?x-lang=es")) or []
+    activity_live = client.get(client._cmp(f"/leagues/{league_id}/activities?x-lang=es")) or []
     activity_cumulative = state.record_activity(activity_live, league_id)
 
     player_names = resolve_player_names(client, activity_cumulative, teams)
