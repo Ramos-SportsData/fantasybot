@@ -293,10 +293,68 @@ def sync_sells(client, league_id, team, best, dry_run=True, log=print):
             "already_listed": already_listed, "watching": watching,
             "watch_cleared": watch_cleared, "applied": not dry_run}
 
+def check_offers(client, league_id, team, log=print):
+    """Detects pending offers on your own market listings and self-discovers
+    their real data shape (offer_id, amount, etc.) so we can implement
+    automatic acceptance without guessing blind.
+
+    We know (from real API data) that a listing has a `numberOfOffers` count,
+    but we've never seen its value above 0 in the wild -- so the exact shape
+    of an individual offer (needed for accept_offer(league_id, market_id,
+    offer_id, money)) is still unconfirmed. Instead of waiting for a manual
+    debug round next time an offer appears, this tries several plausible ways
+    to fetch the detail RIGHT WHEN one is detected, and reports the raw JSON
+    via the "raw" field so it surfaces in Telegram automatically.
+
+    Does NOT accept anything -- detection and self-discovery only.
+    """
+    own_ids = {p["playerMaster"]["id"] for p in team["players"]}
+    try:
+        market = client.market(league_id)
+    except Exception as e:
+        log(f"[execute] Error fetching market for offer check: {e}")
+        return {"action": "offers", "pending": []}
+
+    pending = []
+    for el in market:
+        pm = el.get("playerMaster") or {}
+        if pm.get("id") not in own_ids:
+            continue
+        n_offers = el.get("numberOfOffers") or 0
+        if n_offers <= 0:
+            continue
+
+        market_id = el.get("id")
+        found = {"nombre": pm.get("nickname") or pm.get("name"),
+                "market_id": market_id, "n_offers": n_offers, "raw": None}
+
+        # Try a few plausible ways to get the actual offer detail (id, money).
+        for path in (f"/league/{league_id}/market/{market_id}?x-lang=es",
+                    f"/league/{league_id}/market/{market_id}/offer?x-lang=es"):
+            try:
+                detail = client.get(client._cmp(path))
+                if detail:
+                    found["raw"] = detail
+                    found["source_path"] = path
+                    break
+            except Exception:
+                continue
+
+        if found["raw"] is None:
+            found["raw"] = el  # fallback: at least the listing itself
+
+        pending.append(found)
+        log(f"[execute] Pending offer(s) on {found['nombre']}: {n_offers} "
+            f"(detail: {'found' if found.get('source_path') else 'fallback to listing'})")
+
+    return {"action": "offers", "pending": pending}
+
+
 def act(client, league_id, team_id, team, best, current_ids, dry_run=True, log=print):
-    """Executes (or plans) the autonomous actions: lineup + bids + sells."""
+    """Executes (or plans) the autonomous actions: lineup + bids + sells + offer check."""
     return {
         "lineup": apply_lineup(client, team_id, best, current_ids, dry_run, log=log),
         "bids": sync_bids(client, league_id, team, dry_run, log=log),
         "sells": sync_sells(client, league_id, team, best, dry_run, log=log),
+        "offers": check_offers(client, league_id, team, log=log),
     }
