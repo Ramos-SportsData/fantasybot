@@ -22,6 +22,8 @@ REMINDERS_PATH = os.path.join(STATE_DIR, "reminders.json")
 BIDS_PATH = os.path.join(STATE_DIR, "bids.json")
 BID_PLAN_PATH = os.path.join(STATE_DIR, "bid_plan.json")
 SOLD_PATH = os.path.join(STATE_DIR, "sold.json")
+ACTIVITY_PATH = os.path.join(STATE_DIR, "activity_history.json")
+PLAYERS_CACHE_PATH = os.path.join(STATE_DIR, "players_cache.json")
 
 
 def load_bids() -> dict:
@@ -63,6 +65,45 @@ def load_sold() -> dict:
 
 def save_sold(sold: dict):
     _write(SOLD_PATH, sold)
+
+
+# --- league activity history (for strategy/historia.py trading P&L) ---
+#
+# CAVEAT: .state/ does NOT persist between GitHub Actions runs (fresh
+# checkout each time). This means record_activity() can only accumulate
+# across events returned by a SINGLE live call, not across days/runs, unless
+# the activity endpoint itself returns the full historical log (not just
+# recent events). If it only returns recent activity, the accumulated
+# "cumulative" history will effectively reset on every run -- something to
+# verify once we confirm which endpoint/shape the real activity feed has.
+def record_activity(activity_live: list, league_id: str) -> list:
+    """Merges freshly-fetched activity events into the locally accumulated
+    history (deduped by id), and returns the full accumulated list sorted by
+    date. Best-effort: see caveat above about GH Actions state not persisting.
+    """
+    existing = _read(ACTIVITY_PATH, {})
+    bucket = existing.get(str(league_id), [])
+    seen_ids = {e.get("id") for e in bucket if e.get("id") is not None}
+    for ev in activity_live or []:
+        eid = ev.get("id")
+        if eid is None or eid not in seen_ids:
+            bucket.append(ev)
+            if eid is not None:
+                seen_ids.add(eid)
+    bucket.sort(key=lambda e: str(e.get("createdAt") or ""))
+    existing[str(league_id)] = bucket
+    _write(ACTIVITY_PATH, existing)
+    return bucket
+
+
+def load_players_cache() -> dict:
+    """Cached mapping playerMasterId -> {name, pos, market_value}, used by
+    historia.py to avoid refetching player details repeatedly."""
+    return _read(PLAYERS_CACHE_PATH, {})
+
+
+def save_players_cache(cache: dict):
+    _write(PLAYERS_CACHE_PATH, cache)
 
 
 def _read(path, default):
