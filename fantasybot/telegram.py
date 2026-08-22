@@ -166,6 +166,17 @@ def notify_execute(result: dict, dry_run: bool, log=print) -> None:
     if already_listed:
         lines.append(f"\nℹ️ Ya en venta (de una ejecución anterior): {', '.join(already_listed)}")
 
+    watching = sl.get("watching") or []
+    if watching:
+        lines.append("\n👀 <b>En vigilancia (estado anómalo, aún sin vender):</b>")
+        for w in watching:
+            lines.append(f"  • {w['nombre']}: {_fmt_money(w['current_value'])} "
+                        f"(caída {w['drop_pct']}% desde {_fmt_money(w['baseline_value'])})")
+
+    watch_cleared = sl.get("watch_cleared") or []
+    if watch_cleared:
+        lines.append(f"\n✅ Recuperados, ya no en vigilancia: {', '.join(watch_cleared)}")
+
     send("\n".join(lines), log=log)
 
 
