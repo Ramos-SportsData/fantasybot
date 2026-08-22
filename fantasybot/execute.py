@@ -202,18 +202,70 @@ def sync_sells(client, league_id, team, best, dry_run=True, log=print):
     players outside the optimal XI who are either a transfer risk (valuable,
     out of the probable lineup) or have a clearly falling value trend.
 
+    URGENT tier (priority 0, from sell.py: playerStatus != "ok") gets special
+    handling here instead of an immediate sale: the first time we see a player
+    in this state we record his CURRENT value as a baseline and just watch him
+    (no listing yet) -- selling blind the moment a status changes is too
+    aggressive (e.g. a 1-match suspension that doesn't really hurt his value).
+    Only once his value has dropped >= WATCH_SELL_THRESHOLD_PCT from that
+    baseline do we actually list him; if his value recovers/stabilizes instead,
+    we drop the watch and keep him. See state.load_status_watch for the
+    caveat about this needing state to persist across runs (best-effort on
+    GitHub Actions).
+
     Selling is irreversible, but this was explicitly authorized as autonomous.
     Each listing is remembered in state (state.load_sold/save_sold) so we
     don't try to re-list a player that's already on sale on every run -- but
-    since state doesn't persist between GitHub Actions runs, the API's own
-    "not found in team" rejection (player already listed) is the real
-    safety net and is treated as informational, not an error.
+    since state doesn't persist reliably between GitHub Actions runs, the
+    API's own "not found in team" rejection (player already listed) is the
+    real safety net and is treated as informational, not an error.
     """
+    WATCH_SELL_THRESHOLD_PCT = 0.05  # sell once value has dropped 5% from baseline
+
     candidates = sell_mod.sell_candidates(team, best, trends_index())
     sold = state.load_sold()
+    watch = state.load_status_watch()
+
+    to_process, watching, watch_cleared = [], [], []
+    for c in candidates:
+        if c["priority"] != 0:
+            to_process.append(c)
+            continue
+
+        pid = str(c["player_id"])
+        current_value = c["valor"]
+        entry = watch.get(pid)
+
+        if entry is None:
+            # First time we see this abnormal status: start watching, don't sell yet.
+            watch[pid] = {"nombre": c["nombre"], "status": c["reason"],
+                         "baseline_value": current_value}
+            watching.append({"nombre": c["nombre"], "baseline_value": current_value,
+                            "current_value": current_value, "drop_pct": 0.0})
+            continue
+
+        baseline = entry.get("baseline_value") or current_value
+        drop_pct = (baseline - current_value) / baseline if baseline else 0
+
+        if drop_pct >= WATCH_SELL_THRESHOLD_PCT:
+            # Confirmed: value actually dropped enough -> sell now.
+            watch.pop(pid, None)
+            to_process.append(c)
+        else:
+            # Still watching: either recovering/stable, or dropping but not
+            # enough yet. Keep the ORIGINAL baseline (don't chase it down) so
+            # a slow bleed still eventually crosses the threshold.
+            watching.append({"nombre": c["nombre"], "baseline_value": baseline,
+                            "current_value": current_value, "drop_pct": round(drop_pct * 100, 1)})
+            if current_value >= baseline:
+                # Fully recovered/stable -> stop watching, keep him.
+                watch.pop(pid, None)
+                watch_cleared.append(c["nombre"])
+
+    state.save_status_watch(watch)
 
     listed, errors, already_listed = [], [], []
-    for c in candidates:
+    for c in to_process:
         pid = str(c["player_id"])
         if pid in sold:
             continue  # already listed by a previous run (remembered locally)
@@ -238,8 +290,8 @@ def sync_sells(client, league_id, team, best, dry_run=True, log=print):
     if not dry_run:
         state.save_sold(sold)
     return {"action": "sells", "listed": listed, "errors": errors,
-            "already_listed": already_listed, "applied": not dry_run}
-
+            "already_listed": already_listed, "watching": watching,
+            "watch_cleared": watch_cleared, "applied": not dry_run}
 
 def act(client, league_id, team_id, team, best, current_ids, dry_run=True, log=print):
     """Executes (or plans) the autonomous actions: lineup + bids + sells."""
