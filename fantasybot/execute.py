@@ -184,15 +184,23 @@ def sync_bids(client, league_id, team, dry_run=True, log=print):
             "errors": errors, "already_bidding": already_bidding, "applied": not dry_run}
 
 
-ALREADY_LISTED_ERROR_HINT = "not found in team"
+# The API phrases "you no longer own this player" rejections differently
+# depending on context -- we've seen both of these in the wild. Both mean
+# the same thing: the player is already listed/gone (from a previous run we
+# don't remember, since .state/ doesn't persist reliably between GitHub
+# Actions runs). errorCode 030.01.26 is the confirmed code for this case.
+ALREADY_LISTED_ERROR_HINTS = ("not found in team", "not in your team anymore")
+ALREADY_LISTED_ERROR_CODE = "030.01.26"
 
 
 def _is_already_listed_error(exc: Exception) -> bool:
     """True if the API rejected the sell because the player is no longer in
-    the team roster -- i.e. it's already listed on the market (from a
-    previous run we don't remember, since .state/ doesn't persist between
-    GitHub Actions runs). Not a real failure -- see module docstring."""
-    return ALREADY_LISTED_ERROR_HINT in str(exc)
+    the team roster -- i.e. it's already listed on the market. Not a real
+    failure -- see module docstring."""
+    s = str(exc)
+    if ALREADY_LISTED_ERROR_CODE in s:
+        return True
+    return any(hint in s for hint in ALREADY_LISTED_ERROR_HINTS)
 
 
 def sync_sells(client, league_id, team, best, dry_run=True, log=print):
