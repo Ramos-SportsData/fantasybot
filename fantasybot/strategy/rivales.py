@@ -222,7 +222,7 @@ def analyze_rivals(
 ) -> List[Dict[str, Any]]:
     """Fetches teams and merges league activity into persistent history to calculate metrics."""
     teams = client.get(client._cmp(f"/leagues/{league_id}/teams?x-lang=es")) or []
-    activity_live = client.get(client._cmp(f"/leagues/{league_id}/activities?x-lang=es")) or []
+    activity_live = client.get(client._cmp(f"/leagues/{league_id}/activity?x-lang=es")) or []
 
     # Accumulate into persistent history (.state/activity_history.json)
     activity_cumulative = state.record_activity(activity_live, league_id)
