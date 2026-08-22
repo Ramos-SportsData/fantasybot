@@ -130,6 +130,50 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
+      - name: DEBUG - investigate sell error for liga 2
+        env:
+          FANTASYBOT_LEAGUE: "018199965"
+        run: |
+          python3 -c "
+          from fantasybot.api import FantasyClient
+          import json
+          c = FantasyClient()
+          lid, tid = c.default_ids()
+          team = c.team(lid, tid)
+
+          targets = ['E. Milit', 'Iago Aspas', 'Adama']
+          print('=== JUGADORES EN TU EQUIPO (buscando los 3 recomendados) ===')
+          found_ids = []
+          for p in team['players']:
+              pm = p['playerMaster']
+              nick = pm.get('nickname') or pm.get('name') or ''
+              if any(t in nick for t in targets):
+                  print('Nombre:', nick)
+                  print('  playerMaster id:', pm.get('id'))
+                  print('  playerTeamId:', p.get('playerTeamId'))
+                  print('  playerStatus:', pm.get('playerStatus'))
+                  print('  raw player entry:', json.dumps(p, ensure_ascii=False)[:500])
+                  found_ids.append(pm.get('id'))
+                  print()
+
+          print('=== BUSCANDO ESOS JUGADORES EN EL MERCADO (para ver si ya estan listados) ===')
+          market = c.market(lid)
+          for el in market:
+              pm = el.get('playerMaster') or {}
+              if pm.get('id') in found_ids:
+                  print('ENCONTRADO en mercado:', pm.get('nickname'), '| discr:', el.get('discr'), '| id listado:', el.get('id'))
+          print('(si no aparece nada arriba, NO estan listados en el mercado)')
+
+          print()
+          print('=== INTENTO DIRECTO DE VENTA CON RESPUESTA COMPLETA DEL ERROR ===')
+          if found_ids:
+              try:
+                  resp = c.sell_player(lid, found_ids[0], 1000000)
+                  print('EXITO:', resp)
+              except Exception as e:
+                  print('ERROR COMPLETO:', repr(e))
+          "
+
       - name: Run Bot Agent & Execute (sin Telegram)
         env:
           FANTASYBOT_LEAGUE: "018199965"
