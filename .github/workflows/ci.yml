@@ -35,36 +35,59 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
-      - name: DEBUG - probe activity history endpoints
+      - name: Advanced Trading & Financial League Report
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
+          pip install requests
           python3 -c "
           from fantasybot.api import FantasyClient
-          import json
-          c = FantasyClient()
-          lid, tid = c.default_ids()
-          candidates = [
-              f'/leagues/{lid}/activities?x-lang=es',
-              f'/leagues/{lid}/activity?x-lang=es',
-              f'/leagues/{lid}/history?x-lang=es',
-              f'/leagues/{lid}/transfers?x-lang=es',
-              f'/leagues/{lid}/marketactivities?x-lang=es',
-              f'/leagues/{lid}/teams/{tid}/activities?x-lang=es',
-              f'/leagues/{lid}/teams/{tid}/activity?x-lang=es',
-              f'/teams/{tid}/activities?x-lang=es',
-              f'/teams/{tid}/activity?x-lang=es',
-              f'/leagues/{lid}/activityfeed?x-lang=es',
-              f'/leagues/{lid}/feed?x-lang=es',
-          ]
-          for path in candidates:
-              print('---', path, '---')
-              try:
-                  r = c.get(c._cmp(path))
-                  s = json.dumps(r, ensure_ascii=False)
-                  print('OK. Tipo:', type(r).__name__, '| Longitud:', len(r) if hasattr(r, '__len__') else '?')
-                  print(s[:600], '...' if len(s) > 600 else '')
-              except Exception as e:
-                  print('ERROR:', e)
-              print()
+          from fantasybot.strategy.historia import analyze_league_trading_history
+          import os, requests
+
+          try:
+              c = FantasyClient()
+              lid, tid = c.default_ids()
+
+              league_history = analyze_league_trading_history(c, lid)
+              managers_stats = league_history.get('managers', [])
+
+              print('Tracked events:', league_history.get('tracked_events'))
+              print('Tracked from:', league_history.get('tracked_from'), 'to', league_history.get('tracked_to'))
+
+              report = '🏆 *INFORME DE TRADING Y GESTIÓN DE LA LIGA* 🏆\n\n'
+              report += '📊 *Rendimiento Financiero y P&L por Mánager:*\n\n'
+
+              for idx, m in enumerate(managers_stats, 1):
+                  name = m.get('manager_name', 'Desconocido')
+                  pos = m.get('position', '-')
+                  pts = m.get('points', 0)
+                  val = m.get('team_value', 0)
+                  realized = m.get('realized_profit', 0)
+                  unrealized = m.get('unrealized_profit', 0)
+                  total_pnl = m.get('total_pnl', 0)
+                  win_rate = m.get('win_rate_pct', 0)
+                  revenue = m.get('total_sales_revenue', 0)
+                  spent = m.get('total_purchases_spent', 0)
+
+                  report += f'{idx}. *{name}* (Pos: {pos} | Pts: {pts})\n'
+                  report += f'   • Plantilla: {val:,.0f} €\n'.replace(',', '.')
+                  report += f'   • Ingresos Ventas: {revenue:,.0f} € | Gastos Compras: {spent:,.0f} €\n'.replace(',', '.')
+                  report += f'   • Beneficio Realizado (Flips): {realized:+,.0f} €\n'.replace(',', '.')
+                  report += f'   • Beneficio No Realizado (Plantilla): {unrealized:+,.0f} €\n'.replace(',', '.')
+                  report += f'   • *P&L Total:* {total_pnl:+,.0f} € (Win Rate: {win_rate:.1f}%)\n\n'.replace(',', '.')
+
+              print(report)
+
+              token = os.getenv('TELEGRAM_TOKEN')
+              chat_id = os.getenv('TELEGRAM_CHAT_ID')
+              if token and chat_id:
+                  url = f'https://api.telegram.org/bot{token}/sendMessage'
+                  payload = {'chat_id': chat_id, 'text': report, 'parse_mode': 'Markdown'}
+                  requests.post(url, json=payload)
+          except Exception as e:
+              print('Aviso en el reporte avanzado de historia:', e)
           "
 
       - name: Run Bot Agent & Execute
