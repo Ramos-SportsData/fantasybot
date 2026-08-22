@@ -11,16 +11,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-bot:
+  # ============================================================
+  # LIGA 1: HUGO LEAGUE 1 (017817326) - con reportes a Telegram
+  # ============================================================
+  run-bot-liga1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          
+
       - name: Install package
         run: pip install .
 
@@ -35,21 +38,11 @@ jobs:
           echo "$FANTASY_AUTH_JSON" > tokens.json
           python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
 
-      - name: DEBUG - list all leagues in this account
-        run: |
-          python3 -c "
-          from fantasybot.api import FantasyClient
-          c = FantasyClient()
-          leagues = c.leagues()
-          print('Ligas encontradas:', len(leagues))
-          for lg in leagues:
-              print('ID:', lg['id'], '| Nombre:', lg.get('name'), '| Team ID:', lg['team']['id'])
-          "
-
       - name: Advanced Trading & Financial League Report
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FANTASYBOT_LEAGUE: "017817326"
         run: |
           pip install requests
           python3 -c "
@@ -105,4 +98,39 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FANTASYBOT_LEAGUE: "017817326"
+        run: python -m fantasybot agent --execute
+
+  # ============================================================
+  # LIGA 2: CUEVA + 27 (018199965) - sin reportes a Telegram,
+  # solo actua (alineacion, pujas, ventas), igual que la liga 1.
+  # Job independiente y aislado: no comparte estado con liga 1.
+  # ============================================================
+  run-bot-liga2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install package
+        run: pip install .
+
+      - name: Create tokens.json from Secret
+        env:
+          FANTASY_AUTH_JSON: ${{ secrets.FANTASY_AUTH_JSON }}
+        run: |
+          if [ -z "$FANTASY_AUTH_JSON" ]; then
+            echo "Error: FANTASY_AUTH_JSON no esta definido en Secrets."
+            exit 1
+          fi
+          echo "$FANTASY_AUTH_JSON" > tokens.json
+          python -c "import json; json.load(open('tokens.json'))" || (echo "Error: Invalid JSON in FANTASY_AUTH_JSON secret"; exit 1)
+
+      - name: Run Bot Agent & Execute (sin Telegram)
+        env:
+          FANTASYBOT_LEAGUE: "018199965"
         run: python -m fantasybot agent --execute
