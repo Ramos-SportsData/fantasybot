@@ -283,6 +283,7 @@ def cmd_agent(args):
     result = execute_mod.act(fc, lid, tid, team, best, current,
                              dry_run=not args.execute)
     telegram.notify_execute(result, dry_run=not args.execute)
+    telegram.notify_offers(result.get("offers"))
     verbo = "EXECUTED" if args.execute else "PLAN (use --execute to act)"
     print(f"\n--- AUTONOMOUS ACTIONS [{verbo}] ---")
     lu = result["lineup"]
