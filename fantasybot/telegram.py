@@ -180,6 +180,28 @@ def notify_execute(result: dict, dry_run: bool, log=print) -> None:
     send("\n".join(lines), log=log)
 
 
+def notify_offers(offers_result: dict, log=print) -> None:
+    """Reports pending offers detected on your own listings, including the
+    raw JSON we managed to fetch -- this is how we self-discover the real
+    offer data shape (offer_id, amount) the first time one actually appears,
+    without needing a manual debug round."""
+    if not _enabled():
+        return
+    pending = (offers_result or {}).get("pending") or []
+    if not pending:
+        return  # nothing pending, don't spam a message for this
+
+    lines = ["📩 <b>Oferta(s) pendiente(s) detectada(s)</b>"]
+    for p in pending:
+        lines.append(f"\n• {p['nombre']} ({p['n_offers']} oferta(s)) -- market_id {p['market_id']}")
+        raw_str = json.dumps(p.get("raw"), ensure_ascii=False, indent=2)
+        if len(raw_str) > 3000:
+            raw_str = raw_str[:3000] + "\n... (truncado)"
+        lines.append(f"<pre>{raw_str}</pre>")
+
+    send("\n".join(lines), log=log)
+
+
 def notify_error(context: str, error: Exception, log=print) -> None:
     """Sends a failure alert. Used from the top-level error handler so a
     crashed run is never silent."""
