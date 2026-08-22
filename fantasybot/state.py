@@ -24,6 +24,7 @@ BID_PLAN_PATH = os.path.join(STATE_DIR, "bid_plan.json")
 SOLD_PATH = os.path.join(STATE_DIR, "sold.json")
 ACTIVITY_PATH = os.path.join(STATE_DIR, "activity_history.json")
 PLAYERS_CACHE_PATH = os.path.join(STATE_DIR, "players_cache.json")
+STATUS_WATCH_PATH = os.path.join(STATE_DIR, "status_watch.json")
 
 
 def load_bids() -> dict:
@@ -104,6 +105,27 @@ def load_players_cache() -> dict:
 
 def save_players_cache(cache: dict):
     _write(PLAYERS_CACHE_PATH, cache)
+
+
+# --- urgent status watch (red card / injury detected mid-run) ---
+#
+# When a player's live status turns abnormal (playerStatus != "ok"), we don't
+# sell blind on the first sighting -- we record his value as a baseline and
+# watch. Only once his value has actually dropped >= WATCH_SELL_THRESHOLD_PCT
+# from that baseline do we list him for sale; if it recovers/stabilizes, we
+# drop the watch and keep him. This needs to persist across the several runs
+# within the same day (the schedule runs ~6x/day), which GitHub Actions does
+# NOT guarantee (fresh checkout each run) -- so this is best-effort: it works
+# reliably within a run, and across runs when state happens to carry over
+# (e.g. manual re-runs shortly after each other), but a full day of fresh
+# checkouts may reset it. Treat it as a helpful heuristic, not a guarantee.
+def load_status_watch() -> dict:
+    """{player_id: {nombre, status, baseline_value, first_seen_at}}"""
+    return _read(STATUS_WATCH_PATH, {})
+
+
+def save_status_watch(watch: dict):
+    _write(STATUS_WATCH_PATH, watch)
 
 
 def _read(path, default):
