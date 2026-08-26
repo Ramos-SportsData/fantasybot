@@ -26,7 +26,7 @@ jobs:
 
       - name: Restore tokens.json from secret
         run: |
-          echo "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
+          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -71,7 +71,7 @@ jobs:
 
       - name: Restore tokens.json from secret
         run: |
-          echo "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
+          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
 
       - name: Set up Python
         uses: actions/setup-python@v5
