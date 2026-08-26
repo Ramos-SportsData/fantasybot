@@ -11,6 +11,7 @@
 
 import argparse
 import json
+import os
 import sys
 import time
 from datetime import date, datetime, timezone
@@ -26,6 +27,7 @@ from .strategy import needs as needs_mod
 from . import agent as agent_mod
 from . import execute as execute_mod
 from . import events
+from . import notify as notify_mod
 from . import state
 
 
@@ -295,6 +297,10 @@ def cmd_agent(args):
         # nothing safe to auto-apply. Surface it and skip acting, don't crash the run.
         print(f"\n--- AUTONOMOUS ACTIONS [skipped] ---")
         print(f"· Can't act: incomplete squad ({e}). Sign the missing position first.")
+        league_name = os.environ.get("FANTASY_LEAGUE_NAME") or os.environ.get("FANTASY_STATE_DIR")
+        notify_mod.send_report(
+            rep, league_name=league_name,
+            action_summary=[f"Skipped: incomplete squad ({e})."])
         return
     current, cur_coach, cur_captain = agent_mod._current_lineup(fc, tid)
     result = execute_mod.act(fc, lid, tid, team, best, current,
@@ -303,20 +309,32 @@ def cmd_agent(args):
     verbo = "EXECUTED" if args.execute else "PLAN (use --execute to act)"
     print(f"\n--- AUTONOMOUS ACTIONS [{verbo}] ---")
     lu = result["lineup"]
+    action_lines = []
     if lu["changed"]:
         d, m, f = lu["formation"]
+        applied = lu.get("applied")
         print(f"· Lineup → {d}-{m}-{f}"
-              + ("  ✓ applied" if lu.get("applied") else "  (would apply)"))
+              + ("  ✓ applied" if applied else "  (would apply)"))
+        action_lines.append(f"Lineup → {d}-{m}-{f}"
+                            + (" ✓ applied" if applied else " (plan only)"))
     else:
         print("· Lineup: already optimal, nothing to do.")
     bd = result["bids"]
     for b in bd["placed"]:
+        applied = bd.get("applied")
         print(f"· Bid {b['amount']:,} for {b['nombre']} ({b['margin_pct']}%)"
-              + ("  ✓" if bd.get("applied") else "  (would bid)"))
+              + ("  ✓" if applied else "  (would bid)"))
+        action_lines.append(f"Bid {b['amount']:,} for {b['nombre']}"
+                            + (" ✓" if applied else " (plan only)"))
     if not bd["placed"]:
         print("· Bids: no profitable flip opportunity right now.")
     if bd["cancelled"]:
         print(f"· Bids cancelled (no longer profitable): {bd['cancelled']}")
+        action_lines.append(f"Bids cancelled: {bd['cancelled']}")
+
+    # --- Telegram notification ---
+    league_name = os.environ.get("FANTASY_LEAGUE_NAME") or os.environ.get("FANTASY_STATE_DIR")
+    notify_mod.send_report(rep, league_name=league_name, action_summary=action_lines)
 
 
 def cmd_sell(args):
