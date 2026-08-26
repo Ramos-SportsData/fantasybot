@@ -24,6 +24,10 @@ jobs:
         with:
           persist-credentials: true  # Needed for push
 
+      - name: Restore tokens.json from secret
+        run: |
+          echo "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -64,6 +68,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true  # Needed for push
+
+      - name: Restore tokens.json from secret
+        run: |
+          echo "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
 
       - name: Set up Python
         uses: actions/setup-python@v5
