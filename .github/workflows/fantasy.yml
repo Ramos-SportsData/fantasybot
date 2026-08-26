@@ -33,10 +33,27 @@ jobs:
           echo "DEBUG: First 20 bytes of written file:"
           head -c 20 tokens.json.tmp | od -c | head -5
 
-          # Try to parse and rewrite as valid JSON to ensure no extra whitespace/BOM
-          if python3 -c "import json; json.load(open('tokens.json.tmp')); print('JSON is valid')" 2>/dev/null; then
-            # JSON is valid, now rewrite it to ensure clean formatting
-            python3 -c "import json; data = json.load(open('tokens.json.tmp')); json.dump(data, open('tokens.json', 'w'), separators=(',', ':'))"
+          # Strip leading whitespace/BOM and validate
+          if python3 -c "
+import json
+import sys
+with open('tokens.json.tmp', 'rb') as f:
+    content = f.read()
+# Strip UTF-8 BOM if present
+if content.startswith(b'\\xef\\xbb\\xbf'):
+    content = content[3:]
+# Strip leading whitespace
+content = content.lstrip()
+try:
+    json.loads(content.decode('utf-8'))
+    # Write cleaned content
+    with open('tokens.json', 'wb') as f:
+        f.write(content)
+    print('JSON is valid and cleaned')
+except Exception as e:
+    print(f'Invalid JSON: {e}')
+    sys.exit(1)
+" 2>/dev/null; then
             echo "✓ tokens.json restored, validated, and cleaned"
           else
             echo "✗ Invalid JSON in FANTASY_TOKENS_JSON secret"
@@ -97,10 +114,27 @@ jobs:
           echo "DEBUG: First 20 bytes of written file:"
           head -c 20 tokens.json.tmp | od -c | head -5
 
-          # Try to parse and rewrite as valid JSON to ensure no extra whitespace/BOM
-          if python3 -c "import json; json.load(open('tokens.json.tmp')); print('JSON is valid')" 2>/dev/null; then
-            # JSON is valid, now rewrite it to ensure clean formatting
-            python3 -c "import json; data = json.load(open('tokens.json.tmp')); json.dump(data, open('tokens.json', 'w'), separators=(',', ':'))"
+          # Strip leading whitespace/BOM and validate
+          if python3 -c "
+import json
+import sys
+with open('tokens.json.tmp', 'rb') as f:
+    content = f.read()
+# Strip UTF-8 BOM if present
+if content.startswith(b'\\xef\\xbb\\xbf'):
+    content = content[3:]
+# Strip leading whitespace
+content = content.lstrip()
+try:
+    json.loads(content.decode('utf-8'))
+    # Write cleaned content
+    with open('tokens.json', 'wb') as f:
+        f.write(content)
+    print('JSON is valid and cleaned')
+except Exception as e:
+    print(f'Invalid JSON: {e}')
+    sys.exit(1)
+" 2>/dev/null; then
             echo "✓ tokens.json restored, validated, and cleaned"
           else
             echo "✗ Invalid JSON in FANTASY_TOKENS_JSON secret"
