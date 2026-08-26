@@ -11,7 +11,7 @@ jobs:
   fantasybot-hugo:
     runs-on: ubuntu-latest
     env:
-      FANTASY_LEAGUE_ID: 017817326
+      FANTASY_LEAGUE_ID: "017817326"
       FANTASY_STATE_DIR: .state_hugo_league_1
     steps:
       - uses: actions/checkout@v4
@@ -56,7 +56,7 @@ jobs:
   fantasybot-cueva:
     runs-on: ubuntu-latest
     env:
-      FANTASY_LEAGUE_ID: 018199965
+      FANTASY_LEAGUE_ID: "018199965"
       FANTASY_STATE_DIR: .state_cueva_plus_27
     steps:
       - uses: actions/checkout@v4
