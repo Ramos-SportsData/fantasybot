@@ -24,9 +24,20 @@ jobs:
         with:
           persist-credentials: true  # Needed for push
 
-      - name: Restore tokens.json from secret
+      - name: Restore and validate tokens.json from secret
         run: |
-          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
+          # Write the secret to a temporary file
+          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json.tmp
+
+          # Validate that it's valid JSON
+          if python3 -m json.tool tokens.json.tmp > /dev/null 2>&1; then
+            mv tokens.json.tmp tokens.json
+            echo "✓ tokens.json restored and validated successfully"
+          else
+            echo "✗ Invalid JSON in FANTASY_TOKENS_JSON secret"
+            echo "First 100 chars: $(printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" | head -c 100 | od -c)"
+            exit 1
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -69,9 +80,20 @@ jobs:
         with:
           persist-credentials: true  # Needed for push
 
-      - name: Restore tokens.json from secret
+      - name: Restore and validate tokens.json from secret
         run: |
-          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json
+          # Write the secret to a temporary file
+          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json.tmp
+
+          # Validate that it's valid JSON
+          if python3 -m json.tool tokens.json.tmp > /dev/null 2>&1; then
+            mv tokens.json.tmp tokens.json
+            echo "✓ tokens.json restored and validated successfully"
+          else
+            echo "✗ Invalid JSON in FANTASY_TOKENS_JSON secret"
+            echo "First 100 chars: $(printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" | head -c 100 | od -c)"
+            exit 1
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
