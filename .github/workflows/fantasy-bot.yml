@@ -19,6 +19,8 @@ jobs:
           persist-credentials: true
 
       - name: Restore tokens.json from secret
+        env:
+          FANTASY_TOKENS_JSON: ${{ secrets.FANTASY_TOKENS_JSON }}
         run: |
           python3 -c "import json,os,sys;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
 
@@ -62,6 +64,8 @@ jobs:
           persist-credentials: true
 
       - name: Restore tokens.json from secret
+        env:
+          FANTASY_TOKENS_JSON: ${{ secrets.FANTASY_TOKENS_JSON }}
         run: |
           python3 -c "import json,os,sys;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
 
