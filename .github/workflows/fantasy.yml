@@ -3,13 +3,7 @@ name: LaLiga Fantasy Automation
 on:
   schedule:
     # Runs at 09:00, 17:00, and 18:00 Spanish time
-    # Converted to UTC (Spain is UTC+1 in winter, UTC+2 in summer)
-    # To handle DST automatically, we run at fixed UTC times and note:
-    # - 09:00 Spain = 08:00 UTC (winter) / 07:00 UTC (summer)
-    # - 17:00 Spain = 16:00 UTC (winter) / 15:00 UTC (summer)
-    # - 18:00 Spain = 17:00 UTC (winter) / 16:00 UTC (summer)
-    # We'll run at 07:00, 15:00, and 16:00 UTC to match summer times
-    # This will be 1 hour off in winter but still reasonable
+    # Approximate UTC times (will be ~1 hour off in winter due to DST)
     - cron: '0 7,15,16 * * *'
   workflow_dispatch:
 
@@ -22,47 +16,51 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true  # Needed for push
+          persist-credentials: true
 
-      - name: Restore and clean tokens.json from secret
+      - name: Restore tokens.json from secret
         run: |
-          # Write the secret to a temporary file
-          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json.tmp
-
-          # Show first few bytes for debugging (first 20 bytes)
-          echo "DEBUG: First 20 bytes of written file:"
-          head -c 20 tokens.json.tmp | od -c | head -5
-
-          # Strip leading whitespace/BOM and validate
-          if python3 -c "
+          # Create a temporary Python script to handle the token restoration
+          cat > restore_tokens.py << 'EOF'
 import json
+import os
 import sys
-with open('tokens.json.tmp', 'rb') as f:
-    content = f.read()
-# Strip UTF-8 BOM if present
-if content.startswith(b'\\xef\\xbb\\xbf'):
-    content = content[3:]
-# Strip leading whitespace
-content = content.lstrip()
-try:
-    json.loads(content.decode('utf-8'))
-    # Write cleaned content
-    with open('tokens.json', 'wb') as f:
-        f.write(content)
-    print('JSON is valid and cleaned')
-except Exception as e:
-    print(f'Invalid JSON: {e}')
+
+# Get the token secret from environment
+token_secret = os.environ.get('FANTASY_TOKENS_JSON')
+if not token_secret:
+    print("Error: FANTASY_TOKENS_JSON secret is not set")
     sys.exit(1)
-" 2>/dev/null; then
-            echo "✓ tokens.json restored, validated, and cleaned"
-          else
-            echo "✗ Invalid JSON in FANTASY_TOKENS_JSON secret"
-            echo "DEBUG: First 100 bytes of secret:"
-            printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" | head -c 100 | od -c
-            echo "DEBUG: First 100 bytes of temp file:"
-            head -c 100 tokens.json.tmp | od -c
-            exit 1
-          fi
+
+# Try to parse the JSON
+try:
+    # Remove any potential BOM and whitespace
+    if token_secret.startswith('﻿'):
+        token_secret = token_secret[1:]
+    token_secret = token_secret.strip()
+
+    # Parse JSON
+    tokens = json.loads(token_secret)
+
+    # Write to tokens.json
+    with open('tokens.json', 'w', encoding='utf-8') as f:
+        json.dump(tokens, f, separators=(',', ':'))
+
+    print("✓ tokens.json restored successfully")
+except json.JSONDecodeError as e:
+    print(f"✗ Invalid JSON in FANTASY_TOKENS_JSON secret: {e}")
+    # Show first 50 characters for debugging
+    preview = repr(token_secret[:50]) if len(token_secret) > 50 else repr(token_secret)
+    print(f"First 50 chars: {preview}")
+    sys.exit(1)
+except Exception as e:
+    print(f"✗ Error processing tokens: {e}")
+    sys.exit(1)
+EOF
+
+          # Set the secret as environment variable for the Python script
+          export FANTASY_TOKENS_JSON="${{ secrets.FANTASY_TOKENS_JSON }}"
+          python3 restore_tokens.py
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -85,14 +83,12 @@ except Exception as e:
 
       - name: Commit and push state changes
         run: |
-          # Check if there are changes in our state directory
-          if ! git diff --quiet .state_hugo_league_1/; then
-            echo "State changes detected for HUGO LEAGUE 1, committing..."
+          if git diff --quiet .state_hugo_league_1/; then
+            echo "No state changes to commit for HUGO LEAGUE 1"
+          else
             git add .state_hugo_league_1/
             git commit -m "Update HUGO LEAGUE 1 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
             git push origin HEAD:${{ github.ref }}
-          else
-            echo "No state changes to commit for HUGO LEAGUE 1"
           fi
 
   fantasybot-cueva:
@@ -103,47 +99,51 @@ except Exception as e:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: true  # Needed for push
+          persist-credentials: true
 
-      - name: Restore and clean tokens.json from secret
+      - name: Restore tokens.json from secret
         run: |
-          # Write the secret to a temporary file
-          printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" > tokens.json.tmp
-
-          # Show first few bytes for debugging (first 20 bytes)
-          echo "DEBUG: First 20 bytes of written file:"
-          head -c 20 tokens.json.tmp | od -c | head -5
-
-          # Strip leading whitespace/BOM and validate
-          if python3 -c "
+          # Create a temporary Python script to handle the token restoration
+          cat > restore_tokens.py << 'EOF'
 import json
+import os
 import sys
-with open('tokens.json.tmp', 'rb') as f:
-    content = f.read()
-# Strip UTF-8 BOM if present
-if content.startswith(b'\\xef\\xbb\\xbf'):
-    content = content[3:]
-# Strip leading whitespace
-content = content.lstrip()
-try:
-    json.loads(content.decode('utf-8'))
-    # Write cleaned content
-    with open('tokens.json', 'wb') as f:
-        f.write(content)
-    print('JSON is valid and cleaned')
-except Exception as e:
-    print(f'Invalid JSON: {e}')
+
+# Get the token secret from environment
+token_secret = os.environ.get('FANTASY_TOKENS_JSON')
+if not token_secret:
+    print("Error: FANTASY_TOKENS_JSON secret is not set")
     sys.exit(1)
-" 2>/dev/null; then
-            echo "✓ tokens.json restored, validated, and cleaned"
-          else
-            echo "✗ Invalid JSON in FANTASY_TOKENS_JSON secret"
-            echo "DEBUG: First 100 bytes of secret:"
-            printf '%s' "${{ secrets.FANTASY_TOKENS_JSON }}" | head -c 100 | od -c
-            echo "DEBUG: First 100 bytes of temp file:"
-            head -c 100 tokens.json.tmp | od -c
-            exit 1
-          fi
+
+# Try to parse the JSON
+try:
+    # Remove any potential BOM and whitespace
+    if token_secret.startswith('﻿'):
+        token_secret = token_secret[1:]
+    token_secret = token_secret.strip()
+
+    # Parse JSON
+    tokens = json.loads(token_secret)
+
+    # Write to tokens.json
+    with open('tokens.json', 'w', encoding='utf-8') as f:
+        json.dump(tokens, f, separators=(',', ':'))
+
+    print("✓ tokens.json restored successfully")
+except json.JSONDecodeError as e:
+    print(f"✗ Invalid JSON in FANTASY_TOKENS_JSON secret: {e}")
+    # Show first 50 characters for debugging
+    preview = repr(token_secret[:50]) if len(token_secret) > 50 else repr(token_secret)
+    print(f"First 50 chars: {preview}")
+    sys.exit(1)
+except Exception as e:
+    print(f"✗ Error processing tokens: {e}")
+    sys.exit(1)
+EOF
+
+          # Set the secret as environment variable for the Python script
+          export FANTASY_TOKENS_JSON="${{ secrets.FANTASY_TOKENS_JSON }}"
+          python3 restore_tokens.py
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -166,12 +166,10 @@ except Exception as e:
 
       - name: Commit and push state changes
         run: |
-          # Check if there are changes in our state directory
-          if ! git diff --quiet .state_cueva_plus_27/; then
-            echo "State changes detected for CUEVA + 27, committing..."
+          if git diff --quiet .state_cueva_plus_27/; then
+            echo "No state changes to commit for CUEVA + 27"
+          else
             git add .state_cueva_plus_27/
             git commit -m "Update CUEVA + 27 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
             git push origin HEAD:${{ github.ref }}
-          else
-            echo "No state changes to commit for CUEVA + 27"
           fi
