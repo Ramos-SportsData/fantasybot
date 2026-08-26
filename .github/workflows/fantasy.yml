@@ -1,0 +1,95 @@
+name: LaLiga Fantasy Automation
+
+on:
+  schedule:
+    # Runs at 09:00, 17:00, and 18:00 Spanish time
+    # Approximate UTC times (will be ~1 hour off in winter due to DST)
+    - cron: '0 7,15,16 * * *'
+  workflow_dispatch:
+
+jobs:
+  fantasybot-hugo:
+    runs-on: ubuntu-latest
+    env:
+      FANTASY_LEAGUE_ID: 017817326
+      FANTASY_STATE_DIR: .state_hugo_league_1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Restore tokens.json from secret
+        run: |
+          python3 -c "import json,os,sys;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run FantasyBot Agent
+        run: |
+          python -m fantasybot agent --execute
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push state changes
+        run: |
+          if git diff --quiet .state_hugo_league_1/; then
+            echo "No state changes to commit for HUGO LEAGUE 1"
+          else
+            git add .state_hugo_league_1/
+            git commit -m "Update HUGO LEAGUE 1 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
+            git push origin HEAD:${{ github.ref }}
+          fi
+
+  fantasybot-cueva:
+    runs-on: ubuntu-latest
+    env:
+      FANTASY_LEAGUE_ID: 018199965
+      FANTASY_STATE_DIR: .state_cueva_plus_27
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Restore tokens.json from secret
+        run: |
+          python3 -c "import json,os,sys;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run FantasyBot Agent
+        run: |
+          python -m fantasybot agent --execute
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push state changes
+        run: |
+          if git diff --quiet .state_cueva_plus_27/; then
+            echo "No state changes to commit for CUEVA + 27"
+          else
+            git add .state_cueva_plus_27/
+            git commit -m "Update CUEVA + 27 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
+            git push origin HEAD:${{ github.ref }}
+          fi
