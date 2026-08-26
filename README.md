@@ -32,6 +32,19 @@ into much) — this fixes it for most people immediately. If it still fails, an
 `AADB2Cxxxxx` code in the error detail (rerun with the actual redirect URL and check
 the exception) narrows it down further.
 
+## GitHub Actions Automation
+
+This repository includes a GitHub Actions workflow (`.github/workflows/fantasy.yml`) that
+automates two LaLiga Fantasy leagues:
+
+- **HUGO LEAGUE 1** (ID: 017817326) with state in `.state_hugo_league_1/`
+- **CUEVA + 27** (ID: 018199965) with state in `.state_cueva_plus_27/`
+
+The workflow runs at 09:00, 17:00, and 18:00 Spanish time (approximately 07:00, 15:00, and 16:00 UTC)
+and automatically commits and pushes any state changes back to the repository.
+
+To customize the leagues or schedule, edit the workflow file directly.
+
 ## Commands
 
 ```bash

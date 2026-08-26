@@ -7,6 +7,9 @@ tokens.json
 # Scrape cache and agent state (regenerable)
 .cache/
 .state/
+# Except for our specific league state directories we want to track in git
+!.state_hugo_league_1/
+!.state_cueva_plus_27/
 
 # Python
 __pycache__/

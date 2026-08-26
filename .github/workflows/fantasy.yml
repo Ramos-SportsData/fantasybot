@@ -1,0 +1,97 @@
+name: LaLiga Fantasy Automation
+
+on:
+  schedule:
+    # Runs at 09:00, 17:00, and 18:00 Spanish time
+    # Converted to UTC (Spain is UTC+1 in winter, UTC+2 in summer)
+    # To handle DST automatically, we run at fixed UTC times and note:
+    # - 09:00 Spain = 08:00 UTC (winter) / 07:00 UTC (summer)
+    # - 17:00 Spain = 16:00 UTC (winter) / 15:00 UTC (summer)
+    # - 18:00 Spain = 17:00 UTC (winter) / 16:00 UTC (summer)
+    # We'll run at 07:00, 15:00, and 16:00 UTC to match summer times
+    # This will be 1 hour off in winter but still reasonable
+    - cron: '0 7,15,16 * * *'
+  workflow_dispatch:
+
+jobs:
+  fantasybot-hugo:
+    runs-on: ubuntu-latest
+    env:
+      FANTASY_LEAGUE_ID: 017817326
+      FANTASY_STATE_DIR: .state_hugo_league_1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # Needed for push
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run FantasyBot Agent
+        run: |
+          python -m fantasybot agent --execute
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push state changes
+        run: |
+          # Check if there are changes in our state directory
+          if ! git diff --quiet .state_hugo_league_1/; then
+            echo "State changes detected for HUGO LEAGUE 1, committing..."
+            git add .state_hugo_league_1/
+            git commit -m "Update HUGO LEAGUE 1 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No state changes to commit for HUGO LEAGUE 1"
+          fi
+
+  fantasybot-cueva:
+    runs-on: ubuntu-latest
+    env:
+      FANTASY_LEAGUE_ID: 018199965
+      FANTASY_STATE_DIR: .state_cueva_plus_27
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # Needed for push
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run FantasyBot Agent
+        run: |
+          python -m fantasybot agent --execute
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push state changes
+        run: |
+          # Check if there are changes in our state directory
+          if ! git diff --quiet .state_cueva_plus_27/; then
+            echo "State changes detected for CUEVA + 27, committing..."
+            git add .state_cueva_plus_27/
+            git commit -m "Update CUEVA + 27 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No state changes to commit for CUEVA + 27"
+          fi

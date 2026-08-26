@@ -16,7 +16,7 @@ import time
 from . import config
 from .sources import value_history
 
-STATE_DIR = os.path.join(config.ROOT, ".state")
+STATE_DIR = os.environ.get("FANTASY_STATE_DIR") or os.path.join(config.ROOT, ".state")
 SNAPSHOT_PATH = os.path.join(STATE_DIR, "snapshot.json")
 TASKS_PATH = os.path.join(STATE_DIR, "tasks.json")
 REMINDERS_PATH = os.path.join(STATE_DIR, "reminders.json")

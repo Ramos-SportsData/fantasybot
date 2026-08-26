@@ -90,7 +90,7 @@ class FantasyClient:
         """(league_id, team_id) of the league to operate on.
 
         Defaults to the user's first league, so single-league setups (the OSS self-host
-        case) work with no config. Set FANTASYBOT_LEAGUE=<id> to pin a specific league —
+        case) work with no config. Set FANTASY_LEAGUE_ID (or FANTASYBOT_LEAGUE) to pin a specific league —
         that's how the hosted service drives an account that has several leagues: it runs
         the agent once per league, exporting this var each time. Every command resolves
         ids through here, so one env var steers them all without touching call sites.
@@ -98,7 +98,7 @@ class FantasyClient:
         leagues = self.leagues()
         if not leagues:
             raise FantasyError("The user has no leagues.")
-        want = os.environ.get("FANTASYBOT_LEAGUE")
+        want = os.environ.get("FANTASY_LEAGUE_ID") or os.environ.get("FANTASYBOT_LEAGUE")
         if want:
             for lg in leagues:
                 if str(lg["id"]) == str(want):
