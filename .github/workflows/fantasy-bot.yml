@@ -13,6 +13,8 @@ jobs:
     env:
       FANTASY_LEAGUE_ID: "017817326"
       FANTASY_STATE_DIR: .state_hugo_league_1
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,6 +60,8 @@ jobs:
     env:
       FANTASY_LEAGUE_ID: "018199965"
       FANTASY_STATE_DIR: .state_cueva_plus_27
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
       - uses: actions/checkout@v4
         with:
