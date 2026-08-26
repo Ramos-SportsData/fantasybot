@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs at 09:00, 17:00, and 18:00 Spanish time
     # Approximate UTC times (will be ~1 hour off in winter due to DST)
-    - cron: '0 7,15,16 * * *'
+    - cron: '0 8,15,16 * * *'
   workflow_dispatch:
 
 jobs:
