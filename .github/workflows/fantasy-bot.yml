@@ -7,12 +7,31 @@ on:
     - cron: '0 8,15,16 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: fantasybot-state-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  fantasybot-hugo:
+  fantasybot:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1        # avoids a push race condition between the two leagues
+      matrix:
+        include:
+          - name: "HUGO LEAGUE 1"
+            league_id: "017817326"
+            state_dir: ".state_hugo_league_1"
+          - name: "CUEVA + 27"
+            league_id: "018199965"
+            state_dir: ".state_cueva_plus_27"
     env:
-      FANTASY_LEAGUE_ID: "017817326"
-      FANTASY_STATE_DIR: .state_hugo_league_1
+      FANTASY_LEAGUE_ID: ${{ matrix.league_id }}
+      FANTASY_LEAGUE_NAME: ${{ matrix.name }}
+      FANTASY_STATE_DIR: ${{ matrix.state_dir }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     steps:
@@ -24,10 +43,9 @@ jobs:
         env:
           FANTASY_TOKENS_JSON: ${{ secrets.FANTASY_TOKENS_JSON }}
         run: |
-          python3 -c "import json,os,sys;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
+          python3 -c "import json,os;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -37,8 +55,16 @@ jobs:
           pip install -e .
 
       - name: Run FantasyBot Agent
+        id: run_bot
         run: |
-          python -m fantasybot agent --execute
+          python -m fantasybot agent --execute --execute-sells --execute-clauses
+
+      - name: Notify Telegram on failure
+        if: failure() && steps.run_bot.outcome == 'failure'
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="⚠️ FantasyBot falló en ${{ matrix.name }} (${{ github.run_id }})"
 
       - name: Configure Git
         run: |
@@ -47,57 +73,11 @@ jobs:
 
       - name: Commit and push state changes
         run: |
-          if git diff --quiet .state_hugo_league_1/; then
-            echo "No state changes to commit for HUGO LEAGUE 1"
+          git pull --rebase origin ${{ github.ref_name }} || true
+          if git diff --quiet ${FANTASY_STATE_DIR}/; then
+            echo "No state changes to commit for ${{ matrix.name }}"
           else
-            git add .state_hugo_league_1/
-            git commit -m "Update HUGO LEAGUE 1 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
-            git push origin HEAD:${{ github.ref }}
-          fi
-
-  fantasybot-cueva:
-    runs-on: ubuntu-latest
-    env:
-      FANTASY_LEAGUE_ID: "018199965"
-      FANTASY_STATE_DIR: .state_cueva_plus_27
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
-
-      - name: Restore tokens.json from secret
-        env:
-          FANTASY_TOKENS_JSON: ${{ secrets.FANTASY_TOKENS_JSON }}
-        run: |
-          python3 -c "import json,os,sys;json.dump(json.loads(os.environ['FANTASY_TOKENS_JSON']),open('tokens.json','w'),separators=(',',':'))"
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e .
-
-      - name: Run FantasyBot Agent
-        run: |
-          python -m fantasybot agent --execute
-
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push state changes
-        run: |
-          if git diff --quiet .state_cueva_plus_27/; then
-            echo "No state changes to commit for CUEVA + 27"
-          else
-            git add .state_cueva_plus_27/
-            git commit -m "Update CUEVA + 27 state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
+            git add ${FANTASY_STATE_DIR}/
+            git commit -m "Update ${{ matrix.name }} state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
             git push origin HEAD:${{ github.ref }}
           fi
