@@ -303,9 +303,17 @@ def cmd_agent(args):
             action_summary=[f"Skipped: incomplete squad ({e})."])
         return
     current, cur_coach, cur_captain = agent_mod._current_lineup(fc, tid)
+    if (args.execute_sells or args.execute_clauses) and not args.execute:
+        print("\n[AVISO] --execute-sells/--execute-clauses requieren --execute; "
+              "se ignoran en modo plan.")
     result = execute_mod.act(fc, lid, tid, team, best, current,
                              dry_run=not args.execute,
-                             current_coach=cur_coach, current_captain=cur_captain)
+                             current_coach=cur_coach, current_captain=cur_captain,
+                             sell_enabled=args.execute and args.execute_sells,
+                             sells=rep.get("sells"),
+                             clause_enabled=args.execute and args.execute_clauses,
+                             clause_targets=rep.get("clause_targets"),
+                             max_clause_spend=args.max_clause_spend)
     verbo = "EXECUTED" if args.execute else "PLAN (use --execute to act)"
     print(f"\n--- AUTONOMOUS ACTIONS [{verbo}] ---")
     lu = result["lineup"]
@@ -331,6 +339,32 @@ def cmd_agent(args):
     if bd["cancelled"]:
         print(f"· Bids cancelled (no longer profitable): {bd['cancelled']}")
         action_lines.append(f"Bids cancelled: {bd['cancelled']}")
+
+    sd = result.get("sells")
+    if sd is not None:
+        for s in sd["listed"]:
+            applied = sd.get("applied")
+            print(f"· Sell {s['nombre']} at {s['sale_price']:,}"
+                  + ("  ✓ listed" if applied else "  (would list)"))
+            action_lines.append(f"Sell {s['nombre']} at {s['sale_price']:,}"
+                                + (" ✓ listed" if applied else " (plan only)"))
+        if not sd["listed"] and not sd["skipped"]:
+            print("· Sells: no candidates to list.")
+        if sd["skipped"]:
+            print(f"· Already listed, skipped: {sd['skipped']}")
+
+    cd = result.get("clauses")
+    if cd is not None:
+        for t in cd["paid"]:
+            applied = cd.get("applied")
+            print(f"· Clause {t['nombre']} for {t['clause']:,}"
+                  + ("  ✓ paid" if applied else "  (would pay)"))
+            action_lines.append(f"Clause {t['nombre']} for {t['clause']:,}"
+                                + (" ✓ paid" if applied else " (plan only)"))
+        if not cd["paid"]:
+            print(f"· Clauses: none open now within the {cd['budget']:,} budget.")
+        else:
+            print(f"· Clause spend this run: {cd['spent']:,} / {cd['budget']:,}")
 
     # --- Telegram notification ---
     league_name = os.environ.get("FANTASY_LEAGUE_NAME") or os.environ.get("FANTASY_STATE_DIR")
@@ -705,6 +739,13 @@ def build_parser():
                     help="days until the matchday (for urgency)")
     ag.add_argument("--execute", action="store_true",
                     help="actually ACT (line up and bid); without it, only plans")
+    ag.add_argument("--execute-sells", action="store_true",
+                    help="also list recommended sales for sale (needs --execute)")
+    ag.add_argument("--execute-clauses", action="store_true",
+                    help="also pay open buyout clauses, capped (needs --execute)")
+    ag.add_argument("--max-clause-spend", type=int, default=None,
+                    help="hard cap on € spent on clauses this run "
+                         "(default: half the current balance)")
     ag.add_argument("--json", action="store_true",
                     help="JSON output of the report (for Hermes)")
     ag.set_defaults(func=cmd_agent)
