@@ -4,11 +4,18 @@ Autonomy authorized by the user:
   - Lineup: applies the best lineup (reversible, no spending).
   - Bid/cancel in market: places bids on profitable flips and pulls those that no
     longer apply (reversible until market close). May use the whole balance.
-  - Buyouts: NOT automatic (irreversible spending) → left as an alert/task.
+  - Sells: lists `sell_candidates()` for sale at the recommended price. Reversible
+    until someone buys (you can still cancel a listing manually), gated behind
+    `sell_enabled` since it's still a squad change the user may want to review first.
+  - Buyouts: irreversible spending. OFF by default, gated behind `clause_enabled`
+    AND a hard `max_clause_spend` per run, so a burst of clauses opening at once
+    can never empty the balance in one pass.
 
 Everything runs through `dry_run`: if True, it only returns the PLAN without
 touching anything.
 """
+
+from datetime import datetime, timezone
 
 from . import events, state
 from .strategy import flip
@@ -168,15 +175,127 @@ def sync_bids(client, league_id, team, dry_run=True):
             "applied": not dry_run}
 
 
+def sync_sells(client, league_id, sells, dry_run=True):
+    """Lists `agent.review()`'s sell_candidates() for sale at the recommended price.
+
+    Guarded separately from lineup/bids (`sell_enabled` in `act()`) because putting a
+    player up for sale removes him from your XI options going forward -- a squad
+    change the user may prefer to review before it goes live, unlike a same-day
+    reversible bid.
+
+    Skips a player already listed (reading the live market, same pattern as
+    `plan_bids`) so a re-run doesn't relist or double-list him.
+    """
+    already_listed = set()
+    try:
+        for el in client.market(league_id):
+            if el.get("discr") == "marketPlayerLeague" and el.get("status") == "on_sale":
+                pm = el.get("playerMaster") or {}
+                if pm.get("id"):
+                    already_listed.add(pm["id"])
+    except Exception:
+        pass  # without the market, we just risk a harmless re-list attempt below
+
+    listed, skipped = [], []
+    for s in sells:
+        pid = s["player_id"]
+        if pid in already_listed:
+            skipped.append(s["nombre"])
+            continue
+        if not dry_run:
+            try:
+                client.sell_player(league_id, pid, s["sale_price"])
+                events.emit("sell", f"Listed {s['nombre']} for sale",
+                            detail={"price": f"{s['sale_price']:,}", "reason": s["reason"]})
+            except Exception as e:
+                events.emit("sell", f"Failed to list {s['nombre']}", detail=str(e),
+                            status="error")
+                continue
+        listed.append(s)
+
+    return {"action": "sells", "listed": listed, "skipped": skipped, "applied": not dry_run}
+
+
+def pay_clauses(client, league_id, targets, team_money, dry_run=True,
+                max_clause_spend=None, min_clause_prob=60):
+    """Pays buyout clauses that are open RIGHT NOW (unlock time already passed) and
+    meet the safety bar, up to `max_clause_spend` total for this run.
+
+    Irreversible spending, so this is opt-in on top of `dry_run=False` (see
+    `clause_enabled` in `act()`) and always capped:
+      - `max_clause_spend`: hard ceiling on total € spent on clauses THIS run.
+        None -> capped at half the current balance, never the whole balance, so a
+        burst of several clauses opening together can't wipe out the team's cash.
+      - `min_clause_prob`: skip anyone below this starting-XI probability, even if
+        `clause_targets()` already filtered a lower bar (MIN_CLAUSE_PROB=40) -- an
+        irreversible buy deserves a stricter bar than a reversible bid/task.
+      - Only clauses whose `unlock` time has already passed are candidates: paying
+        BEFORE unlock isn't offered by the game, and clause_targets() already
+        prefers the open-sale route (`cheaper_via_bid`) over the clause when it's
+        cheaper, so those are skipped here (the bid path in sync_bids covers them).
+      - Cheapest-first, so the budget stretches across as many gaps as possible
+        instead of blowing it all on the single priciest target.
+    """
+    if max_clause_spend is None:
+        max_clause_spend = team_money // 2
+
+    now = datetime.now(timezone.utc)
+    candidates = []
+    for t in targets:
+        if t.get("cheaper_via_bid"):
+            continue  # the open sale is the intended route for this one, not the clause
+        if t.get("prob") is not None and t["prob"] < min_clause_prob:
+            continue
+        try:
+            unlock = datetime.fromisoformat(t["unlock"])
+        except (TypeError, ValueError):
+            continue
+        if unlock > now:
+            continue  # clause hasn't opened yet
+        candidates.append(t)
+    candidates.sort(key=lambda t: t["clause"])
+
+    paid, spent = [], 0
+    for t in candidates:
+        if spent + t["clause"] > max_clause_spend:
+            continue
+        if spent + t["clause"] > team_money:
+            continue
+        if not dry_run:
+            try:
+                client.pay_buyout_clause(league_id, t["player_id"], t["clause"])
+                events.emit("clause", f"Buyout: {t['nombre']} for {t['clause']:,}",
+                            detail={"pos": t["pos"], "reason": t["reason"]})
+            except Exception as e:
+                events.emit("clause", f"Failed buyout: {t['nombre']}", detail=str(e),
+                            status="error")
+                continue
+        paid.append(t)
+        spent += t["clause"]
+
+    return {"action": "clauses", "paid": paid, "spent": spent,
+            "budget": max_clause_spend, "applied": not dry_run}
+
+
 def act(client, league_id, team_id, team, best, current_ids, dry_run=True,
-        current_coach=None, current_captain=None):
-    """Executes (or plans) the autonomous actions: set lineup + bid.
+        current_coach=None, current_captain=None,
+        sell_enabled=False, sells=None,
+        clause_enabled=False, clause_targets=None, max_clause_spend=None):
+    """Executes (or plans) the autonomous actions: lineup + bids always; sells and
+    buyout clauses only when explicitly enabled (see module docstring for why).
 
     `current_coach`/`current_captain` (premium) let apply_lineup detect a captain/coach
     change that leaves the XI unchanged; None (non-premium/default) keeps today's behaviour.
     """
-    return {
+    result = {
         "lineup": apply_lineup(client, team_id, best, current_ids, dry_run,
                                current_coach=current_coach, current_captain=current_captain),
         "bids": sync_bids(client, league_id, team, dry_run),
     }
+    if sell_enabled and sells:
+        result["sells"] = sync_sells(client, league_id, sells, dry_run)
+    if clause_enabled and clause_targets:
+        result["clauses"] = pay_clauses(client, league_id, clause_targets,
+                                        team["teamMoney"], dry_run,
+                                        max_clause_spend=max_clause_spend)
+    return result
