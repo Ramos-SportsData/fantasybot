@@ -1,15 +1,17 @@
 """EXECUTION layer: turns decisions into real actions.
 
 Autonomy authorized by the user:
-  - Lineup: applies the best lineup (reversible, no spending).
+  - Lineup: applies the best lineup (reversible, no spending). Always on when
+    `--execute` is passed.
   - Bid/cancel in market: places bids on profitable flips and pulls those that no
     longer apply (reversible until market close). May use the whole balance.
-  - Sells: lists `sell_candidates()` for sale at the recommended price. Reversible
-    until someone buys (you can still cancel a listing manually), gated behind
-    `sell_enabled` since it's still a squad change the user may want to review first.
-  - Buyouts: irreversible spending. OFF by default, gated behind `clause_enabled`
-    AND a hard `max_clause_spend` per run, so a burst of clauses opening at once
-    can never empty the balance in one pass.
+    Always on when `--execute` is passed.
+  - Sells: lists `sell_candidates()` for sale at the recommended price. AUTOMATIC
+    when `--execute-sells` is also passed; off by default.
+  - Buyouts: irreversible spending. AUTOMATIC when `--execute-clauses` is also
+    passed; off by default, and even when on, capped by `max_clause_spend` per
+    run (default: half the current balance) so a burst of clauses opening at
+    once can never empty the balance in one pass.
 
 Everything runs through `dry_run`: if True, it only returns the PLAN without
 touching anything.
@@ -178,10 +180,8 @@ def sync_bids(client, league_id, team, dry_run=True):
 def sync_sells(client, league_id, sells, dry_run=True):
     """Lists `agent.review()`'s sell_candidates() for sale at the recommended price.
 
-    Guarded separately from lineup/bids (`sell_enabled` in `act()`) because putting a
-    player up for sale removes him from your XI options going forward -- a squad
-    change the user may prefer to review before it goes live, unlike a same-day
-    reversible bid.
+    Runs automatically when `--execute-sells` is passed to `agent --execute` (see
+    `sell_enabled` in `act()`) -- opt-in via that flag, not gated further here.
 
     Skips a player already listed (reading the live market, same pattern as
     `plan_bids`) so a re-run doesn't relist or double-list him.
@@ -196,7 +196,7 @@ def sync_sells(client, league_id, sells, dry_run=True):
     except Exception:
         pass  # without the market, we just risk a harmless re-list attempt below
 
-    listed, skipped = [], []
+    listed, skipped, failed = [], [], []
     for s in sells:
         pid = s["player_id"]
         if pid in already_listed:
@@ -210,10 +210,12 @@ def sync_sells(client, league_id, sells, dry_run=True):
             except Exception as e:
                 events.emit("sell", f"Failed to list {s['nombre']}", detail=str(e),
                             status="error")
+                failed.append({"nombre": s["nombre"], "error": str(e)})
                 continue
         listed.append(s)
 
-    return {"action": "sells", "listed": listed, "skipped": skipped, "applied": not dry_run}
+    return {"action": "sells", "listed": listed, "skipped": skipped, "failed": failed,
+            "applied": not dry_run}
 
 
 def pay_clauses(client, league_id, targets, team_money, dry_run=True,
