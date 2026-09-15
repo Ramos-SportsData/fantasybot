@@ -348,7 +348,10 @@ def cmd_agent(args):
                   + ("  ✓ listed" if applied else "  (would list)"))
             action_lines.append(f"Sell {s['nombre']} at {s['sale_price']:,}"
                                 + (" ✓ listed" if applied else " (plan only)"))
-        if not sd["listed"] and not sd["skipped"]:
+        for f in sd.get("failed", []):
+            print(f"· ⚠ Failed to list {f['nombre']}: {f['error']}")
+            action_lines.append(f"⚠ Failed to list {f['nombre']}: {f['error']}")
+        if not sd["listed"] and not sd["skipped"] and not sd.get("failed"):
             print("· Sells: no candidates to list.")
         if sd["skipped"]:
             print(f"· Already listed, skipped: {sd['skipped']}")
