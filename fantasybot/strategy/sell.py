@@ -1,4 +1,4 @@
-"""SELL advisor: who to offload and at what price.
+"""Recommends squad sales: who to offload and at what price.
 
 Safe rule: only proposes selling players NOT in your optimal XI (so it doesn't break your
 lineup) and, by default, only for ONE clear, data-grounded reason — a clearly FALLING
@@ -96,7 +96,11 @@ def sell_candidates(team, best, trends_index, falling_threshold=FALLING_THRESHOL
 
         out.append({
             "nombre": pm.get("nickname") or pm.get("name"),
-            "player_id": pm.get("id"),
+            # NOTE: must be the in-team instance id (playerTeamId), not the catalog
+            # id (pm["id"]) -- the sell endpoint rejects the catalog id with
+            # "player not in your team" even when the player clearly is. `ptid`
+            # is computed above for the exact same reason (protecting the XI).
+            "player_id": ptid,
             "pos": POS.get(pm.get("positionId"), "?"),
             "valor": valor,
             "sale_price": round(valor),  # fair price for a quick sale
