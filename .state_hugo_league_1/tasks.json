@@ -44,7 +44,7 @@
     "text": "Update lineup (there's a better XI).",
     "due": null,
     "key": "lineup",
-    "done": false,
+    "done": true,
     "created": 1789542410
   }
 ]
