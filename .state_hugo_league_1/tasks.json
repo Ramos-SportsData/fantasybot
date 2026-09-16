@@ -28,7 +28,7 @@
     "text": "Bid for Ochieng (DEL): he's ON SALE at 1,197,234, 22,629 less than his 1,219,863 clause. Closes 2026-09-18T18:07:27+02:00.",
     "due": "2026-09-18T18:07:27+02:00",
     "key": "clause:2955",
-    "done": false,
+    "done": true,
     "created": 1789542410
   },
   {
@@ -36,7 +36,7 @@
     "text": "Bid for Oskarsson (DEL): he's ON SALE at 7,341,550, 7,658,450 less than his 15,000,000 clause. Closes 2026-09-17T18:16:27+02:00.",
     "due": "2026-09-17T18:16:27+02:00",
     "key": "clause:2448",
-    "done": false,
+    "done": true,
     "created": 1789542410
   },
   {
@@ -46,5 +46,13 @@
     "key": "lineup",
     "done": true,
     "created": 1789542410
+  },
+  {
+    "id": 7,
+    "text": "Bid for Miguel Sierra (DEL): he's ON SALE at 5,106,646, 3,782,354 less than his 8,889,000 clause. Closes 2026-09-19T16:22:31+02:00.",
+    "due": "2026-09-19T16:22:31+02:00",
+    "key": "clause:2746",
+    "done": false,
+    "created": 1789583951
   }
 ]
