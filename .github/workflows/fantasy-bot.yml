@@ -64,7 +64,7 @@ jobs:
       - name: Run FantasyBot Agent
         id: run_bot
         run: |
-          python -m fantasybot team --json
+          python -m fantasybot team
 
       - name: Notify Telegram on failure
         if: failure() && steps.run_bot.outcome == 'failure'
