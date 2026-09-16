@@ -74,10 +74,10 @@ jobs:
       - name: Commit and push state changes
         run: |
           git pull --rebase origin ${{ github.ref_name }} || true
-          if git diff --quiet ${FANTASY_STATE_DIR}/; then
+          git add ${FANTASY_STATE_DIR}/
+          if git diff --cached --quiet; then
             echo "No state changes to commit for ${{ matrix.name }}"
           else
-            git add ${FANTASY_STATE_DIR}/
             git commit -m "Update ${{ matrix.name }} state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
             git push origin HEAD:${{ github.ref }}
           fi
