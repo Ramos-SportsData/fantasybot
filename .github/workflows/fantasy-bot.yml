@@ -54,11 +54,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
 
+      # --- TEMPORARY DIAGNOSTIC STEP ---
+      # This replaces the normal "agent --execute" run just for one manual launch,
+      # to inspect the exact field names LaLiga uses to identify a player within
+      # your squad (playerTeamId vs playerMaster.id vs something else). Revert this
+      # step back to the normal agent command right after copying the output --
+      # while this is active, the bot does NOT bid, sell, buy clauses, or set the
+      # lineup, and the cron runs will just print this JSON three times a day.
       - name: Run FantasyBot Agent
         id: run_bot
         run: |
-  python -m fantasybot team --json
-
+          python -m fantasybot team --json
 
       - name: Notify Telegram on failure
         if: failure() && steps.run_bot.outcome == 'failure'
