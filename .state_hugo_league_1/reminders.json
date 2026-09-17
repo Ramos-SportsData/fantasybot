@@ -1,9 +1,16 @@
 [
   {
-    "key": "market_close:2026-09-17T18:08:00+02:00",
-    "fire_at": "2026-09-17T18:03:00+02:00",
-    "event_at": "2026-09-17T18:08:00+02:00",
+    "key": "market_close:2026-09-18T18:08:00+02:00",
+    "fire_at": "2026-09-18T18:03:00+02:00",
+    "event_at": "2026-09-18T18:08:00+02:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:2932:2026-09-27T19:35:13+02:00",
+    "fire_at": "2026-09-27T19:34:13+02:00",
+    "event_at": "2026-09-27T19:35:13+02:00",
+    "message": "Ángel Pérez's clause opens: prepare a buyout of 21,383,607 (fills a DEL gap).",
     "fired": false
   }
 ]

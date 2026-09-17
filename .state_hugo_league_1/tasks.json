@@ -20,7 +20,7 @@
     "text": "Bid for Enes Ünal (DEL): he's ON SALE at 18,204,947, 6,795,053 less than his 25,000,000 clause. Closes 2026-09-17T18:16:31+02:00.",
     "due": "2026-09-17T18:16:31+02:00",
     "key": "clause:3154",
-    "done": false,
+    "done": true,
     "created": 1789542410
   },
   {
@@ -54,5 +54,29 @@
     "key": "clause:2746",
     "done": false,
     "created": 1789583951
+  },
+  {
+    "id": 8,
+    "text": "Bid for Iñigo Vicente (DEL): he's ON SALE at 32,930,696, 334,326 less than his 33,265,022 clause. Closes 2026-09-20T15:11:00+02:00.",
+    "due": "2026-09-20T15:11:00+02:00",
+    "key": "clause:3002",
+    "done": false,
+    "created": 1789670865
+  },
+  {
+    "id": 9,
+    "text": "Buyout Ángel Pérez (DEL) for 21,383,607 when its clause opens.",
+    "due": "2026-09-27T19:35:13+02:00",
+    "key": "clause:2932",
+    "done": false,
+    "created": 1789670865
+  },
+  {
+    "id": 10,
+    "text": "Bid for Otorbi (DEL): he's ON SALE at 599,512, 400,488 less than his 1,000,000 clause. Closes 2026-09-20T18:07:31+02:00.",
+    "due": "2026-09-20T18:07:31+02:00",
+    "key": "clause:2693",
+    "done": false,
+    "created": 1789670865
   }
 ]
