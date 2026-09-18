@@ -7,10 +7,10 @@
     "fired": false
   },
   {
-    "key": "clause:2932:2026-09-27T19:35:13+02:00",
-    "fire_at": "2026-09-27T19:34:13+02:00",
-    "event_at": "2026-09-27T19:35:13+02:00",
-    "message": "Ángel Pérez's clause opens: prepare a buyout of 21,383,607 (fills a DEL gap).",
+    "key": "lineup_lock:2026-09-18T21:00:00+02:00",
+    "fire_at": "2026-09-18T19:00:00+02:00",
+    "event_at": "2026-09-18T21:00:00+02:00",
+    "message": "Matchday is today: set your FINAL LINEUP.",
     "fired": false
   }
 ]
