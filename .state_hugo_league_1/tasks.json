@@ -4,7 +4,7 @@
     "text": "Sign POR: you're short in that position.",
     "due": null,
     "key": "gap:POR",
-    "done": false,
+    "done": true,
     "created": 1789542410
   },
   {
@@ -12,7 +12,7 @@
     "text": "Sign DEL: you're short in that position.",
     "due": null,
     "key": "gap:DEL",
-    "done": false,
+    "done": true,
     "created": 1789542410
   },
   {
@@ -52,7 +52,7 @@
     "text": "Bid for Miguel Sierra (DEL): he's ON SALE at 5,106,646, 3,782,354 less than his 8,889,000 clause. Closes 2026-09-19T16:22:31+02:00.",
     "due": "2026-09-19T16:22:31+02:00",
     "key": "clause:2746",
-    "done": false,
+    "done": true,
     "created": 1789583951
   },
   {
@@ -60,7 +60,7 @@
     "text": "Bid for Iñigo Vicente (DEL): he's ON SALE at 32,930,696, 334,326 less than his 33,265,022 clause. Closes 2026-09-20T15:11:00+02:00.",
     "due": "2026-09-20T15:11:00+02:00",
     "key": "clause:3002",
-    "done": false,
+    "done": true,
     "created": 1789670865
   },
   {
@@ -68,7 +68,7 @@
     "text": "Bid for Ángel Pérez (DEL): he's ON SALE at 21,384,347, 1,136,680 less than his 22,521,027 clause. Closes 2026-09-20T15:11:07+02:00.",
     "due": "2026-09-20T15:11:07+02:00",
     "key": "clause:2932",
-    "done": false,
+    "done": true,
     "created": 1789670865
   },
   {
@@ -76,7 +76,15 @@
     "text": "Bid for Otorbi (DEL): he's ON SALE at 599,512, 400,488 less than his 1,000,000 clause. Closes 2026-09-20T18:07:31+02:00.",
     "due": "2026-09-20T18:07:31+02:00",
     "key": "clause:2693",
-    "done": false,
+    "done": true,
     "created": 1789670865
+  },
+  {
+    "id": 11,
+    "text": "Sell Egiluz (~422,177): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:81128052",
+    "done": false,
+    "created": 1789754621
   }
 ]

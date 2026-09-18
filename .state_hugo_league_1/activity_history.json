@@ -4530,6 +4530,86 @@
       "amount": 3900000,
       "weekNumber": 6,
       "createdAt": "2026-09-18T04:34:24+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613228",
+      "user1Id": 1758845,
+      "playerMasterId": 2531,
+      "amount": 21625332,
+      "createdAt": "2026-09-18T18:08:13+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613227",
+      "user1Id": 9792955,
+      "playerMasterId": 2936,
+      "amount": 421439,
+      "createdAt": "2026-09-18T18:08:13+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613230",
+      "user1Id": 9792955,
+      "playerMasterId": 2973,
+      "amount": 7661734,
+      "createdAt": "2026-09-18T18:08:13+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613231",
+      "user1Id": 4028228,
+      "playerMasterId": 2698,
+      "amount": 3912457,
+      "createdAt": "2026-09-18T18:08:13+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613256",
+      "user1Id": 4028228,
+      "playerMasterId": 2771,
+      "amount": 52463498,
+      "createdAt": "2026-09-18T18:08:14+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613292",
+      "user1Id": 231979,
+      "playerMasterId": 3105,
+      "amount": 6425323,
+      "createdAt": "2026-09-18T18:08:15+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "63613290",
+      "user1Id": 9792955,
+      "playerMasterId": 2759,
+      "amount": 30032480,
+      "createdAt": "2026-09-18T18:08:15+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "63644310",
+      "user1Id": 4028228,
+      "playerMasterId": 3213,
+      "amount": 1261653,
+      "createdAt": "2026-09-18T18:31:34+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "63645435",
+      "user1Id": 4028228,
+      "playerMasterId": 3054,
+      "amount": 2369866,
+      "createdAt": "2026-09-18T18:32:18+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "63646068",
+      "user1Id": 4028228,
+      "playerMasterId": 2604,
+      "amount": 8038663,
+      "createdAt": "2026-09-18T18:32:48+02:00"
     }
   ]
 }
