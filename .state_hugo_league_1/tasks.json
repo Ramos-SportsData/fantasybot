@@ -81,10 +81,18 @@
   },
   {
     "id": 11,
-    "text": "Sell Egiluz (~422,177): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Egiluz (~421,980): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:81128052",
     "done": false,
     "created": 1789754621
+  },
+  {
+    "id": 12,
+    "text": "Sell G. Bouaré (~852,561): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:77092609",
+    "done": false,
+    "created": 1789820183
   }
 ]
