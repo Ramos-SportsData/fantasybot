@@ -84,7 +84,7 @@
     "text": "Sell Egiluz (~421,980): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:81128052",
-    "done": false,
+    "done": true,
     "created": 1789754621
   },
   {
@@ -92,7 +92,39 @@
     "text": "Sell G. Bouaré (~852,561): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:77092609",
-    "done": false,
+    "done": true,
     "created": 1789820183
+  },
+  {
+    "id": 13,
+    "text": "Sell Blanco (~19,617,105): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:74416282",
+    "done": false,
+    "created": 1789839905
+  },
+  {
+    "id": 14,
+    "text": "Sell Berenguer (~11,519,434): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:73088390",
+    "done": false,
+    "created": 1789839905
+  },
+  {
+    "id": 15,
+    "text": "Sell Yeray (~7,216,166): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:73088392",
+    "done": false,
+    "created": 1789839905
+  },
+  {
+    "id": 16,
+    "text": "Sell Denis Suárez (~2,814,520): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:57748085",
+    "done": false,
+    "created": 1789839905
   }
 ]
