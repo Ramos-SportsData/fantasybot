@@ -336,6 +336,9 @@ def cmd_agent(args):
                             + (" ✓" if applied else " (plan only)"))
     if not bd["placed"]:
         print("· Bids: no profitable flip opportunity right now.")
+    for f in bd.get("failed", []):
+        print(f"· ⚠ Failed to bid for {f['nombre']}: {f['error']}")
+        action_lines.append(f"⚠ Failed to bid for {f['nombre']}: {f['error']}")
     if bd["cancelled"]:
         print(f"· Bids cancelled (no longer profitable): {bd['cancelled']}")
         action_lines.append(f"Bids cancelled: {bd['cancelled']}")
