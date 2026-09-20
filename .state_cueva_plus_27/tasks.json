@@ -12,7 +12,7 @@
     "text": "Sell Raúl Moro (~8,319,072): falling value (trend -23).",
     "due": null,
     "key": "sell:41986040",
-    "done": false,
+    "done": true,
     "created": 1789542541
   },
   {
@@ -20,7 +20,23 @@
     "text": "Update lineup (there's a better XI).",
     "due": null,
     "key": "lineup",
-    "done": false,
+    "done": true,
     "created": 1789542541
+  },
+  {
+    "id": 4,
+    "text": "Sell C. Puga (~3,430,323): falling value (trend -22).",
+    "due": null,
+    "key": "sell:41986049",
+    "done": false,
+    "created": 1789890499
+  },
+  {
+    "id": 5,
+    "text": "Sell Haitam (~425,519): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:81062589",
+    "done": false,
+    "created": 1789890499
   }
 ]
