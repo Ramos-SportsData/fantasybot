@@ -73,11 +73,22 @@ jobs:
 
       - name: Commit and push state changes
         run: |
-          git pull --rebase origin ${{ github.ref_name }} || true
           git add ${FANTASY_STATE_DIR}/
           if git diff --cached --quiet; then
             echo "No state changes to commit for ${{ matrix.name }}"
           else
             git commit -m "Update ${{ matrix.name }} state [$(date -u '+%Y-%m-%d %H:%M:%S UTC')]"
-            git push origin HEAD:${{ github.ref }}
+            for i in 1 2 3 4 5; do
+              if git pull --rebase origin ${{ github.ref_name }} && \
+                 git push origin HEAD:${{ github.ref }}; then
+                echo "Pushed on attempt $i."
+                break
+              fi
+              echo "Push attempt $i failed (likely a concurrent push) — retrying..."
+              sleep $(( (RANDOM % 5) + 2 ))
+              if [ "$i" = "5" ]; then
+                echo "::error::Could not push ${{ matrix.name }} state after 5 attempts."
+                exit 1
+              fi
+            done
           fi
