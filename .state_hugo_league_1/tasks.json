@@ -129,10 +129,34 @@
   },
   {
     "id": 17,
-    "text": "Sell Pastor (~415,528): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Pastor (~415,528): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:77092614",
     "done": false,
     "created": 1789908669
+  },
+  {
+    "id": 18,
+    "text": "Sell Nacho Perez (~2,225,935): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:54382570",
+    "done": false,
+    "created": 1789926963
+  },
+  {
+    "id": 19,
+    "text": "Sell Marrero (~778,164): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:74416279",
+    "done": false,
+    "created": 1789926963
+  },
+  {
+    "id": 20,
+    "text": "Sell Maroan (~431,802): no juega (prob. titular 10%), caja ajustada.",
+    "due": null,
+    "key": "sell:83784626",
+    "done": false,
+    "created": 1789926963
   }
 ]
