@@ -147,7 +147,7 @@ def sync_bids(client, league_id, team, dry_run=True):
     bids = state.load_bids()
     valid_ids = {o["market_id"] for o in ops}
 
-    placed, cancelled = [], []
+    placed, failed, cancelled = [], [], []
     # cancel bids whose target is no longer profitable
     for mid, info in list(bids.items()):
         if mid not in valid_ids:
@@ -163,7 +163,16 @@ def sync_bids(client, league_id, team, dry_run=True):
     # place new bids
     for b in plan:
         if not dry_run:
-            resp = client.make_bid(league_id, b["market_id"], b["amount"])
+            try:
+                resp = client.make_bid(league_id, b["market_id"], b["amount"])
+            except Exception as e:
+                # A single rejected bid (e.g. LaLiga's cap on simultaneous open
+                # bids, "030.01.05") must not crash the whole run -- skip it,
+                # report it, and keep going with the rest of the plan.
+                events.emit("bid", f"Failed to bid on {b['nombre']}", detail=str(e),
+                            status="error")
+                failed.append({"nombre": b["nombre"], "error": str(e)})
+                continue
             bid_id = resp.get("id") if isinstance(resp, dict) else None
             bids[b["market_id"]] = {"bid_id": bid_id, "amount": b["amount"],
                                     "nombre": b["nombre"]}
@@ -173,7 +182,7 @@ def sync_bids(client, league_id, team, dry_run=True):
 
     if not dry_run:
         state.save_bids(bids)
-    return {"action": "bids", "placed": placed, "cancelled": cancelled,
+    return {"action": "bids", "placed": placed, "failed": failed, "cancelled": cancelled,
             "applied": not dry_run}
 
 
