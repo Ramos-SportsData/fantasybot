@@ -189,7 +189,16 @@ def sync_sells(client, league_id, sells, dry_run=True):
     already_listed = set()
     try:
         for el in client.market(league_id):
-            if el.get("discr") == "marketPlayerLeague" and el.get("status") == "on_sale":
+            discr = el.get("discr")
+            # System-generated listings (marketPlayerLeague) and a manager's own
+            # listing (marketPlayerTeam, when actively on sale) both mean "don't
+            # re-list": the first is someone else's offer, the second is ours from
+            # a prior run -- retrying it just gets a 409 "already on the market".
+            if discr == "marketPlayerLeague":
+                pm = el.get("playerMaster") or {}
+                if pm.get("id"):
+                    already_listed.add(pm["id"])
+            elif discr == "marketPlayerTeam" and el.get("status") == "on_sale":
                 pm = el.get("playerMaster") or {}
                 if pm.get("id"):
                     already_listed.add(pm["id"])
@@ -208,6 +217,12 @@ def sync_sells(client, league_id, sells, dry_run=True):
                 events.emit("sell", f"Listed {s['nombre']} for sale",
                             detail={"price": f"{s['sale_price']:,}", "reason": s["reason"]})
             except Exception as e:
+                if "030.01.52" in str(e) or "already added to the market" in str(e):
+                    # Safety net: the market scan above should already catch this,
+                    # but if it ever misses (timing, a field we don't check), treat
+                    # "already listed" as success, not a failure to report.
+                    skipped.append(s["nombre"])
+                    continue
                 events.emit("sell", f"Failed to list {s['nombre']}", detail=str(e),
                             status="error")
                 failed.append({"nombre": s["nombre"], "error": str(e)})
