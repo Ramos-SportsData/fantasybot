@@ -126,5 +126,13 @@
     "key": "sell:57748085",
     "done": true,
     "created": 1789839905
+  },
+  {
+    "id": 17,
+    "text": "Sell Pastor (~415,528): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:77092614",
+    "done": false,
+    "created": 1789908669
   }
 ]
