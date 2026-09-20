@@ -38,5 +38,21 @@
     "key": "sell:81062589",
     "done": true,
     "created": 1789890499
+  },
+  {
+    "id": 6,
+    "text": "Sell F. Bernal (~13,810,192): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:52951192",
+    "done": false,
+    "created": 1789927073
+  },
+  {
+    "id": 7,
+    "text": "Sell Nacho Perez (~2,225,935): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:54248639",
+    "done": false,
+    "created": 1789927073
   }
 ]
