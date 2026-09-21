@@ -1,9 +1,23 @@
 [
   {
-    "key": "market_close:2026-09-21T18:08:00+02:00",
-    "fire_at": "2026-09-21T18:03:00+02:00",
-    "event_at": "2026-09-21T18:08:00+02:00",
+    "key": "market_close:2026-09-22T18:08:00+02:00",
+    "fire_at": "2026-09-22T18:03:00+02:00",
+    "event_at": "2026-09-22T18:08:00+02:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:2768:2026-09-22T18:24:19+02:00",
+    "fire_at": "2026-09-22T18:23:19+02:00",
+    "event_at": "2026-09-22T18:24:19+02:00",
+    "message": "Lucas Boyé's clause opens: prepare a buyout of 31,067,586 (fills a DEL gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:3002:2026-09-30T18:08:09+02:00",
+    "fire_at": "2026-09-30T18:07:09+02:00",
+    "event_at": "2026-09-30T18:08:09+02:00",
+    "message": "Iñigo Vicente's clause opens: prepare a buyout of 33,265,022 (fills a DEL gap).",
     "fired": false
   }
 ]

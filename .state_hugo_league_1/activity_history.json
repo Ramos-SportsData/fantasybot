@@ -4757,6 +4757,85 @@
       "playerMasterId": 3242,
       "amount": 7093772,
       "createdAt": "2026-09-21T16:08:47+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "69461421",
+      "user1Id": 231979,
+      "playerMasterId": 74,
+      "amount": 18600000,
+      "createdAt": "2026-09-21T18:08:09+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "69461392",
+      "user1Id": 4028228,
+      "playerMasterId": 3132,
+      "amount": 719341,
+      "createdAt": "2026-09-21T18:08:09+02:00"
+    },
+    {
+      "activityTypeId": 4,
+      "id": "69525033",
+      "user1Id": 684463,
+      "playerMasterId": 3209,
+      "createdAt": "2026-09-21T18:46:27+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69637499",
+      "user1Id": 9792955,
+      "playerMasterId": 2435,
+      "amount": 763118,
+      "createdAt": "2026-09-21T19:56:53+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69637587",
+      "user1Id": 9792955,
+      "playerMasterId": 2530,
+      "amount": 58002770,
+      "createdAt": "2026-09-21T19:56:59+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69637665",
+      "user1Id": 9792955,
+      "playerMasterId": 3069,
+      "amount": 19812544,
+      "createdAt": "2026-09-21T19:57:04+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69637839",
+      "user1Id": 9792955,
+      "playerMasterId": 77,
+      "amount": 7096559,
+      "createdAt": "2026-09-21T19:57:09+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69638041",
+      "user1Id": 9792955,
+      "playerMasterId": 3059,
+      "amount": 415645,
+      "createdAt": "2026-09-21T19:57:14+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69638217",
+      "user1Id": 9792955,
+      "playerMasterId": 2742,
+      "amount": 1978039,
+      "createdAt": "2026-09-21T19:57:20+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69638356",
+      "user1Id": 9792955,
+      "playerMasterId": 2319,
+      "amount": 405690,
+      "createdAt": "2026-09-21T19:57:24+02:00"
     }
   ]
 }

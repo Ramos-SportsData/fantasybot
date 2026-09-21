@@ -57,24 +57,24 @@
   },
   {
     "id": 8,
-    "text": "Bid for Iñigo Vicente (DEL): he's ON SALE at 32,930,696, 334,326 less than his 33,265,022 clause. Closes 2026-09-20T15:11:00+02:00.",
-    "due": "2026-09-20T15:11:00+02:00",
+    "text": "Buyout Iñigo Vicente (DEL) for 33,265,022 when its clause opens.",
+    "due": "2026-09-30T18:08:09+02:00",
     "key": "clause:3002",
     "done": true,
     "created": 1789670865
   },
   {
     "id": 9,
-    "text": "Bid for Ángel Pérez (DEL): he's ON SALE at 21,384,347, 1,136,680 less than his 22,521,027 clause. Closes 2026-09-20T15:11:07+02:00.",
-    "due": "2026-09-20T15:11:07+02:00",
+    "text": "Bid for Ángel Pérez (DEL): he's ON SALE at 24,441,095, 854,576 less than his 25,295,671 clause. Closes 2026-09-23T16:28:00+02:00.",
+    "due": "2026-09-23T16:28:00+02:00",
     "key": "clause:2932",
     "done": true,
     "created": 1789670865
   },
   {
     "id": 10,
-    "text": "Bid for Otorbi (DEL): he's ON SALE at 599,512, 400,488 less than his 1,000,000 clause. Closes 2026-09-20T18:07:31+02:00.",
-    "due": "2026-09-20T18:07:31+02:00",
+    "text": "Bid for Otorbi (DEL): he's ON SALE at 609,617, 390,383 less than his 1,000,000 clause. Closes 2026-09-24T16:06:26+02:00.",
+    "due": "2026-09-24T16:06:26+02:00",
     "key": "clause:2693",
     "done": true,
     "created": 1789670865
@@ -132,7 +132,7 @@
     "text": "Sell Pastor (~417,687): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:77092614",
-    "done": false,
+    "done": true,
     "created": 1789908669
   },
   {
@@ -156,7 +156,7 @@
     "text": "Sell Maroan (~433,310): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:83784626",
-    "done": false,
+    "done": true,
     "created": 1789926963
   },
   {
@@ -164,7 +164,127 @@
     "text": "Sell Huijsen (~53,526,904): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:63682513",
-    "done": false,
+    "done": true,
     "created": 1790002175
+  },
+  {
+    "id": 22,
+    "text": "Sign DEF: you're short in that position.",
+    "due": null,
+    "key": "gap:DEF",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 23,
+    "text": "Bid for Roberto (DEL): he's ON SALE at 39,493,494, 5,506,507 less than his 45,000,001 clause. Closes 2026-09-24T16:06:22+02:00.",
+    "due": "2026-09-24T16:06:22+02:00",
+    "key": "clause:2520",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 24,
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 4,725,358, 2,774,643 less than his 7,500,001 clause. Closes 2026-09-22T16:03:50+02:00.",
+    "due": "2026-09-22T16:03:50+02:00",
+    "key": "clause:2990",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 25,
+    "text": "Bid for Sergio Gómez (DEF): he's ON SALE at 16,536,871, 1,700,044 less than his 18,236,915 clause. Closes 2026-09-24T17:13:30+02:00.",
+    "due": "2026-09-24T17:13:30+02:00",
+    "key": "clause:1989",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 26,
+    "text": "Bid for Catena (DEF): he's ON SALE at 31,255,250, 8,744,751 less than his 40,000,001 clause. Closes 2026-09-23T16:27:22+02:00.",
+    "due": "2026-09-23T16:27:22+02:00",
+    "key": "clause:1033",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 27,
+    "text": "Bid for Remiro (POR): he's ON SALE at 37,117,700, 8,375,304 less than his 45,493,004 clause. Closes 2026-09-24T16:05:58+02:00.",
+    "due": "2026-09-24T16:05:58+02:00",
+    "key": "clause:274",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 28,
+    "text": "Buyout Lucas Boyé (DEL) for 31,067,586 when its clause opens.",
+    "due": "2026-09-22T18:24:19+02:00",
+    "key": "clause:2768",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 29,
+    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 2,027,366, 234,855 less than his 2,262,221 clause. Closes 2026-09-22T16:03:54+02:00.",
+    "due": "2026-09-22T16:03:54+02:00",
+    "key": "clause:3026",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 30,
+    "text": "Bid for Javi Rueda (DEF): he's ON SALE at 5,268,073, 981,960 less than his 6,250,033 clause. Closes 2026-09-23T18:45:36+02:00.",
+    "due": "2026-09-23T18:45:36+02:00",
+    "key": "clause:2714",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 31,
+    "text": "Bid for Yeremay (DEL): he's ON SALE at 25,362,443, 383,794 less than his 25,746,237 clause. Closes 2026-09-24T16:06:34+02:00.",
+    "due": "2026-09-24T16:06:34+02:00",
+    "key": "clause:3076",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 32,
+    "text": "Bid for Pau Navarro (DEF): he's ON SALE at 3,766,071, 146,386 less than his 3,912,457 clause. Closes 2026-09-24T16:06:03+02:00.",
+    "due": "2026-09-24T16:06:03+02:00",
+    "key": "clause:2698",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 33,
+    "text": "Bid for Gordon (DEL): he's ON SALE at 78,625,922, 11,796,060 less than his 90,421,982 clause. Closes 2026-09-24T18:45:16+02:00.",
+    "due": "2026-09-24T18:45:16+02:00",
+    "key": "clause:3210",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 34,
+    "text": "Bid for Cala (DEL): he's ON SALE at 6,043,518, 381,805 less than his 6,425,323 clause. Closes 2026-09-22T16:04:14+02:00.",
+    "due": "2026-09-22T16:04:14+02:00",
+    "key": "clause:3105",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 35,
+    "text": "Bid for Zubeldia (DEF): he's ON SALE at 10,643,867, 9,356,201 less than his 20,000,068 clause. Closes 2026-09-24T18:05:52+02:00.",
+    "due": "2026-09-24T18:05:52+02:00",
+    "key": "clause:265",
+    "done": false,
+    "created": 1790020350
+  },
+  {
+    "id": 36,
+    "text": "Bid for Xavi Espart (DEF): he's ON SALE at 37,149,832, 1,525,272 less than his 38,675,104 clause. Closes 2026-09-23T16:27:12+02:00.",
+    "due": "2026-09-23T16:27:12+02:00",
+    "key": "clause:2843",
+    "done": false,
+    "created": 1790020350
   }
 ]
