@@ -28,7 +28,7 @@
     "text": "Sell C. Puga (~3,430,323): falling value (trend -22).",
     "due": null,
     "key": "sell:41986049",
-    "done": false,
+    "done": true,
     "created": 1789890499
   },
   {
@@ -44,7 +44,7 @@
     "text": "Sell F. Bernal (~13,810,192): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:52951192",
-    "done": false,
+    "done": true,
     "created": 1789927073
   },
   {
@@ -52,7 +52,15 @@
     "text": "Sell Nacho Perez (~2,225,935): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:54248639",
-    "done": false,
+    "done": true,
     "created": 1789927073
+  },
+  {
+    "id": 8,
+    "text": "Bid for A. Herrero (POR): he's ON SALE at 18,102,035, 181,741 less than his 18,283,776 clause. Closes 2026-09-23T21:30:52+02:00.",
+    "due": "2026-09-23T21:30:52+02:00",
+    "key": "clause:3040",
+    "done": false,
+    "created": 1790002290
   }
 ]

@@ -1290,6 +1290,95 @@
       "playerMasterId": 2473,
       "amount": 33253942,
       "createdAt": "2026-09-20T17:22:10+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "66181254",
+      "user1Id": 5413192,
+      "playerMasterId": 2755,
+      "amount": 33100609,
+      "createdAt": "2026-09-20T21:28:26+02:00"
+    },
+    {
+      "activityTypeId": 1,
+      "id": "66186018",
+      "user1Id": 5413192,
+      "user2Id": 1516783,
+      "playerMasterId": 3040,
+      "amount": 18102035,
+      "createdAt": "2026-09-20T21:30:40+02:00"
+    },
+    {
+      "activityTypeId": 1,
+      "id": "66191436",
+      "user1Id": 1516783,
+      "user2Id": 5410471,
+      "playerMasterId": 2613,
+      "amount": 14001068,
+      "createdAt": "2026-09-20T21:33:16+02:00"
+    },
+    {
+      "activityTypeId": 7,
+      "id": "66905345",
+      "user1Id": 5410471,
+      "weekNumber": 7,
+      "createdAt": "2026-09-21T04:15:39+02:00"
+    },
+    {
+      "activityTypeId": 6,
+      "id": "66905309",
+      "user1Id": 5413192,
+      "amount": 2200000,
+      "weekNumber": 7,
+      "createdAt": "2026-09-21T04:15:39+02:00"
+    },
+    {
+      "activityTypeId": 6,
+      "id": "66905267",
+      "user1Id": 1516783,
+      "amount": 6300000,
+      "weekNumber": 7,
+      "createdAt": "2026-09-21T04:15:39+02:00"
+    },
+    {
+      "activityTypeId": 6,
+      "id": "66905234",
+      "user1Id": 9792955,
+      "amount": 4300000,
+      "weekNumber": 7,
+      "createdAt": "2026-09-21T04:15:39+02:00"
+    },
+    {
+      "activityTypeId": 6,
+      "id": "66905200",
+      "user1Id": 898822,
+      "amount": 4300000,
+      "weekNumber": 7,
+      "createdAt": "2026-09-21T04:15:39+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "68914063",
+      "user1Id": 898822,
+      "playerMasterId": 121,
+      "amount": 40854425,
+      "createdAt": "2026-09-21T09:31:23+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69000019",
+      "user1Id": 9792955,
+      "playerMasterId": 3037,
+      "amount": 3705804,
+      "createdAt": "2026-09-21T11:56:05+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "69000075",
+      "user1Id": 9792955,
+      "playerMasterId": 3055,
+      "amount": 459101,
+      "createdAt": "2026-09-21T11:56:09+02:00"
     }
   ]
 }
