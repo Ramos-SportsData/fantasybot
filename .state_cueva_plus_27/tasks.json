@@ -62,5 +62,69 @@
     "key": "clause:3040",
     "done": false,
     "created": 1790002290
+  },
+  {
+    "id": 9,
+    "text": "Sign DEF: you're short in that position.",
+    "due": null,
+    "key": "gap:DEF",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 10,
+    "text": "Bid for Kike Salas (DEF): he's ON SALE at 10,304,801, 6,957,807 less than his 17,262,608 clause. Closes 2026-09-22T16:46:14+02:00.",
+    "due": "2026-09-22T16:46:14+02:00",
+    "key": "clause:2479",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 11,
+    "text": "Bid for Suazo (DEF): he's ON SALE at 5,652,738, 2,682,033 less than his 8,334,771 clause. Closes 2026-09-22T16:46:20+02:00.",
+    "due": "2026-09-22T16:46:20+02:00",
+    "key": "clause:2753",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 12,
+    "text": "Buyout Arguibide (DEF) for 3,348,757 when its clause opens.",
+    "due": "2026-09-19T17:22:26+02:00",
+    "key": "clause:2846",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 13,
+    "text": "Bid for Noubi (DEF): he's ON SALE at 15,791,216, 6,569,300 less than his 22,360,516 clause. Closes 2026-09-22T16:53:07+02:00.",
+    "due": "2026-09-22T16:53:07+02:00",
+    "key": "clause:2985",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 14,
+    "text": "Buyout Abel Bretones (DEF) for 9,628,093 when its clause opens.",
+    "due": "2026-09-27T23:32:06+02:00",
+    "key": "clause:2005",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 15,
+    "text": "Bid for Xavi Espart (DEF): he's ON SALE at 35,097,986, 3,577,118 less than his 38,675,104 clause. Closes 2026-09-22T16:53:03+02:00.",
+    "due": "2026-09-22T16:53:03+02:00",
+    "key": "clause:2843",
+    "done": false,
+    "created": 1790020461
+  },
+  {
+    "id": 16,
+    "text": "Buyout Hinojo (DEF) for 4,737,158 when its clause opens.",
+    "due": "2026-09-28T17:22:11+02:00",
+    "key": "clause:3162",
+    "done": false,
+    "created": 1790020461
   }
 ]

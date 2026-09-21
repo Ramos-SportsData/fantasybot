@@ -1,9 +1,30 @@
 [
   {
-    "key": "market_close:2026-09-21T17:22:00+02:00",
-    "fire_at": "2026-09-21T17:17:00+02:00",
-    "event_at": "2026-09-21T17:22:00+02:00",
+    "key": "clause:2846:2026-09-19T17:22:26+02:00",
+    "fire_at": "2026-09-19T17:21:26+02:00",
+    "event_at": "2026-09-19T17:22:26+02:00",
+    "message": "Arguibide's clause opens: prepare a buyout of 3,348,757 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "market_close:2026-09-22T17:22:00+02:00",
+    "fire_at": "2026-09-22T17:17:00+02:00",
+    "event_at": "2026-09-22T17:22:00+02:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:2005:2026-09-27T23:32:06+02:00",
+    "fire_at": "2026-09-27T23:31:06+02:00",
+    "event_at": "2026-09-27T23:32:06+02:00",
+    "message": "Abel Bretones's clause opens: prepare a buyout of 9,628,093 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:3162:2026-09-28T17:22:11+02:00",
+    "fire_at": "2026-09-28T17:21:11+02:00",
+    "event_at": "2026-09-28T17:22:11+02:00",
+    "message": "Hinojo's clause opens: prepare a buyout of 4,737,158 (fills a DEF gap).",
     "fired": false
   }
 ]
