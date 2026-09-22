@@ -7,13 +7,6 @@
     "fired": false
   },
   {
-    "key": "clause:2768:2026-09-22T18:24:19+02:00",
-    "fire_at": "2026-09-22T18:23:19+02:00",
-    "event_at": "2026-09-22T18:24:19+02:00",
-    "message": "Lucas Boyé's clause opens: prepare a buyout of 31,067,586 (fills a DEL gap).",
-    "fired": false
-  },
-  {
     "key": "clause:3002:2026-09-30T18:08:09+02:00",
     "fire_at": "2026-09-30T18:07:09+02:00",
     "event_at": "2026-09-30T18:08:09+02:00",
