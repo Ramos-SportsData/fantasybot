@@ -1,5 +1,12 @@
 [
   {
+    "key": "clause:2335:2026-09-21T03:40:58+02:00",
+    "fire_at": "2026-09-21T03:39:58+02:00",
+    "event_at": "2026-09-21T03:40:58+02:00",
+    "message": "Areso's clause opens: prepare a buyout of 4,005,257 (fills a DEF gap).",
+    "fired": false
+  },
+  {
     "key": "market_close:2026-09-23T18:08:00+02:00",
     "fire_at": "2026-09-23T18:03:00+02:00",
     "event_at": "2026-09-23T18:08:00+02:00",

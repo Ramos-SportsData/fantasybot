@@ -4868,6 +4868,21 @@
       "playerMasterId": 2713,
       "amount": 42073621,
       "createdAt": "2026-09-22T18:08:22+02:00"
+    },
+    {
+      "activityTypeId": 4,
+      "id": "71220845",
+      "user1Id": 684463,
+      "playerMasterId": 3209,
+      "createdAt": "2026-09-23T02:10:13+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "71221007",
+      "user1Id": 684463,
+      "playerMasterId": 2768,
+      "amount": 33284660,
+      "createdAt": "2026-09-23T02:10:42+02:00"
     }
   ]
 }

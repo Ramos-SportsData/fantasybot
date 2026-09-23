@@ -65,7 +65,7 @@
   },
   {
     "id": 9,
-    "text": "Bid for Ángel Pérez (DEL): he's ON SALE at 24,441,095, 1,638,016 less than his 26,079,111 clause. Closes 2026-09-23T16:28:00+02:00.",
+    "text": "Bid for Ángel Pérez (DEL): he's ON SALE at 24,441,095, 2,333,274 less than his 26,774,369 clause. Closes 2026-09-23T16:28:00+02:00.",
     "due": "2026-09-23T16:28:00+02:00",
     "key": "clause:2932",
     "done": true,
@@ -220,7 +220,7 @@
     "text": "Bid for Lucas Boyé (DEL): he's ON SALE at 31,067,586, 466,002 less than his 31,533,588 clause. Closes 2026-09-24T18:46:35+02:00.",
     "due": "2026-09-24T18:46:35+02:00",
     "key": "clause:2768",
-    "done": false,
+    "done": true,
     "created": 1790020350
   },
   {
@@ -281,10 +281,18 @@
   },
   {
     "id": 36,
-    "text": "Bid for Xavi Espart (DEF): he's ON SALE at 37,149,832, 2,546,891 less than his 39,696,723 clause. Closes 2026-09-23T16:27:12+02:00.",
+    "text": "Bid for Xavi Espart (DEF): he's ON SALE at 37,149,832, 3,567,181 less than his 40,717,013 clause. Closes 2026-09-23T16:27:12+02:00.",
     "due": "2026-09-23T16:27:12+02:00",
     "key": "clause:2843",
     "done": false,
     "created": 1790020350
+  },
+  {
+    "id": 37,
+    "text": "Buyout Areso (DEF) for 4,005,257 when its clause opens.",
+    "due": "2026-09-21T03:40:58+02:00",
+    "key": "clause:2335",
+    "done": false,
+    "created": 1790169566
   }
 ]
