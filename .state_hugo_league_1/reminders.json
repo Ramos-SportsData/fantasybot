@@ -7,17 +7,24 @@
     "fired": false
   },
   {
-    "key": "market_close:2026-09-23T18:08:00+02:00",
-    "fire_at": "2026-09-23T18:03:00+02:00",
-    "event_at": "2026-09-23T18:08:00+02:00",
+    "key": "market_close:2026-09-24T18:08:00+02:00",
+    "fire_at": "2026-09-24T18:03:00+02:00",
+    "event_at": "2026-09-24T18:08:00+02:00",
     "message": "Market closes in 5 min: review bids and needs.",
     "fired": false
   },
   {
-    "key": "clause:3002:2026-09-30T18:08:09+02:00",
-    "fire_at": "2026-09-30T18:07:09+02:00",
-    "event_at": "2026-09-30T18:08:09+02:00",
-    "message": "Iñigo Vicente's clause opens: prepare a buyout of 33,265,022 (fills a DEL gap).",
+    "key": "clause:2932:2026-09-27T19:35:13+02:00",
+    "fire_at": "2026-09-27T19:34:13+02:00",
+    "event_at": "2026-09-27T19:35:13+02:00",
+    "message": "Ángel Pérez's clause opens: prepare a buyout of 26,774,369 (fills a DEL gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:2843:2026-10-01T18:24:16+02:00",
+    "fire_at": "2026-10-01T18:23:16+02:00",
+    "event_at": "2026-10-01T18:24:16+02:00",
+    "message": "Xavi Espart's clause opens: prepare a buyout of 40,717,013 (fills a DEF gap).",
     "fired": false
   }
 ]
