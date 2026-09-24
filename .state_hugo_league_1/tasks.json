@@ -65,8 +65,8 @@
   },
   {
     "id": 9,
-    "text": "Buyout Ángel Pérez (DEL) for 26,774,369 when its clause opens.",
-    "due": "2026-09-27T19:35:13+02:00",
+    "text": "Bid for Ángel Pérez (DEL): he's ON SALE at 26,774,369, 714,458 less than his 27,488,827 clause. Closes 2026-09-26T17:57:56+02:00.",
+    "due": "2026-09-26T17:57:56+02:00",
     "key": "clause:2932",
     "done": true,
     "created": 1789670865
@@ -281,15 +281,15 @@
   },
   {
     "id": 36,
-    "text": "Buyout Xavi Espart (DEF) for 40,717,013 when its clause opens.",
-    "due": "2026-10-01T18:24:16+02:00",
+    "text": "Bid for Xavi Espart (DEF): he's ON SALE at 40,717,013, 822,269 less than his 41,539,282 clause. Closes 2026-09-26T17:57:13+02:00.",
+    "due": "2026-09-26T17:57:13+02:00",
     "key": "clause:2843",
     "done": false,
     "created": 1790020350
   },
   {
     "id": 37,
-    "text": "Buyout Areso (DEF) for 4,005,257 when its clause opens.",
+    "text": "Buyout Areso (DEF) for 3,931,025 when its clause opens.",
     "due": "2026-09-21T03:40:58+02:00",
     "key": "clause:2335",
     "done": false,
