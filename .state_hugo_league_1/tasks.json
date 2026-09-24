@@ -73,8 +73,8 @@
   },
   {
     "id": 10,
-    "text": "Bid for Otorbi (DEL): he's ON SALE at 612,393, 387,607 less than his 1,000,000 clause. Closes 2026-09-26T15:57:17+02:00.",
-    "due": "2026-09-26T15:57:17+02:00",
+    "text": "Bid for Otorbi (DEL): he's ON SALE at 611,328, 388,672 less than his 1,000,000 clause. Closes 2026-09-27T16:08:23+02:00.",
+    "due": "2026-09-27T16:08:23+02:00",
     "key": "clause:2693",
     "done": true,
     "created": 1789670865
@@ -177,8 +177,8 @@
   },
   {
     "id": 23,
-    "text": "Bid for Roberto (DEL): he's ON SALE at 41,739,824, 3,260,177 less than his 45,000,001 clause. Closes 2026-09-26T16:04:48+02:00.",
-    "due": "2026-09-26T16:04:48+02:00",
+    "text": "Bid for Roberto (DEL): he's ON SALE at 42,681,749, 2,318,252 less than his 45,000,001 clause. Closes 2026-09-27T16:08:27+02:00.",
+    "due": "2026-09-27T16:08:27+02:00",
     "key": "clause:2520",
     "done": false,
     "created": 1790020350
@@ -196,13 +196,13 @@
     "text": "Bid for Sergio Gómez (DEF): he's ON SALE at 16,536,871, 1,700,044 less than his 18,236,915 clause. Closes 2026-09-24T17:13:30+02:00.",
     "due": "2026-09-24T17:13:30+02:00",
     "key": "clause:1989",
-    "done": false,
+    "done": true,
     "created": 1790020350
   },
   {
     "id": 26,
-    "text": "Bid for Catena (DEF): he's ON SALE at 31,255,250, 8,744,751 less than his 40,000,001 clause. Closes 2026-09-23T16:27:22+02:00.",
-    "due": "2026-09-23T16:27:22+02:00",
+    "text": "Bid for Catena (DEF): he's ON SALE at 28,332,261, 11,667,740 less than his 40,000,001 clause. Closes 2026-09-27T16:53:43+02:00.",
+    "due": "2026-09-27T16:53:43+02:00",
     "key": "clause:1033",
     "done": true,
     "created": 1790020350
@@ -252,7 +252,7 @@
     "text": "Bid for Pau Navarro (DEF): he's ON SALE at 3,668,652, 243,805 less than his 3,912,457 clause. Closes 2026-09-26T15:56:54+02:00.",
     "due": "2026-09-26T15:56:54+02:00",
     "key": "clause:2698",
-    "done": false,
+    "done": true,
     "created": 1790020350
   },
   {
@@ -273,8 +273,8 @@
   },
   {
     "id": 35,
-    "text": "Bid for Zubeldia (DEF): he's ON SALE at 10,026,464, 9,973,604 less than his 20,000,068 clause. Closes 2026-09-26T15:56:41+02:00.",
-    "due": "2026-09-26T15:56:41+02:00",
+    "text": "Bid for Zubeldia (DEF): he's ON SALE at 9,727,821, 10,272,247 less than his 20,000,068 clause. Closes 2026-09-27T16:08:51+02:00.",
+    "due": "2026-09-27T16:08:51+02:00",
     "key": "clause:265",
     "done": false,
     "created": 1790020350
