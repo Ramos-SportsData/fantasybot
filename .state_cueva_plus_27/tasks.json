@@ -153,24 +153,24 @@
   },
   {
     "id": 20,
-    "text": "Bid for Lejeune (DEF): he's ON SALE at 18,590,028, 78 less than his 18,590,106 clause. Closes 2026-09-25T21:33:15+02:00.",
-    "due": "2026-09-25T21:33:15+02:00",
+    "text": "Bid for Lejeune (DEF): he's ON SALE at 17,445,648, 1,144,458 less than his 18,590,106 clause. Closes 2026-09-29T20:00:20+02:00.",
+    "due": "2026-09-29T20:00:20+02:00",
     "key": "clause:3082",
     "done": true,
     "created": 1790169693
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,135,596, 299,097 less than his 4,434,693 clause. Closes 2026-09-25T21:33:12+02:00.",
-    "due": "2026-09-25T21:33:12+02:00",
+    "text": "Buyout Quagliata (DEF) for 4,524,539 when its clause opens.",
+    "due": "2026-10-06T14:28:39+02:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
   },
   {
     "id": 22,
-    "text": "Bid for Paredes (DEF): he's ON SALE at 13,555,876, 1,311,929 less than his 14,867,805 clause. Closes 2026-09-25T21:33:19+02:00.",
-    "due": "2026-09-25T21:33:19+02:00",
+    "text": "Buyout Paredes (DEF) for 15,261,554 when its clause opens.",
+    "due": "2026-10-06T14:29:12+02:00",
     "key": "clause:2315",
     "done": true,
     "created": 1790169693
@@ -182,5 +182,21 @@
     "key": "clause:74",
     "done": false,
     "created": 1790255456
+  },
+  {
+    "id": 24,
+    "text": "Bid for B. Sangare (DEF): he's ON SALE at 3,031,291, 10,968,731 less than his 14,000,022 clause. Closes 2026-09-29T17:25:20+02:00.",
+    "due": "2026-09-29T17:25:20+02:00",
+    "key": "clause:2949",
+    "done": false,
+    "created": 1790446702
+  },
+  {
+    "id": 25,
+    "text": "Sell Ifeanyi Ndukwe (~1,144,650): falling value (trend -32).",
+    "due": null,
+    "key": "sell:89925809",
+    "done": false,
+    "created": 1790446702
   }
 ]

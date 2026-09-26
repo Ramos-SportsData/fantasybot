@@ -1,17 +1,27 @@
 {
-  "283969730": {
-    "bid_id": "39483437",
-    "amount": 28724969,
-    "nombre": "Zaid Romero"
+  "290979638": {
+    "bid_id": "39972971",
+    "amount": 49195764,
+    "nombre": "Moleiro"
   },
-  "283969741": {
-    "bid_id": "39483440",
-    "amount": 17624724,
-    "nombre": "Unai Lopez"
+  "290979641": {
+    "bid_id": "39972973",
+    "amount": 36914743,
+    "nombre": "Ez Abde"
   },
-  "283969717": {
-    "bid_id": "39775204",
-    "amount": 463539,
-    "nombre": "Juanmi"
+  "290979630": {
+    "bid_id": "39972976",
+    "amount": 21476381,
+    "nombre": "Barrenetxea"
+  },
+  "290979637": {
+    "bid_id": "39972981",
+    "amount": 459582,
+    "nombre": "Diatta"
+  },
+  "290979644": {
+    "bid_id": "39972982",
+    "amount": 468833,
+    "nombre": "Edu Altozano"
   }
 }

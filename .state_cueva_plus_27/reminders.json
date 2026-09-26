@@ -1,9 +1,23 @@
 [
   {
-    "key": "market_close:2026-09-26T17:22:00+02:00",
-    "fire_at": "2026-09-26T17:17:00+02:00",
-    "event_at": "2026-09-26T17:22:00+02:00",
+    "key": "market_close:2026-09-27T17:22:00+02:00",
+    "fire_at": "2026-09-27T17:17:00+02:00",
+    "event_at": "2026-09-27T17:22:00+02:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:2963:2026-10-06T14:28:39+02:00",
+    "fire_at": "2026-10-06T14:27:39+02:00",
+    "event_at": "2026-10-06T14:28:39+02:00",
+    "message": "Quagliata's clause opens: prepare a buyout of 4,524,539 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:2315:2026-10-06T14:29:12+02:00",
+    "fire_at": "2026-10-06T14:28:12+02:00",
+    "event_at": "2026-10-06T14:29:12+02:00",
+    "message": "Paredes's clause opens: prepare a buyout of 15,261,554 (fills a DEF gap).",
     "fired": false
   }
 ]
