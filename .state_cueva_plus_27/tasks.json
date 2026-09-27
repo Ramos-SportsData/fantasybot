@@ -60,7 +60,7 @@
     "text": "Bid for A. Herrero (POR): he's ON SALE at 18,856,589, 846,911 less than his 19,703,500 clause. Closes 2026-09-26T22:56:21+02:00.",
     "due": "2026-09-26T22:56:21+02:00",
     "key": "clause:3040",
-    "done": false,
+    "done": true,
     "created": 1790002290
   },
   {
@@ -137,7 +137,7 @@
   },
   {
     "id": 18,
-    "text": "Bid for Djene (DEF): he's ON SALE at 20,178,443, 488,343 less than his 20,666,786 clause. Closes 2026-09-28T17:09:38+02:00.",
+    "text": "Bid for Djene (DEF): he's ON SALE at 20,178,443, 1,004,110 less than his 21,182,553 clause. Closes 2026-09-28T17:09:38+02:00.",
     "due": "2026-09-28T17:09:38+02:00",
     "key": "clause:2661",
     "done": false,
@@ -161,16 +161,16 @@
   },
   {
     "id": 21,
-    "text": "Buyout Quagliata (DEF) for 4,524,539 when its clause opens.",
-    "due": "2026-10-06T14:28:39+02:00",
+    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,524,539, 80,380 less than his 4,604,919 clause. Closes 2026-09-29T20:00:15+02:00.",
+    "due": "2026-09-29T20:00:15+02:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
   },
   {
     "id": 22,
-    "text": "Buyout Paredes (DEF) for 15,261,554 when its clause opens.",
-    "due": "2026-10-06T14:29:12+02:00",
+    "text": "Bid for Paredes (DEF): he's ON SALE at 15,261,554, 404,945 less than his 15,666,499 clause. Closes 2026-09-29T20:00:23+02:00.",
+    "due": "2026-09-29T20:00:23+02:00",
     "key": "clause:2315",
     "done": true,
     "created": 1790169693
@@ -180,7 +180,7 @@
     "text": "Bid for Yuri (DEF): he's ON SALE at 16,254,848, 1,013,949 less than his 17,268,797 clause. Closes 2026-09-26T22:56:24+02:00.",
     "due": "2026-09-26T22:56:24+02:00",
     "key": "clause:74",
-    "done": false,
+    "done": true,
     "created": 1790255456
   },
   {
@@ -193,7 +193,7 @@
   },
   {
     "id": 25,
-    "text": "Sell Ifeanyi Ndukwe (~1,144,650): falling value (trend -32).",
+    "text": "Sell Ifeanyi Ndukwe (~1,119,263): falling value (trend -33).",
     "due": null,
     "key": "sell:89925809",
     "done": false,
