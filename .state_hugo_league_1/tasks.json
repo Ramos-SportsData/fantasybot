@@ -17,8 +17,8 @@
   },
   {
     "id": 3,
-    "text": "Bid for Enes Ünal (DEL): he's ON SALE at 15,634,945, 9,365,055 less than his 25,000,000 clause. Closes 2026-09-25T16:47:34+02:00.",
-    "due": "2026-09-25T16:47:34+02:00",
+    "text": "Bid for Enes Ünal (DEL): he's ON SALE at 13,570,366, 11,429,634 less than his 25,000,000 clause. Closes 2026-10-01T17:59:31+02:00.",
+    "due": "2026-10-01T17:59:31+02:00",
     "key": "clause:3154",
     "done": true,
     "created": 1789542410
@@ -185,8 +185,8 @@
   },
   {
     "id": 24,
-    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 4,439,918, 3,060,083 less than his 7,500,001 clause. Closes 2026-09-28T17:23:56+02:00.",
-    "due": "2026-09-28T17:23:56+02:00",
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 4,289,704, 3,210,297 less than his 7,500,001 clause. Closes 2026-10-01T18:13:03+02:00.",
+    "due": "2026-10-01T18:13:03+02:00",
     "key": "clause:2990",
     "done": false,
     "created": 1790020350
@@ -225,8 +225,8 @@
   },
   {
     "id": 29,
-    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,870,366, 391,855 less than his 2,262,221 clause. Closes 2026-09-28T17:24:00+02:00.",
-    "due": "2026-09-28T17:24:00+02:00",
+    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,778,031, 484,190 less than his 2,262,221 clause. Closes 2026-10-01T18:13:08+02:00.",
+    "due": "2026-10-01T18:13:08+02:00",
     "key": "clause:3026",
     "done": false,
     "created": 1790020350
@@ -294,5 +294,61 @@
     "key": "clause:2335",
     "done": true,
     "created": 1790169566
+  },
+  {
+    "id": 38,
+    "text": "Sign MED: you're short in that position.",
+    "due": null,
+    "key": "gap:MED",
+    "done": false,
+    "created": 1790612731
+  },
+  {
+    "id": 39,
+    "text": "Bid for Agoumé (MED): he's ON SALE at 13,752,479, 527,190 less than his 14,279,669 clause. Closes 2026-09-29T22:21:43+02:00.",
+    "due": "2026-09-29T22:21:43+02:00",
+    "key": "clause:2453",
+    "done": false,
+    "created": 1790612731
+  },
+  {
+    "id": 40,
+    "text": "Bid for Herrera (MED): he's ON SALE at 5,219,295, 3,780,705 less than his 9,000,000 clause. Closes 2026-09-29T15:21:38+02:00.",
+    "due": "2026-09-29T15:21:38+02:00",
+    "key": "clause:2372",
+    "done": false,
+    "created": 1790612731
+  },
+  {
+    "id": 41,
+    "text": "Bid for Cáceres (DEF): he's ON SALE at 4,321,821, 748,615 less than his 5,070,436 clause. Closes 2026-10-01T18:06:15+02:00.",
+    "due": "2026-10-01T18:06:15+02:00",
+    "key": "clause:3259",
+    "done": false,
+    "created": 1790612731
+  },
+  {
+    "id": 42,
+    "text": "Bid for Guridi (MED): he's ON SALE at 6,005,168, 3,994,832 less than his 10,000,000 clause. Closes 2026-10-01T17:59:24+02:00.",
+    "due": "2026-10-01T17:59:24+02:00",
+    "key": "clause:856",
+    "done": false,
+    "created": 1790612731
+  },
+  {
+    "id": 43,
+    "text": "Bid for Amatucci (MED): he's ON SALE at 15,513,285, 4,742,443 less than his 20,255,728 clause. Closes 2026-09-29T03:01:08+02:00.",
+    "due": "2026-09-29T03:01:08+02:00",
+    "key": "clause:3119",
+    "done": false,
+    "created": 1790612731
+  },
+  {
+    "id": 44,
+    "text": "Bid for Yuri (DEF): he's ON SALE at 17,804,747, 795,253 less than his 18,600,000 clause. Closes 2026-10-01T17:13:01+02:00.",
+    "due": "2026-10-01T17:13:01+02:00",
+    "key": "clause:74",
+    "done": false,
+    "created": 1790612731
   }
 ]
