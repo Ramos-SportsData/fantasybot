@@ -1,12 +1,17 @@
 {
-  "305047584": {
-    "bid_id": "40872220",
-    "amount": 20011239,
-    "nombre": "Ayoze"
+  "312104480": {
+    "bid_id": "41445923",
+    "amount": 8686861,
+    "nombre": "A. Castrín"
   },
-  "305047624": {
-    "bid_id": "40872224",
-    "amount": 25867266,
-    "nombre": "Agirrezabala"
+  "312104493": {
+    "bid_id": "41445925",
+    "amount": 37509146,
+    "nombre": "Cucho"
+  },
+  "312104491": {
+    "bid_id": "41445927",
+    "amount": 61593000,
+    "nombre": "Nico Williams"
   }
 }
