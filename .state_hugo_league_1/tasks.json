@@ -305,7 +305,7 @@
   },
   {
     "id": 39,
-    "text": "Bid for Agoumé (MED): he's ON SALE at 13,752,479, 527,190 less than his 14,279,669 clause. Closes 2026-09-29T22:21:43+02:00.",
+    "text": "Bid for Agoumé (MED): he's ON SALE at 13,752,479, 802,504 less than his 14,554,983 clause. Closes 2026-09-29T22:21:43+02:00.",
     "due": "2026-09-29T22:21:43+02:00",
     "key": "clause:2453",
     "done": false,
@@ -316,7 +316,7 @@
     "text": "Bid for Herrera (MED): he's ON SALE at 5,219,295, 3,780,705 less than his 9,000,000 clause. Closes 2026-09-29T15:21:38+02:00.",
     "due": "2026-09-29T15:21:38+02:00",
     "key": "clause:2372",
-    "done": false,
+    "done": true,
     "created": 1790612731
   },
   {
@@ -340,7 +340,7 @@
     "text": "Bid for Amatucci (MED): he's ON SALE at 15,513,285, 4,742,443 less than his 20,255,728 clause. Closes 2026-09-29T03:01:08+02:00.",
     "due": "2026-09-29T03:01:08+02:00",
     "key": "clause:3119",
-    "done": false,
+    "done": true,
     "created": 1790612731
   },
   {
