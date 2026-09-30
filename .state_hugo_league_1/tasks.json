@@ -289,7 +289,7 @@
   },
   {
     "id": 37,
-    "text": "Buyout Areso (DEF) for 3,850,619 when its clause opens.",
+    "text": "Buyout Areso (DEF) for 3,520,486 when its clause opens.",
     "due": "2026-09-21T03:40:58+02:00",
     "key": "clause:2335",
     "done": true,
@@ -361,7 +361,7 @@
   },
   {
     "id": 46,
-    "text": "Sell Lobete (~504,618): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Lobete (~506,807): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:92024616",
     "done": false,
