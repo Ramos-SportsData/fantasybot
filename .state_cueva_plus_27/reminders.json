@@ -5,5 +5,40 @@
     "event_at": "2026-09-30T17:22:00+02:00",
     "message": "Market closes in 5 min: review bids and needs.",
     "fired": false
+  },
+  {
+    "key": "clause:2963:2026-10-06T14:28:39+02:00",
+    "fire_at": "2026-10-06T14:27:39+02:00",
+    "event_at": "2026-10-06T14:28:39+02:00",
+    "message": "Quagliata's clause opens: prepare a buyout of 4,835,565 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:2315:2026-10-06T14:29:12+02:00",
+    "fire_at": "2026-10-06T14:28:12+02:00",
+    "event_at": "2026-10-06T14:29:12+02:00",
+    "message": "Paredes's clause opens: prepare a buyout of 16,788,922 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:1147:2026-10-06T17:22:26+02:00",
+    "fire_at": "2026-10-06T17:21:26+02:00",
+    "event_at": "2026-10-06T17:22:26+02:00",
+    "message": "Juan Iglesias's clause opens: prepare a buyout of 21,465,383 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:2552:2026-10-06T17:22:26+02:00",
+    "fire_at": "2026-10-06T17:21:26+02:00",
+    "event_at": "2026-10-06T17:22:26+02:00",
+    "message": "Jonny Otto's clause opens: prepare a buyout of 18,548,690 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:2924:2026-10-10T17:22:05+02:00",
+    "fire_at": "2026-10-10T17:21:05+02:00",
+    "event_at": "2026-10-10T17:22:05+02:00",
+    "message": "Zaid Romero's clause opens: prepare a buyout of 33,506,519 (fills a DEF gap).",
+    "fired": false
   }
 ]

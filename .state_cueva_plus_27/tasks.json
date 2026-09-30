@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "text": "Bid for A. Herrero (POR): he's ON SALE at 20,140,733, 171,072 less than his 20,311,805 clause. Closes 2026-10-01T13:52:55+02:00.",
+    "text": "Bid for A. Herrero (POR): he's ON SALE at 20,140,733, 227,519 less than his 20,368,252 clause. Closes 2026-10-01T13:52:55+02:00.",
     "due": "2026-10-01T13:52:55+02:00",
     "key": "clause:3040",
     "done": true,
@@ -73,24 +73,24 @@
   },
   {
     "id": 10,
-    "text": "Bid for Kike Salas (DEF): he's ON SALE at 12,024,479, 5,238,129 less than his 17,262,608 clause. Closes 2026-09-30T19:50:52+02:00.",
-    "due": "2026-09-30T19:50:52+02:00",
+    "text": "Bid for Kike Salas (DEF): he's ON SALE at 11,469,231, 5,793,377 less than his 17,262,608 clause. Closes 2026-10-03T14:47:23+02:00.",
+    "due": "2026-10-03T14:47:23+02:00",
     "key": "clause:2479",
     "done": false,
     "created": 1790020461
   },
   {
     "id": 11,
-    "text": "Bid for Suazo (DEF): he's ON SALE at 7,380,607, 954,164 less than his 8,334,771 clause. Closes 2026-09-30T19:50:20+02:00.",
-    "due": "2026-09-30T19:50:20+02:00",
+    "text": "Bid for Suazo (DEF): he's ON SALE at 7,755,309, 579,462 less than his 8,334,771 clause. Closes 2026-10-03T14:47:30+02:00.",
+    "due": "2026-10-03T14:47:30+02:00",
     "key": "clause:2753",
     "done": false,
     "created": 1790020461
   },
   {
     "id": 12,
-    "text": "Bid for Arguibide (DEF): he's ON SALE at 2,999,750, 145,229 less than his 3,144,979 clause. Closes 2026-09-30T19:50:14+02:00.",
-    "due": "2026-09-30T19:50:14+02:00",
+    "text": "Bid for Arguibide (DEF): he's ON SALE at 2,844,258, 300,721 less than his 3,144,979 clause. Closes 2026-10-03T14:47:35+02:00.",
+    "due": "2026-10-03T14:47:35+02:00",
     "key": "clause:2846",
     "done": false,
     "created": 1790020461
@@ -129,8 +129,8 @@
   },
   {
     "id": 17,
-    "text": "Bid for Juan Iglesias (DEF): he's ON SALE at 19,981,561, 1,033,200 less than his 21,014,761 clause. Closes 2026-09-30T19:50:39+02:00.",
-    "due": "2026-09-30T19:50:39+02:00",
+    "text": "Buyout Juan Iglesias (DEF) for 21,465,383 when its clause opens.",
+    "due": "2026-10-06T17:22:26+02:00",
     "key": "clause:1147",
     "done": true,
     "created": 1790101935
@@ -140,44 +140,44 @@
     "text": "Bid for Djene (DEF): he's ON SALE at 21,182,553, 861,604 less than his 22,044,157 clause. Closes 2026-09-30T19:50:36+02:00.",
     "due": "2026-09-30T19:50:36+02:00",
     "key": "clause:2661",
-    "done": false,
+    "done": true,
     "created": 1790101935
   },
   {
     "id": 19,
-    "text": "Bid for Jonny Otto (DEF): he's ON SALE at 17,623,163, 621,171 less than his 18,244,334 clause. Closes 2026-09-30T19:49:56+02:00.",
-    "due": "2026-09-30T19:49:56+02:00",
+    "text": "Buyout Jonny Otto (DEF) for 18,548,690 when its clause opens.",
+    "due": "2026-10-06T17:22:26+02:00",
     "key": "clause:2552",
     "done": true,
     "created": 1790101935
   },
   {
     "id": 20,
-    "text": "Bid for Lejeune (DEF): he's ON SALE at 17,445,648, 1,144,458 less than his 18,590,106 clause. Closes 2026-09-29T20:00:20+02:00.",
-    "due": "2026-09-29T20:00:20+02:00",
+    "text": "Bid for Lejeune (DEF): he's ON SALE at 16,530,681, 2,059,425 less than his 18,590,106 clause. Closes 2026-10-03T12:27:24+02:00.",
+    "due": "2026-10-03T12:27:24+02:00",
     "key": "clause:3082",
     "done": true,
     "created": 1790169693
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,524,539, 235,165 less than his 4,759,704 clause. Closes 2026-09-29T20:00:15+02:00.",
-    "due": "2026-09-29T20:00:15+02:00",
+    "text": "Buyout Quagliata (DEF) for 4,835,565 when its clause opens.",
+    "due": "2026-10-06T14:28:39+02:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
   },
   {
     "id": 22,
-    "text": "Bid for Paredes (DEF): he's ON SALE at 15,261,554, 1,189,005 less than his 16,450,559 clause. Closes 2026-09-29T20:00:23+02:00.",
-    "due": "2026-09-29T20:00:23+02:00",
+    "text": "Buyout Paredes (DEF) for 16,788,922 when its clause opens.",
+    "due": "2026-10-06T14:29:12+02:00",
     "key": "clause:2315",
     "done": true,
     "created": 1790169693
   },
   {
     "id": 23,
-    "text": "Bid for Yuri (DEF): he's ON SALE at 17,804,747, 231,693 less than his 18,036,440 clause. Closes 2026-10-01T13:53:00+02:00.",
+    "text": "Bid for Yuri (DEF): he's ON SALE at 17,804,747, 485,338 less than his 18,290,085 clause. Closes 2026-10-01T13:53:00+02:00.",
     "due": "2026-10-01T13:53:00+02:00",
     "key": "clause:74",
     "done": true,
@@ -196,23 +196,31 @@
     "text": "Sell Ifeanyi Ndukwe (~1,073,834): falling value (trend -35).",
     "due": null,
     "key": "sell:89925809",
-    "done": false,
+    "done": true,
     "created": 1790446702
   },
   {
     "id": 26,
-    "text": "Bid for Zaid Romero (DEF): he's ON SALE at 30,728,572, 1,917,269 less than his 32,645,841 clause. Closes 2026-09-30T19:49:59+02:00.",
-    "due": "2026-09-30T19:49:59+02:00",
+    "text": "Buyout Zaid Romero (DEF) for 33,506,519 when its clause opens.",
+    "due": "2026-10-10T17:22:05+02:00",
     "key": "clause:2924",
     "done": false,
     "created": 1790535300
   },
   {
     "id": 27,
-    "text": "Bid for Javi Rodríguez (DEF): he's ON SALE at 6,292,947, 8,866,044 less than his 15,158,991 clause. Closes 2026-09-30T19:50:46+02:00.",
-    "due": "2026-09-30T19:50:46+02:00",
+    "text": "Bid for Javi Rodríguez (DEF): he's ON SALE at 5,792,161, 9,366,830 less than his 15,158,991 clause. Closes 2026-10-03T14:47:11+02:00.",
+    "due": "2026-10-03T14:47:11+02:00",
     "key": "clause:2074",
     "done": false,
     "created": 1790692680
+  },
+  {
+    "id": 28,
+    "text": "Bid for Agirrezabala (POR): he's ON SALE at 26,424,867, 2,342,399 less than his 28,767,266 clause. Closes 2026-10-03T14:48:02+02:00.",
+    "due": "2026-10-03T14:48:02+02:00",
+    "key": "clause:1219",
+    "done": false,
+    "created": 1790779026
   }
 ]
