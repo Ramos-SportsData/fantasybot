@@ -1,17 +1,12 @@
 {
-  "312104480": {
-    "bid_id": "41445923",
-    "amount": 8686861,
-    "nombre": "A. Castrín"
+  "319172201": {
+    "bid_id": "41883499",
+    "amount": 22416737,
+    "nombre": "Mariano"
   },
-  "312104493": {
-    "bid_id": "41445925",
-    "amount": 37509146,
-    "nombre": "Cucho"
-  },
-  "312104491": {
-    "bid_id": "41445927",
-    "amount": 61593000,
-    "nombre": "Nico Williams"
+  "319172200": {
+    "bid_id": "41883505",
+    "amount": 513107,
+    "nombre": "Manu Bueno"
   }
 }

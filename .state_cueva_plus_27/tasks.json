@@ -68,7 +68,7 @@
     "text": "Sign DEF: you're short in that position.",
     "due": null,
     "key": "gap:DEF",
-    "done": false,
+    "done": true,
     "created": 1790020461
   },
   {
@@ -76,7 +76,7 @@
     "text": "Bid for Kike Salas (DEF): he's ON SALE at 11,469,231, 5,793,377 less than his 17,262,608 clause. Closes 2026-10-03T14:47:23+02:00.",
     "due": "2026-10-03T14:47:23+02:00",
     "key": "clause:2479",
-    "done": false,
+    "done": true,
     "created": 1790020461
   },
   {
@@ -84,7 +84,7 @@
     "text": "Bid for Suazo (DEF): he's ON SALE at 7,755,309, 579,462 less than his 8,334,771 clause. Closes 2026-10-03T14:47:30+02:00.",
     "due": "2026-10-03T14:47:30+02:00",
     "key": "clause:2753",
-    "done": false,
+    "done": true,
     "created": 1790020461
   },
   {
@@ -92,7 +92,7 @@
     "text": "Bid for Arguibide (DEF): he's ON SALE at 2,844,258, 300,721 less than his 3,144,979 clause. Closes 2026-10-03T14:47:35+02:00.",
     "due": "2026-10-03T14:47:35+02:00",
     "key": "clause:2846",
-    "done": false,
+    "done": true,
     "created": 1790020461
   },
   {
@@ -204,7 +204,7 @@
     "text": "Buyout Zaid Romero (DEF) for 33,506,519 when its clause opens.",
     "due": "2026-10-10T17:22:05+02:00",
     "key": "clause:2924",
-    "done": false,
+    "done": true,
     "created": 1790535300
   },
   {
@@ -212,7 +212,7 @@
     "text": "Bid for Javi Rodríguez (DEF): he's ON SALE at 5,792,161, 9,366,830 less than his 15,158,991 clause. Closes 2026-10-03T14:47:11+02:00.",
     "due": "2026-10-03T14:47:11+02:00",
     "key": "clause:2074",
-    "done": false,
+    "done": true,
     "created": 1790692680
   },
   {

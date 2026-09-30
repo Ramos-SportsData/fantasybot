@@ -1,12 +1,13 @@
 {
-  "ts": 1790778962,
-  "money": 117062244,
+  "ts": 1790797758,
+  "money": 46782383,
   "squad": {
     "2759": "Vlachodimos",
     "3227": "Ifeanyi Ndukwe",
     "3026": "Pablo Ramón",
     "3011": "Jorge Salinas",
     "2785": "Riedel",
+    "2680": "A. Castrín",
     "2902": "Diatta",
     "3182": "Lemar",
     "637": "Moncayola",
@@ -16,9 +17,10 @@
     "2453": "Agoumé",
     "2628": "O. Rey",
     "2745": "Edu Altozano",
-    "2712": "Pablo García",
-    "3131": "Marcos",
     "2770": "Antony",
-    "2779": "Juanmi"
+    "3083": "Nico Williams",
+    "3131": "Marcos",
+    "2779": "Juanmi",
+    "2712": "Pablo García"
   }
 }
