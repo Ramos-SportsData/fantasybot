@@ -4,7 +4,7 @@
     "text": "Sign POR: you're short in that position.",
     "due": null,
     "key": "gap:POR",
-    "done": false,
+    "done": true,
     "created": 1789542541
   },
   {
@@ -220,7 +220,7 @@
     "text": "Bid for Agirrezabala (POR): he's ON SALE at 26,424,867, 2,342,399 less than his 28,767,266 clause. Closes 2026-10-03T14:48:02+02:00.",
     "due": "2026-10-03T14:48:02+02:00",
     "key": "clause:1219",
-    "done": false,
+    "done": true,
     "created": 1790779026
   }
 ]
