@@ -364,12 +364,12 @@
     "text": "Sell Lobete (~506,807): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:92024616",
-    "done": false,
+    "done": true,
     "created": 1790711217
   },
   {
     "id": 47,
-    "text": "Sell Juanmi (~474,755): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Juanmi (~478,835): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:92629863",
     "done": false,
