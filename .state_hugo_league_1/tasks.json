@@ -374,5 +374,13 @@
     "key": "sell:92629863",
     "done": true,
     "created": 1790797697
+  },
+  {
+    "id": 48,
+    "text": "Sell Nico Serrano (~528,705): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:93737359",
+    "done": false,
+    "created": 1790970311
   }
 ]
