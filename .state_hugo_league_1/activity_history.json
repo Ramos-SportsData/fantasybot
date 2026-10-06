@@ -5377,6 +5377,47 @@
       "playerMasterId": 3119,
       "amount": 13627209,
       "createdAt": "2026-10-06T15:53:14+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "80514854",
+      "user1Id": 4028228,
+      "playerMasterId": 2561,
+      "amount": 52750033,
+      "createdAt": "2026-10-06T18:08:19+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "80514883",
+      "user1Id": 231979,
+      "playerMasterId": 3073,
+      "amount": 7990000,
+      "createdAt": "2026-10-06T18:08:20+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "80515795",
+      "user1Id": 4028228,
+      "playerMasterId": 2217,
+      "amount": 42243776,
+      "createdAt": "2026-10-06T18:09:29+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "80515826",
+      "user1Id": 4028228,
+      "playerMasterId": 2387,
+      "amount": 54680231,
+      "createdAt": "2026-10-06T18:09:32+02:00"
+    },
+    {
+      "activityTypeId": 1,
+      "id": "80516823",
+      "user1Id": 4028228,
+      "user2Id": 231979,
+      "playerMasterId": 2746,
+      "amount": 20000000,
+      "createdAt": "2026-10-06T18:11:01+02:00"
     }
   ]
 }
