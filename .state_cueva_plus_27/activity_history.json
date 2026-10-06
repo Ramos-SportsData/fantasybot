@@ -1931,6 +1931,14 @@
       "playerMasterId": 2464,
       "amount": 16027805,
       "createdAt": "2026-10-02T18:01:10+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "80481656",
+      "user1Id": 5413192,
+      "playerMasterId": 3101,
+      "amount": 129171719,
+      "createdAt": "2026-10-06T17:22:11+02:00"
     }
   ]
 }
