@@ -1970,6 +1970,14 @@
       "user1Id": 5413192,
       "playerMasterId": 2932,
       "createdAt": "2026-10-08T12:29:58+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "81934093",
+      "user1Id": 1516783,
+      "playerMasterId": 3164,
+      "amount": 7176876,
+      "createdAt": "2026-10-08T17:22:24+02:00"
     }
   ]
 }
