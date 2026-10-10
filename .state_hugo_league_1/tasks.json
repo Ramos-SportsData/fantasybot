@@ -382,5 +382,13 @@
     "key": "sell:93737359",
     "done": true,
     "created": 1790970311
+  },
+  {
+    "id": 49,
+    "text": "Sell Swiderski (~531,883): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:91385396",
+    "done": false,
+    "created": 1791641535
   }
 ]
