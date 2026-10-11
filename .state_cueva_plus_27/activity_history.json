@@ -2010,6 +2010,14 @@
       "playerMasterId": 3104,
       "amount": 200371728,
       "createdAt": "2026-10-10T17:22:14+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "83422756",
+      "user1Id": 898822,
+      "playerMasterId": 2387,
+      "amount": 62873175,
+      "createdAt": "2026-10-11T03:02:45+02:00"
     }
   ]
 }
