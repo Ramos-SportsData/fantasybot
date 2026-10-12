@@ -201,8 +201,8 @@
   },
   {
     "id": 26,
-    "text": "Bid for Catena (DEF): he's ON SALE at 28,332,261, 11,667,740 less than his 40,000,001 clause. Closes 2026-09-27T16:53:43+02:00.",
-    "due": "2026-09-27T16:53:43+02:00",
+    "text": "Bid for Catena (DEF): he's ON SALE at 19,912,792, 20,087,209 less than his 40,000,001 clause. Closes 2026-10-14T16:02:42+02:00.",
+    "due": "2026-10-14T16:02:42+02:00",
     "key": "clause:1033",
     "done": true,
     "created": 1790020350
@@ -398,5 +398,37 @@
     "key": "sell:13965708",
     "done": true,
     "created": 1791659265
+  },
+  {
+    "id": 51,
+    "text": "Bid for Lejeune (DEF): he's ON SALE at 16,035,080, 674,476 less than his 16,709,556 clause. Closes 2026-10-15T15:55:46+02:00.",
+    "due": "2026-10-15T15:55:46+02:00",
+    "key": "clause:3082",
+    "done": false,
+    "created": 1791825559
+  },
+  {
+    "id": 52,
+    "text": "Bid for Hancko (DEF): he's ON SALE at 47,703,438, 5,046,595 less than his 52,750,033 clause. Closes 2026-10-15T15:55:17+02:00.",
+    "due": "2026-10-15T15:55:17+02:00",
+    "key": "clause:2561",
+    "done": false,
+    "created": 1791825559
+  },
+  {
+    "id": 53,
+    "text": "Bid for Yeray (DEF): he's ON SALE at 4,633,523, 190,559 less than his 4,824,082 clause. Closes 2026-10-15T18:05:45+02:00.",
+    "due": "2026-10-15T18:05:45+02:00",
+    "key": "clause:77",
+    "done": false,
+    "created": 1791825559
+  },
+  {
+    "id": 54,
+    "text": "Buyout Bellerín (DEF) for 19,124,115 when its clause opens.",
+    "due": "2026-10-12T18:08:31+02:00",
+    "key": "clause:2414",
+    "done": false,
+    "created": 1791825559
   }
 ]
