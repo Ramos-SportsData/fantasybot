@@ -404,7 +404,7 @@
     "text": "Bid for Lejeune (DEF): he's ON SALE at 15,861,654, 847,902 less than his 16,709,556 clause. Closes 2026-10-16T16:32:00+02:00.",
     "due": "2026-10-16T16:32:00+02:00",
     "key": "clause:3082",
-    "done": false,
+    "done": true,
     "created": 1791825559
   },
   {
@@ -428,7 +428,7 @@
     "text": "Buyout Bellerín (DEF) for 19,047,534 when its clause opens.",
     "due": "2026-10-12T18:08:31+02:00",
     "key": "clause:2414",
-    "done": false,
+    "done": true,
     "created": 1791825559
   },
   {
@@ -436,7 +436,23 @@
     "text": "Buyout A. Castrín (DEF) for 11,681,726 when its clause opens.",
     "due": "2026-10-21T18:08:25+02:00",
     "key": "clause:2680",
-    "done": false,
+    "done": true,
     "created": 1791905601
+  },
+  {
+    "id": 56,
+    "text": "Sell Parrott (~15,426,768): falling value (trend -23).",
+    "due": null,
+    "key": "sell:99655566",
+    "done": false,
+    "created": 1791925166
+  },
+  {
+    "id": 57,
+    "text": "Sell Ugrinic (~2,370,185): falling value (trend -24).",
+    "due": null,
+    "key": "sell:10804123",
+    "done": false,
+    "created": 1791925166
   }
 ]
