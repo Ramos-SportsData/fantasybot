@@ -185,8 +185,8 @@
   },
   {
     "id": 24,
-    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 4,289,704, 3,210,297 less than his 7,500,001 clause. Closes 2026-10-01T18:13:03+02:00.",
-    "due": "2026-10-01T18:13:03+02:00",
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,730,196, 3,769,805 less than his 7,500,001 clause. Closes 2026-10-16T16:45:51+02:00.",
+    "due": "2026-10-16T16:45:51+02:00",
     "key": "clause:2990",
     "done": true,
     "created": 1790020350
@@ -225,8 +225,8 @@
   },
   {
     "id": 29,
-    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,778,031, 484,190 less than his 2,262,221 clause. Closes 2026-10-01T18:13:08+02:00.",
-    "due": "2026-10-01T18:13:08+02:00",
+    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,437,528, 824,693 less than his 2,262,221 clause. Closes 2026-10-16T16:45:45+02:00.",
+    "due": "2026-10-16T16:45:45+02:00",
     "key": "clause:3026",
     "done": true,
     "created": 1790020350
@@ -401,8 +401,8 @@
   },
   {
     "id": 51,
-    "text": "Bid for Lejeune (DEF): he's ON SALE at 16,035,080, 674,476 less than his 16,709,556 clause. Closes 2026-10-15T15:55:46+02:00.",
-    "due": "2026-10-15T15:55:46+02:00",
+    "text": "Bid for Lejeune (DEF): he's ON SALE at 15,861,654, 847,902 less than his 16,709,556 clause. Closes 2026-10-16T16:32:00+02:00.",
+    "due": "2026-10-16T16:32:00+02:00",
     "key": "clause:3082",
     "done": false,
     "created": 1791825559
@@ -412,7 +412,7 @@
     "text": "Bid for Hancko (DEF): he's ON SALE at 47,703,438, 5,046,595 less than his 52,750,033 clause. Closes 2026-10-15T15:55:17+02:00.",
     "due": "2026-10-15T15:55:17+02:00",
     "key": "clause:2561",
-    "done": false,
+    "done": true,
     "created": 1791825559
   },
   {
@@ -425,10 +425,18 @@
   },
   {
     "id": 54,
-    "text": "Buyout Bellerín (DEF) for 19,124,115 when its clause opens.",
+    "text": "Buyout Bellerín (DEF) for 19,047,534 when its clause opens.",
     "due": "2026-10-12T18:08:31+02:00",
     "key": "clause:2414",
     "done": false,
     "created": 1791825559
+  },
+  {
+    "id": 55,
+    "text": "Buyout A. Castrín (DEF) for 11,681,726 when its clause opens.",
+    "due": "2026-10-21T18:08:25+02:00",
+    "key": "clause:2680",
+    "done": false,
+    "created": 1791905601
   }
 ]
