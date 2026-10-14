@@ -444,7 +444,7 @@
     "text": "Sell Parrott (~15,426,768): falling value (trend -23).",
     "due": null,
     "key": "sell:99655566",
-    "done": false,
+    "done": true,
     "created": 1791925166
   },
   {
@@ -452,7 +452,7 @@
     "text": "Sell Ugrinic (~2,370,185): falling value (trend -24).",
     "due": null,
     "key": "sell:10804123",
-    "done": false,
+    "done": true,
     "created": 1791925166
   }
 ]
