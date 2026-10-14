@@ -420,7 +420,7 @@
     "text": "Bid for Yeray (DEF): he's ON SALE at 4,633,523, 190,559 less than his 4,824,082 clause. Closes 2026-10-15T18:05:45+02:00.",
     "due": "2026-10-15T18:05:45+02:00",
     "key": "clause:77",
-    "done": false,
+    "done": true,
     "created": 1791825559
   },
   {
@@ -454,5 +454,13 @@
     "key": "sell:10804123",
     "done": true,
     "created": 1791925166
+  },
+  {
+    "id": 58,
+    "text": "Sell Germán (~547,335): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:100263986",
+    "done": false,
+    "created": 1792005050
   }
 ]
