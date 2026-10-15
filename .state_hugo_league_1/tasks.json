@@ -462,5 +462,13 @@
     "key": "sell:100263986",
     "done": false,
     "created": 1792005050
+  },
+  {
+    "id": 59,
+    "text": "Sell Carlos Lopez (~531,873): no juega (prob. titular 5%), caja ajustada.",
+    "due": null,
+    "key": "sell:100929419",
+    "done": false,
+    "created": 1792090380
   }
 ]
