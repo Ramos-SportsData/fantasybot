@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "text": "Buyout Suazo (DEF) for 8,658,863 when its clause opens.",
+    "text": "Buyout Suazo (DEF) for 8,587,649 when its clause opens.",
     "due": "2026-09-05T17:28:10+02:00",
     "key": "clause:2753",
     "done": true,
@@ -177,8 +177,8 @@
   },
   {
     "id": 23,
-    "text": "Bid for Yuri (DEF): he's ON SALE at 20,424,724, 1,578,422 less than his 22,003,146 clause. Closes 2026-10-14T19:26:41+02:00.",
-    "due": "2026-10-14T19:26:41+02:00",
+    "text": "Bid for Yuri (DEF): he's ON SALE at 20,191,081, 1,812,065 less than his 22,003,146 clause. Closes 2026-10-18T10:48:34+02:00.",
+    "due": "2026-10-18T10:48:34+02:00",
     "key": "clause:74",
     "done": true,
     "created": 1790255456
@@ -241,15 +241,15 @@
   },
   {
     "id": 31,
-    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,348,197, 63,805 less than his 3,412,002 clause. Closes 2026-10-14T19:26:45+02:00.",
-    "due": "2026-10-14T19:26:45+02:00",
+    "text": "Buyout Pedrosa (DEF) for 3,440,400 when its clause opens.",
+    "due": "2026-10-22T12:26:53+02:00",
     "key": "clause:1056",
     "done": true,
     "created": 1791905746
   },
   {
     "id": 32,
-    "text": "Bid for Konaté (DEF): he's ON SALE at 26,960,398, 584,729 less than his 27,545,127 clause. Closes 2026-10-16T23:56:48+02:00.",
+    "text": "Bid for Konaté (DEF): he's ON SALE at 26,960,398, 1,209,666 less than his 28,170,064 clause. Closes 2026-10-16T23:56:48+02:00.",
     "due": "2026-10-16T23:56:48+02:00",
     "key": "clause:3107",
     "done": false,
@@ -265,7 +265,7 @@
   },
   {
     "id": 34,
-    "text": "Sell Blanco (~12,539,602): falling value (trend -28).",
+    "text": "Sell Blanco (~12,396,233): falling value (trend -29).",
     "due": null,
     "key": "sell:41986048",
     "done": false,
@@ -273,7 +273,7 @@
   },
   {
     "id": 35,
-    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 18,037,628, 478,247 less than his 18,515,875 clause. Closes 2026-10-16T23:55:05+02:00.",
+    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 18,037,628, 924,479 less than his 18,962,107 clause. Closes 2026-10-16T23:55:05+02:00.",
     "due": "2026-10-16T23:55:05+02:00",
     "key": "clause:2206",
     "done": false,
@@ -281,10 +281,18 @@
   },
   {
     "id": 36,
-    "text": "Bid for Foyth (DEF): he's ON SALE at 8,338,011, 71,684 less than his 8,409,695 clause. Closes 2026-10-16T23:55:00+02:00.",
+    "text": "Bid for Foyth (DEF): he's ON SALE at 8,338,011, 236,504 less than his 8,574,515 clause. Closes 2026-10-16T23:55:00+02:00.",
     "due": "2026-10-16T23:55:00+02:00",
     "key": "clause:2470",
     "done": false,
     "created": 1791984048
+  },
+  {
+    "id": 37,
+    "text": "Bid for Valentín Gómez (DEF): he's ON SALE at 4,375,347, 43,902 less than his 4,419,249 clause. Closes 2026-10-18T10:48:31+02:00.",
+    "due": "2026-10-18T10:48:31+02:00",
+    "key": "clause:2609",
+    "done": false,
+    "created": 1792069576
   }
 ]
