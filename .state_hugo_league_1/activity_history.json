@@ -5925,6 +5925,70 @@
       "playerMasterId": 3057,
       "amount": 528813,
       "createdAt": "2026-10-15T18:16:41+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "90073400",
+      "user1Id": 231979,
+      "playerMasterId": 2322,
+      "amount": 49137453,
+      "createdAt": "2026-10-16T16:37:52+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "90074286",
+      "user1Id": 231979,
+      "playerMasterId": 856,
+      "amount": 4842714,
+      "createdAt": "2026-10-16T16:39:13+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "90137554",
+      "user1Id": 684463,
+      "playerMasterId": 3090,
+      "amount": 40113007,
+      "createdAt": "2026-10-16T18:08:25+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "90137577",
+      "user1Id": 231979,
+      "playerMasterId": 3089,
+      "amount": 62951536,
+      "createdAt": "2026-10-16T18:08:26+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "90137575",
+      "user1Id": 9792955,
+      "playerMasterId": 2565,
+      "amount": 570896,
+      "createdAt": "2026-10-16T18:08:26+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "90137573",
+      "user1Id": 4028228,
+      "playerMasterId": 91,
+      "amount": 27065733,
+      "createdAt": "2026-10-16T18:08:26+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "90157027",
+      "user1Id": 684463,
+      "playerMasterId": 2414,
+      "amount": 16921672,
+      "createdAt": "2026-10-16T18:33:41+02:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "90157059",
+      "user1Id": 684463,
+      "playerMasterId": 2480,
+      "amount": 6000124,
+      "createdAt": "2026-10-16T18:33:48+02:00"
     }
   ]
 }
