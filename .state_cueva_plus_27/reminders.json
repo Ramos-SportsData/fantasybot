@@ -3,7 +3,7 @@
     "key": "clause:2753:2026-09-05T17:28:10+02:00",
     "fire_at": "2026-09-05T17:27:10+02:00",
     "event_at": "2026-09-05T17:28:10+02:00",
-    "message": "Suazo's clause opens: prepare a buyout of 8,587,649 (fills a DEF gap).",
+    "message": "Suazo's clause opens: prepare a buyout of 8,536,342 (fills a DEF gap).",
     "fired": false
   },
   {
@@ -14,10 +14,10 @@
     "fired": false
   },
   {
-    "key": "clause:1056:2026-10-22T12:26:53+02:00",
-    "fire_at": "2026-10-22T12:25:53+02:00",
-    "event_at": "2026-10-22T12:26:53+02:00",
-    "message": "Pedrosa's clause opens: prepare a buyout of 3,440,400 (fills a DEF gap).",
+    "key": "lineup_lock:2026-10-16T20:30:00+02:00",
+    "fire_at": "2026-10-16T18:30:00+02:00",
+    "event_at": "2026-10-16T20:30:00+02:00",
+    "message": "Matchday is today: set your FINAL LINEUP.",
     "fired": false
   }
 ]
