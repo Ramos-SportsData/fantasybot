@@ -441,7 +441,7 @@
   },
   {
     "id": 56,
-    "text": "Sell Parrott (~14,567,920): falling value (trend -26).",
+    "text": "Sell Parrott (~14,348,896): falling value (trend -27).",
     "due": null,
     "key": "sell:99655566",
     "done": true,
@@ -457,7 +457,7 @@
   },
   {
     "id": 58,
-    "text": "Sell Germán (~551,253): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Germán (~553,576): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:100263986",
     "done": false,
@@ -465,10 +465,26 @@
   },
   {
     "id": 59,
-    "text": "Sell Carlos Lopez (~534,081): no juega (prob. titular 5%), caja ajustada.",
+    "text": "Sell Carlos Lopez (~537,091): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:100929419",
     "done": false,
     "created": 1792090380
+  },
+  {
+    "id": 60,
+    "text": "Sell Pablo Durán (~1,249,035): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:92629859",
+    "done": false,
+    "created": 1792238295
+  },
+  {
+    "id": 61,
+    "text": "Sell Esquivel (~570,348): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:100263988",
+    "done": false,
+    "created": 1792238295
   }
 ]
