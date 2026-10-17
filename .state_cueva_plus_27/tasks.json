@@ -161,8 +161,8 @@
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 5,480,093, 336,390 less than his 5,816,483 clause. Closes 2026-10-16T23:54:50+02:00.",
-    "due": "2026-10-16T23:54:50+02:00",
+    "text": "Bid for Quagliata (DEF): he's ON SALE at 5,426,853, 389,630 less than his 5,816,483 clause. Closes 2026-10-20T00:37:51+02:00.",
+    "due": "2026-10-20T00:37:51+02:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
@@ -241,7 +241,7 @@
   },
   {
     "id": 31,
-    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,440,400, 29,476 less than his 3,469,876 clause. Closes 2026-10-18T10:48:28+02:00.",
+    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,440,400, 67,171 less than his 3,507,571 clause. Closes 2026-10-18T10:48:28+02:00.",
     "due": "2026-10-18T10:48:28+02:00",
     "key": "clause:1056",
     "done": true,
@@ -252,7 +252,7 @@
     "text": "Bid for Konaté (DEF): he's ON SALE at 26,960,398, 1,699,091 less than his 28,659,489 clause. Closes 2026-10-16T23:56:48+02:00.",
     "due": "2026-10-16T23:56:48+02:00",
     "key": "clause:3107",
-    "done": false,
+    "done": true,
     "created": 1791905746
   },
   {
@@ -265,7 +265,7 @@
   },
   {
     "id": 34,
-    "text": "Sell Blanco (~12,332,231): falling value (trend -30).",
+    "text": "Sell Blanco (~12,290,620): falling value (trend -31).",
     "due": null,
     "key": "sell:41986048",
     "done": false,
@@ -276,7 +276,7 @@
     "text": "Bid for Yoel Lago (DEF): he's ON SALE at 18,037,628, 1,368,275 less than his 19,405,903 clause. Closes 2026-10-16T23:55:05+02:00.",
     "due": "2026-10-16T23:55:05+02:00",
     "key": "clause:2206",
-    "done": false,
+    "done": true,
     "created": 1791984048
   },
   {
@@ -284,7 +284,7 @@
     "text": "Bid for Foyth (DEF): he's ON SALE at 8,338,011, 412,647 less than his 8,750,658 clause. Closes 2026-10-16T23:55:00+02:00.",
     "due": "2026-10-16T23:55:00+02:00",
     "key": "clause:2470",
-    "done": false,
+    "done": true,
     "created": 1791984048
   },
   {
@@ -294,5 +294,13 @@
     "key": "clause:2609",
     "done": false,
     "created": 1792069576
+  },
+  {
+    "id": 38,
+    "text": "Sell Pablo Ramón (~1,358,607): falling value (trend -28).",
+    "due": null,
+    "key": "sell:75752519",
+    "done": false,
+    "created": 1792238417
   }
 ]
