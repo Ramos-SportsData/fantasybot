@@ -225,8 +225,8 @@
   },
   {
     "id": 29,
-    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,437,528, 824,693 less than his 2,262,221 clause. Closes 2026-10-16T16:45:45+02:00.",
-    "due": "2026-10-16T16:45:45+02:00",
+    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,358,607, 903,614 less than his 2,262,221 clause. Closes 2026-10-20T14:15:36+02:00.",
+    "due": "2026-10-20T14:15:36+02:00",
     "key": "clause:3026",
     "done": true,
     "created": 1790020350
@@ -484,7 +484,15 @@
     "text": "Sell Esquivel (~570,348): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:100263988",
-    "done": false,
+    "done": true,
     "created": 1792238295
+  },
+  {
+    "id": 62,
+    "text": "Sell Tenés (~546,183): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:102007334",
+    "done": false,
+    "created": 1792259083
   }
 ]
