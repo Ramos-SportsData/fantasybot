@@ -121,7 +121,7 @@
   },
   {
     "id": 16,
-    "text": "Sell Denis Suárez (~2,814,520): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Denis Suárez (~2,822,280): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:57748085",
     "done": true,
@@ -385,7 +385,7 @@
   },
   {
     "id": 49,
-    "text": "Sell Swiderski (~531,883): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Swiderski (~559,079): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:91385396",
     "done": true,
@@ -465,7 +465,7 @@
   },
   {
     "id": 59,
-    "text": "Sell Carlos Lopez (~542,516): no juega (prob. titular 5%), caja ajustada.",
+    "text": "Sell Carlos Lopez (~542,516): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:100929419",
     "done": false,
@@ -476,7 +476,7 @@
     "text": "Sell Pablo Durán (~1,229,848): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:92629859",
-    "done": false,
+    "done": true,
     "created": 1792238295
   },
   {
@@ -494,5 +494,13 @@
     "key": "sell:102007334",
     "done": false,
     "created": 1792259083
+  },
+  {
+    "id": 63,
+    "text": "Sell Gorka Carrera (~574,536): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:100929422",
+    "done": false,
+    "created": 1792345640
   }
 ]
