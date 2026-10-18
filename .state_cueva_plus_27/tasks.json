@@ -177,8 +177,8 @@
   },
   {
     "id": 23,
-    "text": "Bid for Yuri (DEF): he's ON SALE at 20,191,081, 1,812,065 less than his 22,003,146 clause. Closes 2026-10-18T10:48:34+02:00.",
-    "due": "2026-10-18T10:48:34+02:00",
+    "text": "Bid for Yuri (DEF): he's ON SALE at 19,759,606, 2,243,540 less than his 22,003,146 clause. Closes 2026-10-21T11:12:58+02:00.",
+    "due": "2026-10-21T11:12:58+02:00",
     "key": "clause:74",
     "done": true,
     "created": 1790255456
@@ -241,8 +241,8 @@
   },
   {
     "id": 31,
-    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,440,400, 67,171 less than his 3,507,571 clause. Closes 2026-10-18T10:48:28+02:00.",
-    "due": "2026-10-18T10:48:28+02:00",
+    "text": "Buyout Pedrosa (DEF) for 3,510,689 when its clause opens.",
+    "due": "2026-10-22T12:26:53+02:00",
     "key": "clause:1056",
     "done": true,
     "created": 1791905746
@@ -265,7 +265,7 @@
   },
   {
     "id": 34,
-    "text": "Sell Blanco (~12,290,620): falling value (trend -31).",
+    "text": "Sell Blanco (~12,141,541): falling value (trend -32).",
     "due": null,
     "key": "sell:41986048",
     "done": false,
@@ -292,7 +292,7 @@
     "text": "Bid for Valentín Gómez (DEF): he's ON SALE at 4,375,347, 43,902 less than his 4,419,249 clause. Closes 2026-10-18T10:48:31+02:00.",
     "due": "2026-10-18T10:48:31+02:00",
     "key": "clause:2609",
-    "done": false,
+    "done": true,
     "created": 1792069576
   },
   {
@@ -300,7 +300,7 @@
     "text": "Sell Pablo Ramón (~1,358,607): falling value (trend -28).",
     "due": null,
     "key": "sell:75752519",
-    "done": false,
+    "done": true,
     "created": 1792238417
   }
 ]
