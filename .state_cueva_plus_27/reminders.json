@@ -3,7 +3,7 @@
     "key": "clause:2753:2026-09-05T17:28:10+02:00",
     "fire_at": "2026-09-05T17:27:10+02:00",
     "event_at": "2026-09-05T17:28:10+02:00",
-    "message": "Suazo's clause opens: prepare a buyout of 8,435,490 (fills a DEF gap).",
+    "message": "Suazo's clause opens: prepare a buyout of 8,363,832 (fills a DEF gap).",
     "fired": false
   },
   {
@@ -17,28 +17,7 @@
     "key": "clause:1056:2026-10-22T12:26:53+02:00",
     "fire_at": "2026-10-22T12:25:53+02:00",
     "event_at": "2026-10-22T12:26:53+02:00",
-    "message": "Pedrosa's clause opens: prepare a buyout of 3,510,689 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "clause:3107:2026-10-25T17:22:07+01:00",
-    "fire_at": "2026-10-25T17:21:07+01:00",
-    "event_at": "2026-10-25T17:22:07+01:00",
-    "message": "Konaté's clause opens: prepare a buyout of 29,422,494 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "clause:2206:2026-10-26T09:01:05+01:00",
-    "fire_at": "2026-10-26T09:00:05+01:00",
-    "event_at": "2026-10-26T09:01:05+01:00",
-    "message": "Yoel Lago's clause opens: prepare a buyout of 20,194,816 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "clause:2470:2026-10-27T17:22:22+01:00",
-    "fire_at": "2026-10-27T17:21:22+01:00",
-    "event_at": "2026-10-27T17:22:22+01:00",
-    "message": "Foyth's clause opens: prepare a buyout of 9,056,484 (fills a DEF gap).",
+    "message": "Pedrosa's clause opens: prepare a buyout of 3,509,307 (fills a DEF gap).",
     "fired": false
   }
 ]
