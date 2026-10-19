@@ -185,8 +185,8 @@
   },
   {
     "id": 24,
-    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,730,196, 3,769,805 less than his 7,500,001 clause. Closes 2026-10-16T16:45:51+02:00.",
-    "due": "2026-10-16T16:45:51+02:00",
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,549,421, 3,950,580 less than his 7,500,001 clause. Closes 2026-10-20T14:15:30+02:00.",
+    "due": "2026-10-20T14:15:30+02:00",
     "key": "clause:2990",
     "done": true,
     "created": 1790020350
@@ -433,7 +433,7 @@
   },
   {
     "id": 55,
-    "text": "Buyout A. Castrín (DEF) for 11,681,726 when its clause opens.",
+    "text": "Buyout A. Castrín (DEF) for 11,256,238 when its clause opens.",
     "due": "2026-10-21T18:08:25+02:00",
     "key": "clause:2680",
     "done": true,
@@ -460,12 +460,12 @@
     "text": "Sell Germán (~558,341): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:100263986",
-    "done": false,
+    "done": true,
     "created": 1792005050
   },
   {
     "id": 59,
-    "text": "Sell Carlos Lopez (~542,516): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Carlos Lopez (~546,580): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:100929419",
     "done": false,
@@ -492,7 +492,7 @@
     "text": "Sell Tenés (~551,244): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:102007334",
-    "done": false,
+    "done": true,
     "created": 1792259083
   },
   {
@@ -500,7 +500,15 @@
     "text": "Sell Gorka Carrera (~574,536): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:100929422",
-    "done": false,
+    "done": true,
     "created": 1792345640
+  },
+  {
+    "id": 64,
+    "text": "Bid for Javi Galán (DEF): he's ON SALE at 5,077,885, 1,144,341 less than his 6,222,226 clause. Closes 2026-10-21T17:40:33+02:00.",
+    "due": "2026-10-21T17:40:33+02:00",
+    "key": "clause:2329",
+    "done": false,
+    "created": 1792422928
   }
 ]

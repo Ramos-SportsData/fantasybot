@@ -1,12 +1,10 @@
 {
-  "ts": 1792345589,
-  "money": 1953006,
+  "ts": 1792422876,
+  "money": 20122545,
   "squad": {
     "2565": "A. Fortuño",
-    "2643": "Esquivel",
     "2749": "Swiderski",
     "2759": "Vlachodimos",
-    "2988": "Germán",
     "3057": "Carlos Lopez",
     "1147": "Juan Iglesias",
     "2728": "Renato Veiga",
@@ -21,10 +19,7 @@
     "3100": "Pedri",
     "3163": "Caste",
     "2303": "I. Romero",
-    "2397": "Pablo Durán",
     "2865": "Gorka Carrera",
-    "3113": "Tenés",
-    "3176": "Ibra",
-    "3231": "Parrott"
+    "3176": "Ibra"
   }
 }
