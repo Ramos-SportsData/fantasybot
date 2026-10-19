@@ -510,5 +510,21 @@
     "key": "clause:2329",
     "done": false,
     "created": 1792422928
+  },
+  {
+    "id": 65,
+    "text": "Sell Letacek (~569,292): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:103171744",
+    "done": false,
+    "created": 1792443171
+  },
+  {
+    "id": 66,
+    "text": "Sell Y. Santiago (~557,753): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:103171742",
+    "done": false,
+    "created": 1792443171
   }
 ]
