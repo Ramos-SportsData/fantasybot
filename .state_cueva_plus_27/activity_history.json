@@ -2448,6 +2448,14 @@
       "amount": 6300000,
       "weekNumber": 9,
       "createdAt": "2026-10-20T04:20:50+02:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "95408778",
+      "user1Id": 5413192,
+      "playerMasterId": 302,
+      "amount": 5544519,
+      "createdAt": "2026-10-20T17:22:08+02:00"
     }
   ]
 }

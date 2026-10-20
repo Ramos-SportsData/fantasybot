@@ -310,5 +310,13 @@
     "key": "clause:3106",
     "done": true,
     "created": 1792345751
+  },
+  {
+    "id": 40,
+    "text": "Buyout Gayá (DEF) for 5,631,112 when its clause opens.",
+    "due": "2026-11-03T17:22:08+01:00",
+    "key": "clause:302",
+    "done": false,
+    "created": 1792522574
   }
 ]
