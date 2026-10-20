@@ -3,7 +3,7 @@
     "key": "clause:2753:2026-09-05T17:28:10+02:00",
     "fire_at": "2026-09-05T17:27:10+02:00",
     "event_at": "2026-09-05T17:28:10+02:00",
-    "message": "Suazo's clause opens: prepare a buyout of 8,363,832 (fills a DEF gap).",
+    "message": "Suazo's clause opens: prepare a buyout of 8,334,771 (fills a DEF gap).",
     "fired": false
   },
   {
@@ -17,7 +17,7 @@
     "key": "clause:1056:2026-10-22T12:26:53+02:00",
     "fire_at": "2026-10-22T12:25:53+02:00",
     "event_at": "2026-10-22T12:26:53+02:00",
-    "message": "Pedrosa's clause opens: prepare a buyout of 3,509,307 (fills a DEF gap).",
+    "message": "Pedrosa's clause opens: prepare a buyout of 3,504,316 (fills a DEF gap).",
     "fired": false
   }
 ]

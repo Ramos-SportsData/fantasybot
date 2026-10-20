@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "text": "Buyout Suazo (DEF) for 8,363,832 when its clause opens.",
+    "text": "Buyout Suazo (DEF) for 8,334,771 when its clause opens.",
     "due": "2026-09-05T17:28:10+02:00",
     "key": "clause:2753",
     "done": true,
@@ -161,8 +161,8 @@
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 5,426,853, 389,630 less than his 5,816,483 clause. Closes 2026-10-20T00:37:51+02:00.",
-    "due": "2026-10-20T00:37:51+02:00",
+    "text": "Bid for Quagliata (DEF): he's ON SALE at 5,310,685, 505,798 less than his 5,816,483 clause. Closes 2026-10-23T10:42:43+02:00.",
+    "due": "2026-10-23T10:42:43+02:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
@@ -241,7 +241,7 @@
   },
   {
     "id": 31,
-    "text": "Buyout Pedrosa (DEF) for 3,509,307 when its clause opens.",
+    "text": "Buyout Pedrosa (DEF) for 3,504,316 when its clause opens.",
     "due": "2026-10-22T12:26:53+02:00",
     "key": "clause:1056",
     "done": true,
@@ -249,7 +249,7 @@
   },
   {
     "id": 32,
-    "text": "Bid for Konaté (DEF): he's ON SALE at 29,422,494, 313,810 less than his 29,736,304 clause. Closes 2026-10-21T19:35:48+02:00.",
+    "text": "Bid for Konaté (DEF): he's ON SALE at 29,422,494, 573,054 less than his 29,995,548 clause. Closes 2026-10-21T19:35:48+02:00.",
     "due": "2026-10-21T19:35:48+02:00",
     "key": "clause:3107",
     "done": true,
@@ -273,7 +273,7 @@
   },
   {
     "id": 35,
-    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 20,194,816, 426,949 less than his 20,621,765 clause. Closes 2026-10-21T19:36:02+02:00.",
+    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 20,194,816, 995,582 less than his 21,190,398 clause. Closes 2026-10-21T19:36:02+02:00.",
     "due": "2026-10-21T19:36:02+02:00",
     "key": "clause:2206",
     "done": true,
@@ -281,7 +281,7 @@
   },
   {
     "id": 36,
-    "text": "Bid for Foyth (DEF): he's ON SALE at 9,056,484, 203,904 less than his 9,260,388 clause. Closes 2026-10-21T19:35:53+02:00.",
+    "text": "Bid for Foyth (DEF): he's ON SALE at 9,056,484, 470,952 less than his 9,527,436 clause. Closes 2026-10-21T19:35:53+02:00.",
     "due": "2026-10-21T19:35:53+02:00",
     "key": "clause:2470",
     "done": true,
