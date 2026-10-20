@@ -185,8 +185,8 @@
   },
   {
     "id": 24,
-    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,549,421, 3,950,580 less than his 7,500,001 clause. Closes 2026-10-20T14:15:30+02:00.",
-    "due": "2026-10-20T14:15:30+02:00",
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,509,291, 3,990,710 less than his 7,500,001 clause. Closes 2026-10-23T16:26:29+02:00.",
+    "due": "2026-10-23T16:26:29+02:00",
     "key": "clause:2990",
     "done": true,
     "created": 1790020350
@@ -225,8 +225,8 @@
   },
   {
     "id": 29,
-    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,358,607, 903,614 less than his 2,262,221 clause. Closes 2026-10-20T14:15:36+02:00.",
-    "due": "2026-10-20T14:15:36+02:00",
+    "text": "Bid for Pablo Ramón (DEF): he's ON SALE at 1,306,647, 955,574 less than his 2,262,221 clause. Closes 2026-10-23T16:26:34+02:00.",
+    "due": "2026-10-23T16:26:34+02:00",
     "key": "clause:3026",
     "done": true,
     "created": 1790020350
@@ -433,7 +433,7 @@
   },
   {
     "id": 55,
-    "text": "Buyout A. Castrín (DEF) for 11,256,238 when its clause opens.",
+    "text": "Buyout A. Castrín (DEF) for 11,132,904 when its clause opens.",
     "due": "2026-10-21T18:08:25+02:00",
     "key": "clause:2680",
     "done": true,
@@ -468,7 +468,7 @@
     "text": "Sell Carlos Lopez (~549,117): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:100929419",
-    "done": false,
+    "done": true,
     "created": 1792090380
   },
   {
@@ -526,5 +526,13 @@
     "key": "sell:103171742",
     "done": false,
     "created": 1792443171
+  },
+  {
+    "id": 67,
+    "text": "Sell Arana (~577,219): no juega (prob. titular 10%), caja ajustada.",
+    "due": null,
+    "key": "sell:103801191",
+    "done": false,
+    "created": 1792522442
   }
 ]
