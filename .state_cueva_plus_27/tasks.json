@@ -249,7 +249,7 @@
   },
   {
     "id": 32,
-    "text": "Bid for Konaté (DEF): he's ON SALE at 29,422,494, 573,054 less than his 29,995,548 clause. Closes 2026-10-21T19:35:48+02:00.",
+    "text": "Bid for Konaté (DEF): he's ON SALE at 29,422,494, 738,958 less than his 30,161,452 clause. Closes 2026-10-21T19:35:48+02:00.",
     "due": "2026-10-21T19:35:48+02:00",
     "key": "clause:3107",
     "done": true,
@@ -273,7 +273,7 @@
   },
   {
     "id": 35,
-    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 20,194,816, 995,582 less than his 21,190,398 clause. Closes 2026-10-21T19:36:02+02:00.",
+    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 20,194,816, 1,524,933 less than his 21,719,749 clause. Closes 2026-10-21T19:36:02+02:00.",
     "due": "2026-10-21T19:36:02+02:00",
     "key": "clause:2206",
     "done": true,
@@ -281,7 +281,7 @@
   },
   {
     "id": 36,
-    "text": "Bid for Foyth (DEF): he's ON SALE at 9,056,484, 470,952 less than his 9,527,436 clause. Closes 2026-10-21T19:35:53+02:00.",
+    "text": "Bid for Foyth (DEF): he's ON SALE at 9,056,484, 732,501 less than his 9,788,985 clause. Closes 2026-10-21T19:35:53+02:00.",
     "due": "2026-10-21T19:35:53+02:00",
     "key": "clause:2470",
     "done": true,
@@ -313,8 +313,8 @@
   },
   {
     "id": 40,
-    "text": "Buyout Gayá (DEF) for 5,631,112 when its clause opens.",
-    "due": "2026-11-03T17:22:08+01:00",
+    "text": "Bid for Gayá (DEF): he's ON SALE at 5,631,112, 104,077 less than his 5,735,189 clause. Closes 2026-10-23T18:40:20+02:00.",
+    "due": "2026-10-23T18:40:20+02:00",
     "key": "clause:302",
     "done": false,
     "created": 1792522574
