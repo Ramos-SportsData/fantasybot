@@ -534,5 +534,29 @@
     "key": "sell:103801191",
     "done": true,
     "created": 1792522442
+  },
+  {
+    "id": 68,
+    "text": "Sell O. Rey (~1,883,429): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:72002682",
+    "done": false,
+    "created": 1792609614
+  },
+  {
+    "id": 69,
+    "text": "Sell Marc Santos (~586,080): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:100929420",
+    "done": false,
+    "created": 1792609614
+  },
+  {
+    "id": 70,
+    "text": "Sell Bauza (~586,080): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:104399517",
+    "done": false,
+    "created": 1792609614
   }
 ]
