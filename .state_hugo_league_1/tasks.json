@@ -433,7 +433,7 @@
   },
   {
     "id": 55,
-    "text": "Buyout A. Castrín (DEF) for 11,036,610 when its clause opens.",
+    "text": "Buyout A. Castrín (DEF) for 10,976,836 when its clause opens.",
     "due": "2026-10-21T18:08:25+02:00",
     "key": "clause:2680",
     "done": true,
@@ -449,7 +449,7 @@
   },
   {
     "id": 57,
-    "text": "Sell Ugrinic (~2,099,149): falling value (trend -32).",
+    "text": "Sell Ugrinic (~2,059,650): falling value (trend -33).",
     "due": null,
     "key": "sell:10804123",
     "done": true,
@@ -513,7 +513,7 @@
   },
   {
     "id": 65,
-    "text": "Sell Letacek (~571,552): no juega (prob. titular 5%), caja ajustada.",
+    "text": "Sell Letacek (~572,239): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:103171744",
     "done": false,
@@ -521,7 +521,7 @@
   },
   {
     "id": 66,
-    "text": "Sell Y. Santiago (~560,918): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Y. Santiago (~562,031): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:103171742",
     "done": false,
@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "text": "Sell Arana (~577,219): no juega (prob. titular 10%), caja ajustada.",
+    "text": "Sell Arana (~578,045): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:103801191",
     "done": true,
@@ -540,7 +540,7 @@
     "text": "Sell O. Rey (~1,883,429): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:72002682",
-    "done": false,
+    "done": true,
     "created": 1792609614
   },
   {
@@ -548,15 +548,23 @@
     "text": "Sell Marc Santos (~586,080): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:100929420",
-    "done": false,
+    "done": true,
     "created": 1792609614
   },
   {
     "id": 70,
-    "text": "Sell Bauza (~586,080): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Bauza (~586,186): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:104399517",
     "done": false,
     "created": 1792609614
+  },
+  {
+    "id": 71,
+    "text": "Bid for Dela (DEF): he's ON SALE at 15,905,092, 1,094,915 less than his 17,000,007 clause. Closes 2026-10-25T01:30:15+02:00.",
+    "due": "2026-10-25T01:30:15+02:00",
+    "key": "clause:2300",
+    "done": false,
+    "created": 1792675522
   }
 ]
