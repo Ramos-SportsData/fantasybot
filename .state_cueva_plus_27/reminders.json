@@ -1,5 +1,12 @@
 [
   {
+    "key": "clause:1056:2026-10-22T12:26:53+02:00",
+    "fire_at": "2026-10-22T12:25:53+02:00",
+    "event_at": "2026-10-22T12:26:53+02:00",
+    "message": "Pedrosa's clause opens: prepare a buyout of 3,507,121 (fills a DEF gap).",
+    "fired": false
+  },
+  {
     "key": "market_close:2026-10-22T17:22:00+02:00",
     "fire_at": "2026-10-22T17:17:00+02:00",
     "event_at": "2026-10-22T17:22:00+02:00",
