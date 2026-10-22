@@ -566,5 +566,13 @@
     "key": "clause:2300",
     "done": false,
     "created": 1792675522
+  },
+  {
+    "id": 72,
+    "text": "Sell Diatta (~562,901): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:105061198",
+    "done": false,
+    "created": 1792695794
   }
 ]
