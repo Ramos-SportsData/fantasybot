@@ -241,15 +241,15 @@
   },
   {
     "id": 31,
-    "text": "Buyout Pedrosa (DEF) for 3,507,121 when its clause opens.",
-    "due": "2026-10-22T12:26:53+02:00",
+    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,507,121, 17,893 less than his 3,525,014 clause. Closes 2026-10-25T10:57:52+01:00.",
+    "due": "2026-10-25T10:57:52+01:00",
     "key": "clause:1056",
     "done": true,
     "created": 1791905746
   },
   {
     "id": 32,
-    "text": "Bid for Konaté (DEF): he's ON SALE at 30,161,452, 180,233 less than his 30,341,685 clause. Closes 2026-10-24T22:13:52+02:00.",
+    "text": "Bid for Konaté (DEF): he's ON SALE at 30,161,452, 282,963 less than his 30,444,415 clause. Closes 2026-10-24T22:13:52+02:00.",
     "due": "2026-10-24T22:13:52+02:00",
     "key": "clause:3107",
     "done": true,
@@ -273,7 +273,7 @@
   },
   {
     "id": 35,
-    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 21,719,749, 457,648 less than his 22,177,397 clause. Closes 2026-10-24T22:14:07+02:00.",
+    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 21,719,749, 892,098 less than his 22,611,847 clause. Closes 2026-10-24T22:14:07+02:00.",
     "due": "2026-10-24T22:14:07+02:00",
     "key": "clause:2206",
     "done": true,
@@ -281,7 +281,7 @@
   },
   {
     "id": 36,
-    "text": "Bid for Foyth (DEF): he's ON SALE at 9,788,985, 306,685 less than his 10,095,670 clause. Closes 2026-10-24T22:13:56+02:00.",
+    "text": "Bid for Foyth (DEF): he's ON SALE at 9,788,985, 601,934 less than his 10,390,919 clause. Closes 2026-10-24T22:13:56+02:00.",
     "due": "2026-10-24T22:13:56+02:00",
     "key": "clause:2470",
     "done": true,
@@ -289,8 +289,8 @@
   },
   {
     "id": 37,
-    "text": "Bid for Valentín Gómez (DEF): he's ON SALE at 4,375,347, 43,902 less than his 4,419,249 clause. Closes 2026-10-18T10:48:31+02:00.",
-    "due": "2026-10-18T10:48:31+02:00",
+    "text": "Bid for Valentín Gómez (DEF): he's ON SALE at 4,728,797, 135,126 less than his 4,863,923 clause. Closes 2026-10-25T10:57:48+01:00.",
+    "due": "2026-10-25T10:57:48+01:00",
     "key": "clause:2609",
     "done": true,
     "created": 1792069576
@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Bid for Gayá (DEF): he's ON SALE at 5,631,112, 210,632 less than his 5,841,744 clause. Closes 2026-10-23T18:40:20+02:00.",
+    "text": "Bid for Gayá (DEF): he's ON SALE at 5,631,112, 315,387 less than his 5,946,499 clause. Closes 2026-10-23T18:40:20+02:00.",
     "due": "2026-10-23T18:40:20+02:00",
     "key": "clause:302",
     "done": false,
@@ -324,7 +324,15 @@
     "text": "Sell Nico Williams (~39,437,935): falling value (trend -20).",
     "due": null,
     "key": "sell:92597886",
-    "done": false,
+    "done": true,
     "created": 1792675635
+  },
+  {
+    "id": 42,
+    "text": "Sell Antony (~49,077,267): falling value (trend -20).",
+    "due": null,
+    "key": "sell:46887999",
+    "done": false,
+    "created": 1792760740
   }
 ]
