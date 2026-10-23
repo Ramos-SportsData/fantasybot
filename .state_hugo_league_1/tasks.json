@@ -433,7 +433,7 @@
   },
   {
     "id": 55,
-    "text": "Buyout A. Castrín (DEF) for 10,976,836 when its clause opens.",
+    "text": "Buyout A. Castrín (DEF) for 10,960,000 when its clause opens.",
     "due": "2026-10-21T18:08:25+02:00",
     "key": "clause:2680",
     "done": true,
@@ -516,7 +516,7 @@
     "text": "Sell Letacek (~572,239): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:103171744",
-    "done": false,
+    "done": true,
     "created": 1792443171
   },
   {
@@ -524,7 +524,7 @@
     "text": "Sell Y. Santiago (~562,031): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:103171742",
-    "done": false,
+    "done": true,
     "created": 1792443171
   },
   {
@@ -556,7 +556,7 @@
     "text": "Sell Bauza (~586,186): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:104399517",
-    "done": false,
+    "done": true,
     "created": 1792609614
   },
   {
@@ -569,7 +569,7 @@
   },
   {
     "id": 72,
-    "text": "Sell Diatta (~562,901): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Diatta (~563,997): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:105061198",
     "done": false,
