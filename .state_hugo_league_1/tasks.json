@@ -185,8 +185,8 @@
   },
   {
     "id": 24,
-    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,509,291, 3,990,710 less than his 7,500,001 clause. Closes 2026-10-23T16:26:29+02:00.",
-    "due": "2026-10-23T16:26:29+02:00",
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,490,324, 4,009,677 less than his 7,500,001 clause. Closes 2026-10-26T16:57:42+01:00.",
+    "due": "2026-10-26T16:57:42+01:00",
     "key": "clause:2990",
     "done": true,
     "created": 1790020350
@@ -433,8 +433,8 @@
   },
   {
     "id": 55,
-    "text": "Buyout A. Castrín (DEF) for 10,960,000 when its clause opens.",
-    "due": "2026-10-21T18:08:25+02:00",
+    "text": "Bid for A. Castrín (DEF): he's ON SALE at 10,958,059, 1,941 less than his 10,960,000 clause. Closes 2026-10-26T16:57:38+01:00.",
+    "due": "2026-10-26T16:57:38+01:00",
     "key": "clause:2680",
     "done": true,
     "created": 1791905601
@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "text": "Sell Arana (~578,045): no juega (prob. titular 10%), caja ajustada.",
+    "text": "Sell Arana (~578,530): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:103801191",
     "done": true,
@@ -569,10 +569,18 @@
   },
   {
     "id": 72,
-    "text": "Sell Diatta (~563,997): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Diatta (~563,992): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:105061198",
     "done": false,
     "created": 1792695794
+  },
+  {
+    "id": 73,
+    "text": "Bid for Giménez (DEF): he's ON SALE at 23,365,276, 6,634,725 less than his 30,000,001 clause. Closes 2026-10-26T16:59:41+01:00.",
+    "due": "2026-10-26T16:59:41+01:00",
+    "key": "clause:2324",
+    "done": false,
+    "created": 1792781581
   }
 ]

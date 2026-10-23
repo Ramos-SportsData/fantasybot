@@ -1,23 +1,16 @@
 [
   {
-    "key": "clause:2680:2026-10-21T18:08:25+02:00",
-    "fire_at": "2026-10-21T18:07:25+02:00",
-    "event_at": "2026-10-21T18:08:25+02:00",
-    "message": "A. Castrín's clause opens: prepare a buyout of 10,960,000 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "market_close:2026-10-23T18:08:00+02:00",
-    "fire_at": "2026-10-23T18:03:00+02:00",
-    "event_at": "2026-10-23T18:08:00+02:00",
-    "message": "Market closes in 5 min: review bids and needs.",
-    "fired": false
-  },
-  {
-    "key": "lineup_lock:2026-10-23T20:30:00+02:00",
-    "fire_at": "2026-10-23T18:30:00+02:00",
-    "event_at": "2026-10-23T20:30:00+02:00",
+    "key": "lineup_lock:2026-10-23T21:00:00+02:00",
+    "fire_at": "2026-10-23T19:00:00+02:00",
+    "event_at": "2026-10-23T21:00:00+02:00",
     "message": "Matchday is today: set your FINAL LINEUP.",
+    "fired": false
+  },
+  {
+    "key": "market_close:2026-10-24T18:08:00+02:00",
+    "fire_at": "2026-10-24T18:03:00+02:00",
+    "event_at": "2026-10-24T18:08:00+02:00",
+    "message": "Market closes in 5 min: review bids and needs.",
     "fired": false
   }
 ]
