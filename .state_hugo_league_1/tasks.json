@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "text": "Sell Arana (~580,132): no juega (prob. titular 10%), caja ajustada.",
+    "text": "Sell Arana (~580,132): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:103801191",
     "done": true,
@@ -580,7 +580,23 @@
     "text": "Bid for Giménez (DEF): he's ON SALE at 23,365,276, 6,634,725 less than his 30,000,001 clause. Closes 2026-10-26T16:59:41+01:00.",
     "due": "2026-10-26T16:59:41+01:00",
     "key": "clause:2324",
-    "done": false,
+    "done": true,
     "created": 1792781581
+  },
+  {
+    "id": 74,
+    "text": "Sell Vlachodimos (~27,531,339): falling value (trend -26).",
+    "due": null,
+    "key": "sell:81128060",
+    "done": false,
+    "created": 1792864137
+  },
+  {
+    "id": 75,
+    "text": "Sell Jorge Salinas (~3,801,496): falling value (trend -37).",
+    "due": null,
+    "key": "sell:63682515",
+    "done": false,
+    "created": 1792864137
   }
 ]
