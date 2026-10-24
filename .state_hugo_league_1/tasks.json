@@ -433,7 +433,7 @@
   },
   {
     "id": 55,
-    "text": "Bid for A. Castrín (DEF): he's ON SALE at 10,958,059, 1,941 less than his 10,960,000 clause. Closes 2026-10-26T16:57:38+01:00.",
+    "text": "Bid for A. Castrín (DEF): he's ON SALE at 10,958,059, 4,534 less than his 10,962,593 clause. Closes 2026-10-26T16:57:38+01:00.",
     "due": "2026-10-26T16:57:38+01:00",
     "key": "clause:2680",
     "done": true,
@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "text": "Sell Arana (~578,530): no juega (prob. titular 10%), caja ajustada.",
+    "text": "Sell Arana (~580,132): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:103801191",
     "done": true,
@@ -564,12 +564,12 @@
     "text": "Bid for Dela (DEF): he's ON SALE at 15,905,092, 1,094,915 less than his 17,000,007 clause. Closes 2026-10-25T01:30:15+02:00.",
     "due": "2026-10-25T01:30:15+02:00",
     "key": "clause:2300",
-    "done": false,
+    "done": true,
     "created": 1792675522
   },
   {
     "id": 72,
-    "text": "Sell Diatta (~563,992): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Diatta (~566,176): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:105061198",
     "done": false,
