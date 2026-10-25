@@ -537,7 +537,7 @@
   },
   {
     "id": 68,
-    "text": "Sell O. Rey (~1,883,429): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell O. Rey (~1,849,197): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:72002682",
     "done": true,
@@ -598,5 +598,13 @@
     "key": "sell:63682515",
     "done": false,
     "created": 1792864137
+  },
+  {
+    "id": 76,
+    "text": "Sell Fran González (~579,455): no juega (prob. titular 5%), caja ajustada.",
+    "due": null,
+    "key": "sell:106584421",
+    "done": false,
+    "created": 1792951524
   }
 ]
