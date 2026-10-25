@@ -1,9 +1,23 @@
 [
   {
-    "key": "market_close:2026-10-25T17:22:00+01:00",
-    "fire_at": "2026-10-25T17:17:00+01:00",
-    "event_at": "2026-10-25T17:22:00+01:00",
+    "key": "clause:1056:2026-10-22T12:26:53+02:00",
+    "fire_at": "2026-10-22T12:25:53+02:00",
+    "event_at": "2026-10-22T12:26:53+02:00",
+    "message": "Pedrosa's clause opens: prepare a buyout of 3,494,314 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "market_close:2026-10-26T17:22:00+01:00",
+    "fire_at": "2026-10-26T17:17:00+01:00",
+    "event_at": "2026-10-26T17:22:00+01:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:2609:2026-10-28T13:14:42+01:00",
+    "fire_at": "2026-10-28T13:13:42+01:00",
+    "event_at": "2026-10-28T13:14:42+01:00",
+    "message": "Valentín Gómez's clause opens: prepare a buyout of 5,071,015 (fills a DEF gap).",
     "fired": false
   }
 ]

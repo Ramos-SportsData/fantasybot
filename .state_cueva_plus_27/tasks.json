@@ -241,8 +241,8 @@
   },
   {
     "id": 31,
-    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,507,121, 25,026 less than his 3,532,147 clause. Closes 2026-10-25T10:57:52+01:00.",
-    "due": "2026-10-25T10:57:52+01:00",
+    "text": "Buyout Pedrosa (DEF) for 3,494,314 when its clause opens.",
+    "due": "2026-10-22T12:26:53+02:00",
     "key": "clause:1056",
     "done": true,
     "created": 1791905746
@@ -289,8 +289,8 @@
   },
   {
     "id": 37,
-    "text": "Bid for Valentín Gómez (DEF): he's ON SALE at 4,728,797, 258,640 less than his 4,987,437 clause. Closes 2026-10-25T10:57:48+01:00.",
-    "due": "2026-10-25T10:57:48+01:00",
+    "text": "Buyout Valentín Gómez (DEF) for 5,071,015 when its clause opens.",
+    "due": "2026-10-28T13:14:42+01:00",
     "key": "clause:2609",
     "done": true,
     "created": 1792069576
@@ -332,7 +332,7 @@
     "text": "Sell Antony (~47,942,167): falling value (trend -22).",
     "due": null,
     "key": "sell:46887999",
-    "done": false,
+    "done": true,
     "created": 1792760740
   },
   {
