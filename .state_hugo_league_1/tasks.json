@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "text": "Sell Arana (~580,132): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Arana (~584,706): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:103801191",
     "done": true,
@@ -569,7 +569,7 @@
   },
   {
     "id": 72,
-    "text": "Sell Diatta (~566,176): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Diatta (~571,308): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:105061198",
     "done": false,
@@ -588,12 +588,12 @@
     "text": "Sell Vlachodimos (~27,531,339): falling value (trend -26).",
     "due": null,
     "key": "sell:81128060",
-    "done": false,
+    "done": true,
     "created": 1792864137
   },
   {
     "id": 75,
-    "text": "Sell Jorge Salinas (~3,801,496): falling value (trend -37).",
+    "text": "Sell Jorge Salinas (~3,722,223): falling value (trend -38).",
     "due": null,
     "key": "sell:63682515",
     "done": false,
