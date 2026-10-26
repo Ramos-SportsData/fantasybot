@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "text": "Sell Arana (~584,706): no juega (prob. titular 10%), caja ajustada.",
+    "text": "Sell Arana (~587,713): no juega (prob. titular 10%), caja ajustada.",
     "due": null,
     "key": "sell:103801191",
     "done": true,
@@ -569,7 +569,7 @@
   },
   {
     "id": 72,
-    "text": "Sell Diatta (~571,308): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Diatta (~574,851): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:105061198",
     "done": false,
@@ -593,7 +593,7 @@
   },
   {
     "id": 75,
-    "text": "Sell Jorge Salinas (~3,722,223): falling value (trend -38).",
+    "text": "Sell Jorge Salinas (~3,631,643): falling value (trend -39).",
     "due": null,
     "key": "sell:63682515",
     "done": false,
@@ -601,7 +601,7 @@
   },
   {
     "id": 76,
-    "text": "Sell Fran González (~579,455): no juega (prob. titular 5%), caja ajustada.",
+    "text": "Sell Fran González (~582,672): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:106584421",
     "done": false,
