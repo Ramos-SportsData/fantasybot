@@ -241,7 +241,7 @@
   },
   {
     "id": 31,
-    "text": "Buyout Pedrosa (DEF) for 3,494,314 when its clause opens.",
+    "text": "Buyout Pedrosa (DEF) for 3,431,907 when its clause opens.",
     "due": "2026-10-22T12:26:53+02:00",
     "key": "clause:1056",
     "done": true,
@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Bid for Gayá (DEF): he's ON SALE at 6,078,964, 48,446 less than his 6,127,410 clause. Closes 2026-10-27T18:53:04+01:00.",
+    "text": "Bid for Gayá (DEF): he's ON SALE at 6,078,964, 80,437 less than his 6,159,401 clause. Closes 2026-10-27T18:53:04+01:00.",
     "due": "2026-10-27T18:53:04+01:00",
     "key": "clause:302",
     "done": true,
@@ -337,10 +337,18 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 9,706,590, 209,532 less than his 9,916,122 clause. Closes 2026-10-26T17:43:00+01:00.",
+    "text": "Bid for Cabrera (DEF): he's ON SALE at 9,706,590, 338,185 less than his 10,044,775 clause. Closes 2026-10-26T17:43:00+01:00.",
     "due": "2026-10-26T17:43:00+01:00",
     "key": "clause:3068",
     "done": false,
     "created": 1792781702
+  },
+  {
+    "id": 44,
+    "text": "Bid for Freeman (DEF): he's ON SALE at 7,041,518, 641,582 less than his 7,683,100 clause. Closes 2026-10-28T21:35:28+01:00.",
+    "due": "2026-10-28T21:35:28+01:00",
+    "key": "clause:2934",
+    "done": false,
+    "created": 1793026289
   }
 ]
