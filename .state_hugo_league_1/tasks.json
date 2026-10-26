@@ -172,7 +172,7 @@
     "text": "Sign DEF: you're short in that position.",
     "due": null,
     "key": "gap:DEF",
-    "done": false,
+    "done": true,
     "created": 1790020350
   },
   {
@@ -601,10 +601,18 @@
   },
   {
     "id": 76,
-    "text": "Sell Fran González (~582,672): no juega (prob. titular 5%), caja ajustada.",
+    "text": "Sell Fran González (~582,672): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:106584421",
     "done": false,
     "created": 1792951524
+  },
+  {
+    "id": 77,
+    "text": "Sell Dani Barcia (~617,995): no juega (prob. titular 0%), caja ajustada.",
+    "due": null,
+    "key": "sell:107167862",
+    "done": false,
+    "created": 1793045897
   }
 ]
