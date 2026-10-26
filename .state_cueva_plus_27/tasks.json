@@ -73,8 +73,8 @@
   },
   {
     "id": 10,
-    "text": "Bid for Kike Salas (DEF): he's ON SALE at 14,926,220, 2,336,388 less than his 17,262,608 clause. Closes 2026-10-24T22:13:38+02:00.",
-    "due": "2026-10-24T22:13:38+02:00",
+    "text": "Bid for Kike Salas (DEF): he's ON SALE at 15,555,545, 1,707,063 less than his 17,262,608 clause. Closes 2026-10-29T17:05:18+01:00.",
+    "due": "2026-10-29T17:05:18+01:00",
     "key": "clause:2479",
     "done": true,
     "created": 1790020461
@@ -161,8 +161,8 @@
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 5,204,146, 612,337 less than his 5,816,483 clause. Closes 2026-10-26T17:42:57+01:00.",
-    "due": "2026-10-26T17:42:57+01:00",
+    "text": "Bid for Quagliata (DEF): he's ON SALE at 5,065,010, 751,473 less than his 5,816,483 clause. Closes 2026-10-29T19:29:42+01:00.",
+    "due": "2026-10-29T19:29:42+01:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
@@ -209,8 +209,8 @@
   },
   {
     "id": 27,
-    "text": "Bid for Javi Rodríguez (DEF): he's ON SALE at 3,917,899, 11,241,092 less than his 15,158,991 clause. Closes 2026-10-24T22:14:03+02:00.",
-    "due": "2026-10-24T22:14:03+02:00",
+    "text": "Bid for Javi Rodríguez (DEF): he's ON SALE at 4,577,411, 10,581,580 less than his 15,158,991 clause. Closes 2026-10-29T17:05:07+01:00.",
+    "due": "2026-10-29T17:05:07+01:00",
     "key": "clause:2074",
     "done": true,
     "created": 1790692680
@@ -249,8 +249,8 @@
   },
   {
     "id": 32,
-    "text": "Bid for Konaté (DEF): he's ON SALE at 30,161,452, 363,476 less than his 30,524,928 clause. Closes 2026-10-24T22:13:52+02:00.",
-    "due": "2026-10-24T22:13:52+02:00",
+    "text": "Buyout Konaté (DEF) for 30,680,605 when its clause opens.",
+    "due": "2026-10-25T17:22:07+01:00",
     "key": "clause:3107",
     "done": true,
     "created": 1791905746
@@ -273,16 +273,16 @@
   },
   {
     "id": 35,
-    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 21,719,749, 1,253,524 less than his 22,973,273 clause. Closes 2026-10-24T22:14:07+02:00.",
-    "due": "2026-10-24T22:14:07+02:00",
+    "text": "Buyout Yoel Lago (DEF) for 24,014,727 when its clause opens.",
+    "due": "2026-10-26T09:01:05+01:00",
     "key": "clause:2206",
     "done": true,
     "created": 1791984048
   },
   {
     "id": 36,
-    "text": "Bid for Foyth (DEF): he's ON SALE at 9,788,985, 853,276 less than his 10,642,261 clause. Closes 2026-10-24T22:13:56+02:00.",
-    "due": "2026-10-24T22:13:56+02:00",
+    "text": "Buyout Foyth (DEF) for 11,092,174 when its clause opens.",
+    "due": "2026-10-27T17:22:22+01:00",
     "key": "clause:2470",
     "done": true,
     "created": 1791984048
@@ -337,8 +337,8 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 9,706,590, 338,185 less than his 10,044,775 clause. Closes 2026-10-26T17:43:00+01:00.",
-    "due": "2026-10-26T17:43:00+01:00",
+    "text": "Buyout Cabrera (DEF) for 10,044,775 when its clause opens.",
+    "due": "2026-11-05T17:22:18+01:00",
     "key": "clause:3068",
     "done": false,
     "created": 1792781702
