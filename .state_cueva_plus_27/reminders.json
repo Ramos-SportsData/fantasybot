@@ -7,10 +7,17 @@
     "fired": false
   },
   {
-    "key": "market_close:2026-10-27T17:22:00+01:00",
-    "fire_at": "2026-10-27T17:17:00+01:00",
-    "event_at": "2026-10-27T17:22:00+01:00",
+    "key": "market_close:2026-10-28T17:22:00+01:00",
+    "fire_at": "2026-10-28T17:17:00+01:00",
+    "event_at": "2026-10-28T17:22:00+01:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:302:2026-11-03T17:22:08+01:00",
+    "fire_at": "2026-11-03T17:21:08+01:00",
+    "event_at": "2026-11-03T17:22:08+01:00",
+    "message": "Gayá's clause opens: prepare a buyout of 6,181,614 (fills a DEF gap).",
     "fired": false
   }
 ]

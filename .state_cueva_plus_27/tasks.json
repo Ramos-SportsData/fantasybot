@@ -313,8 +313,8 @@
   },
   {
     "id": 40,
-    "text": "Bid for Gayá (DEF): he's ON SALE at 6,078,964, 102,650 less than his 6,181,614 clause. Closes 2026-10-27T18:53:04+01:00.",
-    "due": "2026-10-27T18:53:04+01:00",
+    "text": "Buyout Gayá (DEF) for 6,181,614 when its clause opens.",
+    "due": "2026-11-03T17:22:08+01:00",
     "key": "clause:302",
     "done": true,
     "created": 1792522574

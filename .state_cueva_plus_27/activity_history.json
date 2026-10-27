@@ -2614,6 +2614,23 @@
       "amount": 4300000,
       "weekNumber": 10,
       "createdAt": "2026-10-27T04:16:39+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "102964459",
+      "user1Id": 5413192,
+      "playerMasterId": 2549,
+      "amount": 28712884,
+      "createdAt": "2026-10-27T18:09:24+01:00"
+    },
+    {
+      "activityTypeId": 1,
+      "id": "103078291",
+      "user1Id": 5413192,
+      "user2Id": 9792955,
+      "playerMasterId": 2453,
+      "amount": 19344775,
+      "createdAt": "2026-10-27T20:09:33+01:00"
     }
   ]
 }
