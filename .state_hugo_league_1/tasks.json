@@ -185,8 +185,8 @@
   },
   {
     "id": 24,
-    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,490,324, 4,009,677 less than his 7,500,001 clause. Closes 2026-10-26T16:57:42+01:00.",
-    "due": "2026-10-26T16:57:42+01:00",
+    "text": "Bid for Ximo Navarro (DEF): he's ON SALE at 3,398,101, 4,101,900 less than his 7,500,001 clause. Closes 2026-10-29T16:58:44+01:00.",
+    "due": "2026-10-29T16:58:44+01:00",
     "key": "clause:2990",
     "done": true,
     "created": 1790020350
@@ -353,8 +353,8 @@
   },
   {
     "id": 45,
-    "text": "Bid for Freeman (DEF): he's ON SALE at 2,030,627, 198,373 less than his 2,229,000 clause. Closes 2026-10-02T16:47:39+02:00.",
-    "due": "2026-10-02T16:47:39+02:00",
+    "text": "Buyout Freeman (DEF) for 8,322,972 when its clause opens.",
+    "due": "2026-10-26T15:51:18+01:00",
     "key": "clause:2934",
     "done": true,
     "created": 1790711217
@@ -572,7 +572,7 @@
     "text": "Sell Diatta (~577,528): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:105061198",
-    "done": false,
+    "done": true,
     "created": 1792695794
   },
   {
@@ -596,7 +596,7 @@
     "text": "Sell Jorge Salinas (~3,540,916): falling value (trend -40).",
     "due": null,
     "key": "sell:63682515",
-    "done": false,
+    "done": true,
     "created": 1792864137
   },
   {
@@ -604,7 +604,7 @@
     "text": "Sell Fran González (~585,037): no juega (prob. titular 5%), caja ajustada.",
     "due": null,
     "key": "sell:106584421",
-    "done": false,
+    "done": true,
     "created": 1792951524
   },
   {
@@ -614,5 +614,13 @@
     "key": "sell:107167862",
     "done": false,
     "created": 1793045897
+  },
+  {
+    "id": 78,
+    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,370,831, 1,379,202 less than his 4,750,033 clause. Closes 2026-10-30T16:58:48+01:00.",
+    "due": "2026-10-30T16:58:48+01:00",
+    "key": "clause:1056",
+    "done": false,
+    "created": 1793130567
   }
 ]

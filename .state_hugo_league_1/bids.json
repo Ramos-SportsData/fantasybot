@@ -1,12 +1,17 @@
 {
-  "508012214": {
-    "bid_id": "53034826",
-    "amount": 585087,
-    "nombre": "A. Osambela"
+  "515445568": {
+    "bid_id": "53227298",
+    "amount": 4990273,
+    "nombre": "Revivo"
   },
-  "508012208": {
-    "bid_id": "53034829",
-    "amount": 580439,
-    "nombre": "Xanet Olaiz"
+  "515445603": {
+    "bid_id": "53227305",
+    "amount": 601112,
+    "nombre": "Burcio"
+  },
+  "515445576": {
+    "bid_id": "53227310",
+    "amount": 604923,
+    "nombre": "Zakharyan"
   }
 }
