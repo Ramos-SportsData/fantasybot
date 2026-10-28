@@ -353,8 +353,8 @@
   },
   {
     "id": 45,
-    "text": "Buyout Freeman (DEF) for 8,322,972 when its clause opens.",
-    "due": "2026-10-26T15:51:18+01:00",
+    "text": "Bid for Freeman (DEF): he's ON SALE at 8,322,972, 648,443 less than his 8,971,415 clause. Closes 2026-10-30T16:33:21+01:00.",
+    "due": "2026-10-30T16:33:21+01:00",
     "key": "clause:2934",
     "done": true,
     "created": 1790711217
@@ -433,8 +433,8 @@
   },
   {
     "id": 55,
-    "text": "Bid for A. Castrín (DEF): he's ON SALE at 10,958,059, 4,534 less than his 10,962,593 clause. Closes 2026-10-26T16:57:38+01:00.",
-    "due": "2026-10-26T16:57:38+01:00",
+    "text": "Bid for A. Castrín (DEF): he's ON SALE at 10,687,677, 272,323 less than his 10,960,000 clause. Closes 2026-10-29T16:58:39+01:00.",
+    "due": "2026-10-29T16:58:39+01:00",
     "key": "clause:2680",
     "done": true,
     "created": 1791905601
@@ -609,7 +609,7 @@
   },
   {
     "id": 77,
-    "text": "Sell Dani Barcia (~618,947): no juega (prob. titular 0%), caja ajustada.",
+    "text": "Sell Dani Barcia (~618,847): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:107167862",
     "done": false,

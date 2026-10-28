@@ -1,12 +1,5 @@
 [
   {
-    "key": "clause:2934:2026-10-26T15:51:18+01:00",
-    "fire_at": "2026-10-26T15:50:18+01:00",
-    "event_at": "2026-10-26T15:51:18+01:00",
-    "message": "Freeman's clause opens: prepare a buyout of 8,322,972 (fills a DEF gap).",
-    "fired": false
-  },
-  {
     "key": "market_close:2026-10-28T18:08:00+01:00",
     "fire_at": "2026-10-28T18:03:00+01:00",
     "event_at": "2026-10-28T18:08:00+01:00",
