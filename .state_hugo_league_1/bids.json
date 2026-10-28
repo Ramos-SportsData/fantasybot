@@ -1,17 +1,27 @@
 {
-  "515445568": {
-    "bid_id": "53227298",
-    "amount": 4990273,
-    "nombre": "Revivo"
+  "522898379": {
+    "bid_id": "53697772",
+    "amount": 2558659,
+    "nombre": "Cardona"
   },
-  "515445603": {
-    "bid_id": "53227305",
-    "amount": 601112,
-    "nombre": "Burcio"
+  "522898373": {
+    "bid_id": "53697776",
+    "amount": 13859687,
+    "nombre": "Gulácsi"
   },
-  "515445576": {
-    "bid_id": "53227310",
-    "amount": 604923,
-    "nombre": "Zakharyan"
+  "522898382": {
+    "bid_id": "53697778",
+    "amount": 25178749,
+    "nombre": "Yoel Lago"
+  },
+  "522898337": {
+    "bid_id": "53697780",
+    "amount": 607885,
+    "nombre": "Aimar Blázquez"
+  },
+  "522898348": {
+    "bid_id": "53697784",
+    "amount": 3862866,
+    "nombre": "Peio Canales"
   }
 }

@@ -612,7 +612,7 @@
     "text": "Sell Dani Barcia (~618,847): no juega (prob. titular 0%), caja ajustada.",
     "due": null,
     "key": "sell:107167862",
-    "done": false,
+    "done": true,
     "created": 1793045897
   },
   {
@@ -622,5 +622,13 @@
     "key": "clause:1056",
     "done": false,
     "created": 1793130567
+  },
+  {
+    "id": 79,
+    "text": "Bid for Kike Salas (DEF): he's ON SALE at 15,616,316, 2,101,377 less than his 17,717,693 clause. Closes 2026-10-31T17:14:10+01:00.",
+    "due": "2026-10-31T17:14:10+01:00",
+    "key": "clause:2479",
+    "done": false,
+    "created": 1793217846
   }
 ]
