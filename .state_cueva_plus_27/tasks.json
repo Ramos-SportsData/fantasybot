@@ -225,7 +225,7 @@
   },
   {
     "id": 29,
-    "text": "Buyout Courtois (POR) for 53,083,772 when its clause opens.",
+    "text": "Buyout Courtois (POR) for 52,292,726 when its clause opens.",
     "due": "2026-10-25T17:22:07+01:00",
     "key": "clause:230",
     "done": true,
@@ -249,7 +249,7 @@
   },
   {
     "id": 32,
-    "text": "Bid for Konaté (DEF): he's ON SALE at 30,680,605, 488,976 less than his 31,169,581 clause. Closes 2026-10-29T17:05:15+01:00.",
+    "text": "Bid for Konaté (DEF): he's ON SALE at 30,680,605, 845,864 less than his 31,526,469 clause. Closes 2026-10-29T17:05:15+01:00.",
     "due": "2026-10-29T17:05:15+01:00",
     "key": "clause:3107",
     "done": true,
@@ -273,7 +273,7 @@
   },
   {
     "id": 35,
-    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 24,014,727, 1,164,022 less than his 25,178,749 clause. Closes 2026-10-29T17:05:03+01:00.",
+    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 24,014,727, 1,687,447 less than his 25,702,174 clause. Closes 2026-10-29T17:05:03+01:00.",
     "due": "2026-10-29T17:05:03+01:00",
     "key": "clause:2206",
     "done": true,
@@ -281,7 +281,7 @@
   },
   {
     "id": 36,
-    "text": "Bid for Foyth (DEF): he's ON SALE at 11,092,174, 556,997 less than his 11,649,171 clause. Closes 2026-10-29T17:05:12+01:00.",
+    "text": "Bid for Foyth (DEF): he's ON SALE at 11,092,174, 808,353 less than his 11,900,527 clause. Closes 2026-10-29T17:05:12+01:00.",
     "due": "2026-10-29T17:05:12+01:00",
     "key": "clause:2470",
     "done": true,
@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Bid for Gayá (DEF): he's ON SALE at 6,181,614, 23,299 less than his 6,204,913 clause. Closes 2026-10-30T20:10:48+01:00.",
+    "text": "Bid for Gayá (DEF): he's ON SALE at 6,181,614, 54,116 less than his 6,235,730 clause. Closes 2026-10-30T20:10:48+01:00.",
     "due": "2026-10-30T20:10:48+01:00",
     "key": "clause:302",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~46,180,988): falling value (trend -25).",
+    "text": "Sell Antony (~45,830,925): falling value (trend -26).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -337,7 +337,7 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 10,044,775, 294,523 less than his 10,339,298 clause. Closes 2026-10-29T19:29:46+01:00.",
+    "text": "Bid for Cabrera (DEF): he's ON SALE at 10,044,775, 397,017 less than his 10,441,792 clause. Closes 2026-10-29T19:29:46+01:00.",
     "due": "2026-10-29T19:29:46+01:00",
     "key": "clause:3068",
     "done": false,
@@ -348,7 +348,7 @@
     "text": "Bid for Freeman (DEF): he's ON SALE at 7,041,518, 1,929,897 less than his 8,971,415 clause. Closes 2026-10-28T21:35:28+01:00.",
     "due": "2026-10-28T21:35:28+01:00",
     "key": "clause:2934",
-    "done": false,
+    "done": true,
     "created": 1793026289
   }
 ]
