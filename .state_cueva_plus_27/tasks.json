@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Bid for Gayá (DEF): he's ON SALE at 6,181,614, 54,116 less than his 6,235,730 clause. Closes 2026-10-30T20:10:48+01:00.",
+    "text": "Bid for Gayá (DEF): he's ON SALE at 6,181,614, 53,822 less than his 6,235,436 clause. Closes 2026-10-30T20:10:48+01:00.",
     "due": "2026-10-30T20:10:48+01:00",
     "key": "clause:302",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~45,830,925): falling value (trend -26).",
+    "text": "Sell Antony (~45,829,541): falling value (trend -26).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -340,7 +340,7 @@
     "text": "Bid for Cabrera (DEF): he's ON SALE at 10,044,775, 397,017 less than his 10,441,792 clause. Closes 2026-10-29T19:29:46+01:00.",
     "due": "2026-10-29T19:29:46+01:00",
     "key": "clause:3068",
-    "done": false,
+    "done": true,
     "created": 1792781702
   },
   {
