@@ -620,7 +620,7 @@
     "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,370,831, 1,379,202 less than his 4,750,033 clause. Closes 2026-10-30T16:58:48+01:00.",
     "due": "2026-10-30T16:58:48+01:00",
     "key": "clause:1056",
-    "done": false,
+    "done": true,
     "created": 1793130567
   },
   {
@@ -628,7 +628,7 @@
     "text": "Bid for Kike Salas (DEF): he's ON SALE at 15,616,316, 2,101,377 less than his 17,717,693 clause. Closes 2026-10-31T17:14:10+01:00.",
     "due": "2026-10-31T17:14:10+01:00",
     "key": "clause:2479",
-    "done": false,
+    "done": true,
     "created": 1793217846
   }
 ]

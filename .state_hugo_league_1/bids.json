@@ -1,22 +1,17 @@
 {
-  "522898379": {
-    "bid_id": "53697772",
-    "amount": 2558659,
-    "nombre": "Cardona"
+  "530356523": {
+    "bid_id": "54201434",
+    "amount": 2253657,
+    "nombre": "Hector Fort"
   },
-  "522898373": {
-    "bid_id": "53697776",
-    "amount": 13859687,
-    "nombre": "Gulácsi"
+  "530356467": {
+    "bid_id": "54201439",
+    "amount": 579404,
+    "nombre": "Mañas"
   },
-  "522898382": {
-    "bid_id": "53697778",
-    "amount": 25178749,
-    "nombre": "Yoel Lago"
-  },
-  "522898348": {
-    "bid_id": "53697784",
-    "amount": 3862866,
-    "nombre": "Peio Canales"
+  "530356441": {
+    "bid_id": "54201442",
+    "amount": 587698,
+    "nombre": "Ferrer"
   }
 }
