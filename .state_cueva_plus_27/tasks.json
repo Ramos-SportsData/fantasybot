@@ -241,7 +241,7 @@
   },
   {
     "id": 31,
-    "text": "Buyout Pedrosa (DEF) for 3,227,542 when its clause opens.",
+    "text": "Buyout Pedrosa (DEF) for 3,222,792 when its clause opens.",
     "due": "2026-10-22T12:26:53+02:00",
     "key": "clause:1056",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~45,644,374): falling value (trend -27).",
+    "text": "Sell Antony (~45,513,736): falling value (trend -28).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -345,7 +345,7 @@
   },
   {
     "id": 44,
-    "text": "Bid for Freeman (DEF): he's ON SALE at 9,583,301, 599,594 less than his 10,182,895 clause. Closes 2026-11-01T23:16:28+01:00.",
+    "text": "Bid for Freeman (DEF): he's ON SALE at 9,583,301, 1,270,421 less than his 10,853,722 clause. Closes 2026-11-01T23:16:28+01:00.",
     "due": "2026-11-01T23:16:28+01:00",
     "key": "clause:2934",
     "done": true,
@@ -353,7 +353,7 @@
   },
   {
     "id": 45,
-    "text": "Sell Pablo García (~5,222,136): falling value (trend -20).",
+    "text": "Sell Pablo García (~5,132,866): falling value (trend -21).",
     "due": null,
     "key": "sell:63618415",
     "done": false,

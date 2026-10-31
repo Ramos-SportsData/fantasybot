@@ -3,14 +3,7 @@
     "key": "clause:1056:2026-10-22T12:26:53+02:00",
     "fire_at": "2026-10-22T12:25:53+02:00",
     "event_at": "2026-10-22T12:26:53+02:00",
-    "message": "Pedrosa's clause opens: prepare a buyout of 3,227,542 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "lineup_lock:2026-10-30T21:00:00+01:00",
-    "fire_at": "2026-10-30T19:00:00+01:00",
-    "event_at": "2026-10-30T21:00:00+01:00",
-    "message": "Matchday is today: set your FINAL LINEUP.",
+    "message": "Pedrosa's clause opens: prepare a buyout of 3,222,792 (fills a DEF gap).",
     "fired": false
   },
   {
