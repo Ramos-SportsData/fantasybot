@@ -1,12 +1,5 @@
 [
   {
-    "key": "lineup_lock:2026-10-30T21:00:00+01:00",
-    "fire_at": "2026-10-30T19:00:00+01:00",
-    "event_at": "2026-10-30T21:00:00+01:00",
-    "message": "Matchday is today: set your FINAL LINEUP.",
-    "fired": false
-  },
-  {
     "key": "market_close:2026-10-31T18:08:00+01:00",
     "fire_at": "2026-10-31T18:03:00+01:00",
     "event_at": "2026-10-31T18:08:00+01:00",
