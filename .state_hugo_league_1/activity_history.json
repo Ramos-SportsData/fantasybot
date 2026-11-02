@@ -6931,6 +6931,94 @@
       "playerMasterId": 2449,
       "amount": 590670,
       "createdAt": "2026-11-01T18:52:02+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "106878729",
+      "user1Id": 231979,
+      "playerMasterId": 2932,
+      "amount": 39401515,
+      "createdAt": "2026-11-02T17:03:09+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "106916943",
+      "user1Id": 4028228,
+      "playerMasterId": 1775,
+      "amount": 72684203,
+      "createdAt": "2026-11-02T17:59:51+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "106917371",
+      "user1Id": 4028228,
+      "playerMasterId": 2680,
+      "amount": 11601323,
+      "createdAt": "2026-11-02T18:00:19+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "106917460",
+      "user1Id": 4028228,
+      "playerMasterId": 3026,
+      "amount": 1603113,
+      "createdAt": "2026-11-02T18:00:23+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "106917516",
+      "user1Id": 4028228,
+      "playerMasterId": 3261,
+      "amount": 1429000,
+      "createdAt": "2026-11-02T18:00:25+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "106918279",
+      "user1Id": 4028228,
+      "playerMasterId": 3117,
+      "amount": 4115883,
+      "createdAt": "2026-11-02T18:01:00+01:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "106924198",
+      "user1Id": 4028228,
+      "playerMasterId": 3260,
+      "amount": 1927121,
+      "createdAt": "2026-11-02T18:08:15+01:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "106924213",
+      "user1Id": 4028228,
+      "playerMasterId": 2384,
+      "amount": 23421082,
+      "createdAt": "2026-11-02T18:08:16+01:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "106924227",
+      "user1Id": 4028228,
+      "playerMasterId": 2534,
+      "amount": 98700067,
+      "createdAt": "2026-11-02T18:08:17+01:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "106924243",
+      "user1Id": 4028228,
+      "playerMasterId": 3239,
+      "amount": 856505,
+      "createdAt": "2026-11-02T18:08:18+01:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "106924240",
+      "user1Id": 231979,
+      "playerMasterId": 3265,
+      "amount": 39139039,
+      "createdAt": "2026-11-02T18:08:18+01:00"
     }
   ]
 }
