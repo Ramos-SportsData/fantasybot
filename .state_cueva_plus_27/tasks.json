@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Buyout Gayá (DEF) for 6,281,537 when its clause opens.",
+    "text": "Buyout Gayá (DEF) for 6,280,913 when its clause opens.",
     "due": "2026-11-03T17:22:08+01:00",
     "key": "clause:302",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~43,533,459): falling value (trend -31).",
+    "text": "Sell Antony (~43,531,090): falling value (trend -31).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -337,7 +337,7 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 11,011,639, 981,357 less than his 11,992,996 clause. Closes 2026-11-04T15:42:46+01:00.",
+    "text": "Bid for Cabrera (DEF): he's ON SALE at 11,011,639, 979,214 less than his 11,990,853 clause. Closes 2026-11-04T15:42:46+01:00.",
     "due": "2026-11-04T15:42:46+01:00",
     "key": "clause:3068",
     "done": true,
@@ -353,7 +353,7 @@
   },
   {
     "id": 45,
-    "text": "Sell Pablo García (~4,821,004): falling value (trend -24).",
+    "text": "Sell Pablo García (~4,820,793): falling value (trend -24).",
     "due": null,
     "key": "sell:63618415",
     "done": true,
