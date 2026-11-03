@@ -7065,6 +7065,22 @@
       "amount": 6500000,
       "weekNumber": 11,
       "createdAt": "2026-11-03T04:30:24+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "110165708",
+      "user1Id": 4028228,
+      "playerMasterId": 2324,
+      "amount": 28379908,
+      "createdAt": "2026-11-03T18:04:57+01:00"
+    },
+    {
+      "activityTypeId": 31,
+      "id": "110168285",
+      "user1Id": 4028228,
+      "playerMasterId": 3037,
+      "amount": 1372301,
+      "createdAt": "2026-11-03T18:08:15+01:00"
     }
   ]
 }
