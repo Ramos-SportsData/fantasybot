@@ -73,8 +73,8 @@
   },
   {
     "id": 10,
-    "text": "Buyout Kike Salas (DEF) for 19,027,871 when its clause opens.",
-    "due": "2026-09-05T17:28:10+02:00",
+    "text": "Bid for Kike Salas (DEF): he's ON SALE at 19,027,871, 1,043,045 less than his 20,070,916 clause. Closes 2026-11-07T06:51:08+01:00.",
+    "due": "2026-11-07T06:51:08+01:00",
     "key": "clause:2479",
     "done": true,
     "created": 1790020461
@@ -161,8 +161,8 @@
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,983,034, 833,449 less than his 5,816,483 clause. Closes 2026-11-01T23:16:31+01:00.",
-    "due": "2026-11-01T23:16:31+01:00",
+    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,608,828, 1,207,655 less than his 5,816,483 clause. Closes 2026-11-08T10:57:49+01:00.",
+    "due": "2026-11-08T10:57:49+01:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
@@ -233,24 +233,24 @@
   },
   {
     "id": 30,
-    "text": "Bid for Vlachodimos (POR): he's ON SALE at 25,838,829, 7,418,856 less than his 33,257,685 clause. Closes 2026-11-04T15:42:38+01:00.",
-    "due": "2026-11-04T15:42:38+01:00",
+    "text": "Bid for Vlachodimos (POR): he's ON SALE at 24,768,803, 8,488,882 less than his 33,257,685 clause. Closes 2026-11-08T10:57:34+01:00.",
+    "due": "2026-11-08T10:57:34+01:00",
     "key": "clause:2759",
     "done": true,
     "created": 1791905746
   },
   {
     "id": 31,
-    "text": "Buyout Pedrosa (DEF) for 3,222,792 when its clause opens.",
-    "due": "2026-10-22T12:26:53+02:00",
+    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,181,423, 41,369 less than his 3,222,792 clause. Closes 2026-11-08T10:58:04+01:00.",
+    "due": "2026-11-08T10:58:04+01:00",
     "key": "clause:1056",
     "done": true,
     "created": 1791905746
   },
   {
     "id": 32,
-    "text": "Buyout Konaté (DEF) for 34,331,337 when its clause opens.",
-    "due": "2026-10-25T17:22:07+01:00",
+    "text": "Bid for Konaté (DEF): he's ON SALE at 34,331,337, 810,465 less than his 35,141,802 clause. Closes 2026-11-07T06:51:11+01:00.",
+    "due": "2026-11-07T06:51:11+01:00",
     "key": "clause:3107",
     "done": true,
     "created": 1791905746
@@ -273,8 +273,8 @@
   },
   {
     "id": 35,
-    "text": "Buyout Yoel Lago (DEF) for 27,918,096 when its clause opens.",
-    "due": "2026-10-26T09:01:05+01:00",
+    "text": "Bid for Yoel Lago (DEF): he's ON SALE at 27,918,096, 307,307 less than his 28,225,403 clause. Closes 2026-11-07T06:51:20+01:00.",
+    "due": "2026-11-07T06:51:20+01:00",
     "key": "clause:2206",
     "done": true,
     "created": 1791984048
@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Buyout Gayá (DEF) for 6,280,913 when its clause opens.",
+    "text": "Buyout Gayá (DEF) for 6,429,412 when its clause opens.",
     "due": "2026-11-03T17:22:08+01:00",
     "key": "clause:302",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~42,767,746): falling value (trend -32).",
+    "text": "Sell Antony (~42,087,788): falling value (trend -33).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -337,23 +337,23 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 11,011,639, 979,214 less than his 11,990,853 clause. Closes 2026-11-04T15:42:46+01:00.",
-    "due": "2026-11-04T15:42:46+01:00",
+    "text": "Buyout Cabrera (DEF) for 12,967,378 when its clause opens.",
+    "due": "2026-11-05T17:22:18+01:00",
     "key": "clause:3068",
     "done": true,
     "created": 1792781702
   },
   {
     "id": 44,
-    "text": "Bid for Freeman (DEF): he's ON SALE at 9,583,301, 1,780,559 less than his 11,363,860 clause. Closes 2026-11-01T23:16:28+01:00.",
-    "due": "2026-11-01T23:16:28+01:00",
+    "text": "Buyout Freeman (DEF) for 12,903,421 when its clause opens.",
+    "due": "2026-11-08T17:22:05+01:00",
     "key": "clause:2934",
     "done": true,
     "created": 1793026289
   },
   {
     "id": 45,
-    "text": "Sell Pablo García (~4,725,296): falling value (trend -25).",
+    "text": "Sell Pablo García (~4,637,431): falling value (trend -26).",
     "due": null,
     "key": "sell:63618415",
     "done": true,

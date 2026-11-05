@@ -1,23 +1,9 @@
 [
   {
-    "key": "clause:2479:2026-09-05T17:28:10+02:00",
-    "fire_at": "2026-09-05T17:27:10+02:00",
-    "event_at": "2026-09-05T17:28:10+02:00",
-    "message": "Kike Salas's clause opens: prepare a buyout of 19,027,871 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "clause:3107:2026-10-25T17:22:07+01:00",
-    "fire_at": "2026-10-25T17:21:07+01:00",
-    "event_at": "2026-10-25T17:22:07+01:00",
-    "message": "Konaté's clause opens: prepare a buyout of 34,331,337 (fills a DEF gap).",
-    "fired": false
-  },
-  {
-    "key": "clause:2206:2026-10-26T09:01:05+01:00",
-    "fire_at": "2026-10-26T09:00:05+01:00",
-    "event_at": "2026-10-26T09:01:05+01:00",
-    "message": "Yoel Lago's clause opens: prepare a buyout of 27,918,096 (fills a DEF gap).",
+    "key": "clause:302:2026-11-03T17:22:08+01:00",
+    "fire_at": "2026-11-03T17:21:08+01:00",
+    "event_at": "2026-11-03T17:22:08+01:00",
+    "message": "Gayá's clause opens: prepare a buyout of 6,429,412 (fills a DEF gap).",
     "fired": false
   },
   {
@@ -25,6 +11,20 @@
     "fire_at": "2026-11-05T17:17:00+01:00",
     "event_at": "2026-11-05T17:22:00+01:00",
     "message": "Market closes in 5 min: review bids and needs.",
+    "fired": false
+  },
+  {
+    "key": "clause:3068:2026-11-05T17:22:18+01:00",
+    "fire_at": "2026-11-05T17:21:18+01:00",
+    "event_at": "2026-11-05T17:22:18+01:00",
+    "message": "Cabrera's clause opens: prepare a buyout of 12,967,378 (fills a DEF gap).",
+    "fired": false
+  },
+  {
+    "key": "clause:2934:2026-11-08T17:22:05+01:00",
+    "fire_at": "2026-11-08T17:21:05+01:00",
+    "event_at": "2026-11-08T17:22:05+01:00",
+    "message": "Freeman's clause opens: prepare a buyout of 12,903,421 (fills a DEF gap).",
     "fired": false
   }
 ]
