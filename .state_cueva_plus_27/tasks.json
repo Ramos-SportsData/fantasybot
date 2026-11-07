@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "text": "Bid for Gayá (DEF): he's ON SALE at 6,429,412, 68,589 less than his 6,498,001 clause. Closes 2026-11-08T10:57:58+01:00.",
+    "text": "Bid for Gayá (DEF): he's ON SALE at 6,429,412, 133,484 less than his 6,562,896 clause. Closes 2026-11-08T10:57:58+01:00.",
     "due": "2026-11-08T10:57:58+01:00",
     "key": "clause:302",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~41,459,347): falling value (trend -34).",
+    "text": "Sell Antony (~40,962,460): falling value (trend -35).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -337,7 +337,7 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 12,967,378, 435,262 less than his 13,402,640 clause. Closes 2026-11-08T10:57:54+01:00.",
+    "text": "Bid for Cabrera (DEF): he's ON SALE at 12,967,378, 847,147 less than his 13,814,525 clause. Closes 2026-11-08T10:57:54+01:00.",
     "due": "2026-11-08T10:57:54+01:00",
     "key": "clause:3068",
     "done": true,
@@ -345,7 +345,7 @@
   },
   {
     "id": 44,
-    "text": "Bid for Freeman (DEF): he's ON SALE at 12,903,421, 285,677 less than his 13,189,098 clause. Closes 2026-11-08T10:57:46+01:00.",
+    "text": "Bid for Freeman (DEF): he's ON SALE at 12,903,421, 640,380 less than his 13,543,801 clause. Closes 2026-11-08T10:57:46+01:00.",
     "due": "2026-11-08T10:57:46+01:00",
     "key": "clause:2934",
     "done": true,
@@ -353,7 +353,7 @@
   },
   {
     "id": 45,
-    "text": "Sell Pablo García (~4,575,837): falling value (trend -27).",
+    "text": "Sell Pablo García (~4,522,215): falling value (trend -28).",
     "due": null,
     "key": "sell:63618415",
     "done": true,
