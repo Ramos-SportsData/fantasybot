@@ -161,8 +161,8 @@
   },
   {
     "id": 21,
-    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,608,828, 1,207,655 less than his 5,816,483 clause. Closes 2026-11-08T10:57:49+01:00.",
-    "due": "2026-11-08T10:57:49+01:00",
+    "text": "Bid for Quagliata (DEF): he's ON SALE at 4,451,907, 1,364,576 less than his 5,816,483 clause. Closes 2026-11-11T16:58:52+01:00.",
+    "due": "2026-11-11T16:58:52+01:00",
     "key": "clause:2963",
     "done": true,
     "created": 1790169693
@@ -233,16 +233,16 @@
   },
   {
     "id": 30,
-    "text": "Bid for Vlachodimos (POR): he's ON SALE at 24,768,803, 8,488,882 less than his 33,257,685 clause. Closes 2026-11-08T10:57:34+01:00.",
-    "due": "2026-11-08T10:57:34+01:00",
+    "text": "Bid for Vlachodimos (POR): he's ON SALE at 24,070,842, 9,186,843 less than his 33,257,685 clause. Closes 2026-11-11T16:58:42+01:00.",
+    "due": "2026-11-11T16:58:42+01:00",
     "key": "clause:2759",
     "done": true,
     "created": 1791905746
   },
   {
     "id": 31,
-    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,181,423, 41,369 less than his 3,222,792 clause. Closes 2026-11-08T10:58:04+01:00.",
-    "due": "2026-11-08T10:58:04+01:00",
+    "text": "Bid for Pedrosa (DEF): he's ON SALE at 3,202,180, 20,612 less than his 3,222,792 clause. Closes 2026-11-11T16:59:03+01:00.",
+    "due": "2026-11-11T16:59:03+01:00",
     "key": "clause:1056",
     "done": true,
     "created": 1791905746
@@ -337,8 +337,8 @@
   },
   {
     "id": 43,
-    "text": "Bid for Cabrera (DEF): he's ON SALE at 12,967,378, 847,147 less than his 13,814,525 clause. Closes 2026-11-08T10:57:54+01:00.",
-    "due": "2026-11-08T10:57:54+01:00",
+    "text": "Buyout Cabrera (DEF) for 14,195,946 when its clause opens.",
+    "due": "2026-11-05T17:22:18+01:00",
     "key": "clause:3068",
     "done": true,
     "created": 1792781702
