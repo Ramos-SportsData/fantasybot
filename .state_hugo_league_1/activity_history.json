@@ -7349,6 +7349,22 @@
       "playerMasterId": 2314,
       "amount": 14272818,
       "createdAt": "2026-11-11T18:08:20+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "118131116",
+      "user1Id": 231979,
+      "playerMasterId": 2206,
+      "amount": 31453097,
+      "createdAt": "2026-11-12T16:44:32+01:00"
+    },
+    {
+      "activityTypeId": 33,
+      "id": "118157211",
+      "user1Id": 4028228,
+      "playerMasterId": 2995,
+      "amount": 55438712,
+      "createdAt": "2026-11-12T17:27:09+01:00"
     }
   ]
 }
