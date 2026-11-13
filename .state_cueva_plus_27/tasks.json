@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~37,860,277): falling value (trend -40).",
+    "text": "Sell Antony (~37,307,590): falling value (trend -41).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -353,10 +353,18 @@
   },
   {
     "id": 45,
-    "text": "Sell Pablo García (~4,098,715): falling value (trend -33).",
+    "text": "Sell Pablo García (~4,016,030): falling value (trend -34).",
     "due": null,
     "key": "sell:63618415",
     "done": true,
     "created": 1793371782
+  },
+  {
+    "id": 46,
+    "text": "Sell O. Rey (~1,354,993): falling value (trend -20).",
+    "due": null,
+    "key": "sell:62368229",
+    "done": false,
+    "created": 1794585413
   }
 ]
