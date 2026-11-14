@@ -7414,6 +7414,24 @@
       "playerMasterId": 3090,
       "amount": 78711061,
       "createdAt": "2026-11-13T18:16:38+01:00"
+    },
+    {
+      "activityTypeId": 1,
+      "id": "118816826",
+      "user1Id": 684463,
+      "user2Id": 231979,
+      "playerMasterId": 3077,
+      "amount": 48201329,
+      "createdAt": "2026-11-14T03:21:49+01:00"
+    },
+    {
+      "activityTypeId": 1,
+      "id": "118816935",
+      "user1Id": 684463,
+      "user2Id": 4028228,
+      "playerMasterId": 927,
+      "amount": 37464496,
+      "createdAt": "2026-11-14T03:23:07+01:00"
     }
   ]
 }
