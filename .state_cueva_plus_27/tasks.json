@@ -265,7 +265,7 @@
   },
   {
     "id": 34,
-    "text": "Sell Blanco (~10,825,688): falling value (trend -20).",
+    "text": "Sell Blanco (~10,724,651): falling value (trend -21).",
     "due": null,
     "key": "sell:41986048",
     "done": true,
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "text": "Sell Antony (~36,303,837): falling value (trend -43).",
+    "text": "Sell Antony (~35,825,090): falling value (trend -44).",
     "due": null,
     "key": "sell:46887999",
     "done": true,
@@ -361,7 +361,7 @@
   },
   {
     "id": 46,
-    "text": "Sell O. Rey (~1,306,191): falling value (trend -22).",
+    "text": "Sell O. Rey (~1,286,818): falling value (trend -23).",
     "due": null,
     "key": "sell:62368229",
     "done": false,
@@ -369,7 +369,7 @@
   },
   {
     "id": 47,
-    "text": "Sell Riedel (~3,335,564): falling value (trend -21).",
+    "text": "Sell Riedel (~3,263,540): falling value (trend -22).",
     "due": null,
     "key": "sell:54248638",
     "done": false,
